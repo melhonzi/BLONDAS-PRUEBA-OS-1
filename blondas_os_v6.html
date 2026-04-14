@@ -1,0 +1,1568 @@
+
+<h2 class="sr-only">Blondas OS v6 — plataforma ejecutiva con KPIs por departamento, logística, RRHH profundo, proyectos Notion-style</h2>
+<style>
+@font-face{font-family:'Darrell';src:url('https://cdn.shopify.com/s/files/1/0980/5807/6454/files/Darrell_Rolando_Bold.woff2?v=1769994636') format('woff2');font-weight:700}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--brand:#82324c;--bd:rgba(130,50,76,0.07);--bh:rgba(130,50,76,0.12);--grn:#27ae60;--w:#fff;--bg:#f2f2f4;--bg2:#fafafa;--brd:#e4e4ea;--brd2:#d0d0d8;--txt:#1c1c1e;--t2:#5c5c6e;--t3:#9898a8;--sh:0 1px 3px rgba(0,0,0,0.07);--r:10px;--rl:14px}
+body{margin:0}
+.app{font-family:'Montserrat',sans-serif;background:var(--bg);min-height:700px;display:flex;flex-direction:column;font-size:12px;color:var(--txt);max-width:620px;margin:0 auto}
+
+/* LOGIN */
+.ls{position:absolute;top:0;left:0;right:0;bottom:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;min-height:700px;z-index:100}
+.ll{margin-bottom:24px;text-align:center}
+.ll img{height:48px;display:block;margin:0 auto}
+.ll-s{font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+.lc{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:24px 22px;width:100%;max-width:320px;box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+.lt{font-family:'Darrell',sans-serif;font-size:14px;color:var(--brand);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:18px;text-align:center}
+.lf{margin-bottom:12px}
+.lb{font-size:9px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;display:block}
+.li{width:100%;padding:8px 11px;border:1px solid var(--brd2);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:11px;color:var(--txt);outline:none;background:var(--bg2)}
+.li:focus{border-color:var(--brand)}
+.lbt{width:100%;padding:10px;background:var(--brand);color:var(--w);border:none;border-radius:10px;font-family:'Darrell',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;cursor:pointer;margin-top:6px;transition:all 0.15s}
+.lbt:hover{background:#6b2840}
+.lh{font-size:9px;color:var(--t3);text-align:center;margin-top:12px;font-weight:500}
+.lpr{margin-top:14px;border-top:1px solid var(--brd);padding-top:12px}
+.lpr-t{font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.lpr-r{display:flex;align-items:center;gap:7px;padding:4px 0;font-size:10px;color:var(--t2);font-weight:500}
+.pd{width:7px;height:7px;border-radius:50%}
+.pd-f{background:var(--grn)}.pd-p{background:#e67e22}.pd-o{background:var(--brd2)}
+
+/* TOPBAR */
+.tb{background:var(--w);border-bottom:1px solid var(--brd);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:56px;flex-shrink:0}
+.tbl{display:flex;align-items:center;justify-content:center}
+.tbl img{height:40px;display:block}
+.tbl-txt{font-family:'Darrell',sans-serif;font-size:18px;color:var(--brand);text-transform:uppercase;letter-spacing:1px}
+.up{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--brd);border-radius:20px;padding:4px 10px 4px 4px;cursor:pointer}
+.uav{width:24px;height:24px;border-radius:50%;background:var(--brand);color:var(--w);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+.un{font-size:10px;font-weight:600;color:var(--txt)}
+.ur{font-size:9px;color:var(--t3)}
+.tbr{display:flex;align-items:center;gap:6px}
+.ib{width:30px;height:30px;border-radius:8px;border:1px solid var(--brd);background:var(--w);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;position:relative;color:var(--t2)}
+.ib:hover{background:var(--bg)}
+.nd{position:absolute;top:4px;right:4px;width:5px;height:5px;border-radius:50%;background:#e74c3c}
+
+/* SEARCH */
+.so{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);z-index:200;align-items:flex-start;justify-content:center;padding-top:80px}
+.so.open{display:flex}
+.sb{background:var(--w);border-radius:var(--rl);padding:14px;width:100%;max-width:540px;box-shadow:0 8px 32px rgba(0,0,0,0.16)}
+.si-w{display:flex;gap:7px;margin-bottom:10px}
+.si-w input{flex:1;padding:9px 12px;border:1px solid var(--brd);border-radius:8px;font-size:12px;font-family:'Montserrat',sans-serif;outline:none;color:var(--txt)}
+.si-w input:focus{border-color:var(--brand)}
+.sc-btn{padding:9px 12px;background:var(--bg);border:1px solid var(--brd);border-radius:8px;cursor:pointer;font-size:10px;font-weight:600;color:var(--t2);font-family:'Montserrat',sans-serif}
+.sr{max-height:260px;overflow-y:auto}
+.sri{display:flex;align-items:center;gap:9px;padding:7px;border-radius:7px;cursor:pointer;transition:all 0.1s}
+.sri:hover{background:var(--bg)}
+.sri-i{width:26px;height:26px;border-radius:6px;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.sri-n{font-size:11px;font-weight:600;color:var(--txt)}
+.sri-s{font-size:9px;color:var(--t3)}
+.sr-lbl{font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:0.6px;padding:5px 7px 2px;margin-bottom:3px}
+
+/* LAYOUT */
+.lay{display:flex;flex:1;min-height:0;overflow:hidden}
+.side{width:178px;background:var(--w);border-right:1px solid var(--brd);display:flex;flex-direction:column;overflow-y:auto;flex-shrink:0}
+.ss{padding:9px 8px 3px}
+.sl{font-family:'Darrell',sans-serif;font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1px;padding:2px 6px;margin-bottom:3px}
+.ni{display:flex;align-items:center;gap:7px;padding:5px 7px;border-radius:7px;cursor:pointer;font-size:11px;color:var(--t2);border:none;background:transparent;width:100%;text-align:left;transition:all 0.1s;font-family:'Montserrat',sans-serif;font-weight:500}
+.ni:hover{background:var(--bg);color:var(--txt)}
+.ni.on{background:var(--bd);color:var(--brand);font-weight:700}
+.ni-i{font-size:11px;width:14px;text-align:center;flex-shrink:0}
+.nb{margin-left:auto;font-size:9px;padding:1px 5px;border-radius:7px;font-weight:700}
+.nbr{background:#fde8ec;color:#c0392b}.nbg{background:#e8f5e9;color:#1b5e20}
+
+/* CONTENT */
+.cnt{flex:1;overflow-y:auto;padding:14px}
+.pn{display:none}.pn.on{display:block}
+.ph{font-family:'Darrell',sans-serif;font-size:16px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:12px;display:flex;align-items:baseline;gap:8px}
+.phs{font-size:9px;color:var(--t3);font-family:'Montserrat',sans-serif;font-weight:500;text-transform:none;letter-spacing:0}
+
+/* GRID & CARDS */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.kc{background:var(--w);border:1px solid var(--brd);border-radius:var(--r);padding:9px 11px;box-shadow:var(--sh)}
+.kcl{font-size:9px;color:var(--t3);margin-bottom:2px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px}
+.kcv{font-size:16px;font-weight:700;color:var(--txt);font-family:'Darrell',sans-serif;line-height:1.2}
+.kcd{font-size:9px;margin-top:1px;font-weight:600}
+.up-c{color:var(--grn)}.dn-c{color:#e74c3c}.wn-c{color:#e67e22}
+.card{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:11px 13px;margin-bottom:9px;box-shadow:var(--sh)}
+.ct{font-family:'Darrell',sans-serif;font-size:9px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:9px}
+.row{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid var(--bg);font-size:11px}
+.row:last-child{border-bottom:none}
+.rn{flex:1;color:var(--txt);line-height:1.3;font-weight:500}
+.tag{font-size:9px;padding:2px 6px;border-radius:7px;font-weight:700;white-space:nowrap;flex-shrink:0}
+.tg{background:#e8f5e9;color:#1b5e20}.ta{background:#fff3e0;color:#bf360c}
+.tr{background:#fde8ec;color:#c0392b}.tb-t{background:#e8eaf6;color:#283593}
+.tgr{background:var(--bg);color:var(--t3)}.tbr{background:var(--bd);color:var(--brand)}
+.brw{display:flex;align-items:center;gap:7px;margin-bottom:5px;font-size:10px}
+.brl{width:85px;color:var(--t2);text-align:right;flex-shrink:0;font-weight:600}
+.brt{flex:1;height:12px;background:var(--bg);border-radius:3px;overflow:hidden}
+.brf{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:5px;font-size:9px;color:var(--w);font-weight:700;white-space:nowrap}
+.tabs{display:flex;gap:2px;margin-bottom:10px;background:var(--bg);border-radius:9px;padding:3px;flex-wrap:wrap}
+.tab{padding:4px 9px;border-radius:7px;border:none;background:transparent;font-size:10px;cursor:pointer;color:var(--t2);font-family:'Montserrat',sans-serif;font-weight:600;transition:all 0.12s}
+.tab.on{background:var(--w);color:var(--brand);box-shadow:var(--sh)}
+.tc{display:none}.tc.on{display:block}
+.hc{background:var(--bd);border-radius:var(--r);padding:10px 12px;margin-bottom:9px;border-left:3px solid var(--brand)}
+.hct{font-family:'Darrell',sans-serif;font-size:10px;font-weight:700;color:var(--brand);margin-bottom:3px;text-transform:uppercase;letter-spacing:0.3px}
+.hcb{font-size:10px;color:var(--t2);line-height:1.6;font-weight:500}
+.cw{display:flex;flex-direction:column;gap:7px;margin-bottom:9px;max-height:190px;overflow-y:auto}
+.cb{max-width:88%;padding:8px 11px;border-radius:11px;font-size:11px;line-height:1.5;font-weight:500}
+.cbm{background:var(--brand);color:var(--w);align-self:flex-end;border-bottom-right-radius:3px}
+.cba{background:var(--w);border:1px solid var(--brd);color:var(--txt);align-self:flex-start;border-bottom-left-radius:3px}
+.cbw{font-size:9px;font-weight:700;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.4px}
+.cbm .cbw{color:rgba(255,255,255,0.65)}.cba .cbw{color:var(--brand)}
+.ir{display:flex;gap:5px}
+.ir input{flex:1;font-size:11px;padding:7px 10px;border-radius:9px;border:1px solid var(--brd);font-family:'Montserrat',sans-serif;outline:none;background:var(--w)}
+.ir input:focus{border-color:var(--brand)}
+.btnv{padding:7px 13px;background:var(--brand);color:var(--w);border:none;border-radius:9px;font-size:10px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;white-space:nowrap;transition:all 0.15s}
+.btnv:hover{background:#6b2840}
+.btng{padding:7px 13px;background:var(--grn);color:var(--w);border:none;border-radius:9px;font-size:10px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;white-space:nowrap}
+.btnout{padding:6px 11px;background:transparent;color:var(--brand);border:1.5px solid var(--brand);border-radius:9px;font-size:10px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;white-space:nowrap}
+.alr{display:flex;gap:7px;padding:7px 0;border-bottom:1px solid var(--bg);font-size:11px}
+.alr:last-child{border-bottom:none}
+.adt{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.acr{background:#e74c3c}.aal{background:#e67e22}.aat{background:var(--grn)}
+.atx{color:var(--txt);line-height:1.4;font-weight:500}
+.am{font-size:9px;color:var(--brand);font-weight:700;margin-top:2px}
+.dv{border:none;border-top:1px solid var(--brd);margin:8px 0}
+.pn-note{font-size:9px;color:var(--t3);font-style:italic;text-align:center;padding:7px;background:var(--bg);border-radius:7px;margin-top:5px}
+
+/* KPI DEPT SECTIONS */
+.kd-sect{margin-bottom:12px}
+.kd-head{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.kd-badge{font-size:9px;padding:3px 8px;border-radius:6px;font-weight:700;font-family:'Montserrat',sans-serif}
+.kd-ia{background:var(--bd);color:var(--brand)}
+.kd-hum{background:#e8f5e9;color:#1b5e20}
+.kd-title{font-family:'Darrell',sans-serif;font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:0.5px;font-weight:700}
+.kd-agent-row{display:flex;align-items:center;gap:7px;padding:5px 8px;background:var(--bd);border-radius:7px;margin-bottom:4px;font-size:11px}
+.kd-a-ico{font-size:10px;flex-shrink:0}
+.kd-a-name{flex:1;font-weight:600;color:var(--brand)}
+.kd-a-status{font-size:9px;font-weight:700}
+.kd-hrow{display:flex;align-items:center;gap:7px;padding:5px 7px;background:var(--bg);border-radius:7px;margin-bottom:4px;font-size:11px}
+.kd-hrow .hn{flex:1;font-weight:600;color:var(--txt)}
+.kd-hrow .hr{font-size:9px;color:var(--t2)}
+.kd-hrow .hs{font-size:10px;font-weight:700}
+.score-hi{color:var(--grn)}.score-md{color:#e67e22}.score-lo{color:#e74c3c}
+.okr-row{display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid var(--bg);font-size:11px}
+.okr-row:last-child{border-bottom:none}
+.on-{flex:1;color:var(--txt);font-weight:500;line-height:1.3}
+.od{font-size:9px;color:var(--brand);font-weight:700;width:55px;flex-shrink:0}
+.ob{width:60px;height:4px;background:var(--bg);border-radius:2px;overflow:hidden;flex-shrink:0}
+.of{height:100%;border-radius:2px}
+.op{font-size:9px;font-weight:700;color:var(--t3);width:24px;text-align:right;flex-shrink:0}
+
+/* PROJECTS (Notion/Monday style) */
+.pj-views{display:flex;gap:6px;margin-bottom:10px}
+.pj-vb{padding:5px 10px;border-radius:7px;border:1px solid var(--brd);background:transparent;font-size:10px;cursor:pointer;color:var(--t2);font-family:'Montserrat',sans-serif;font-weight:600;transition:all 0.12s}
+.pj-vb.on{background:var(--brand);color:var(--w);border-color:var(--brand)}
+.pj-board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:9px}
+.pj-col{background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:8px}
+.pj-colt{font-family:'Darrell',sans-serif;font-size:9px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid var(--brd)}
+.pj-card{background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:8px;margin-bottom:5px;cursor:pointer;box-shadow:var(--sh);transition:all 0.12s}
+.pj-card:hover{border-color:var(--brand)}
+.pj-pri{width:3px;height:100%;border-radius:2px;position:absolute;left:0;top:0}
+.pj-title{font-size:10px;font-weight:700;color:var(--txt);margin-bottom:5px;line-height:1.3}
+.pj-meta{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.pj-ass{width:18px;height:18px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:var(--brand)}
+.pj-date{font-size:9px;color:var(--t3);font-family:'Montserrat',sans-serif}
+.pj-prog{height:3px;background:var(--bg);border-radius:2px;margin-top:5px;overflow:hidden}
+.pj-prog-f{height:100%;border-radius:2px;background:var(--brand)}
+.pj-list-row{display:flex;align-items:center;gap:7px;padding:7px;border-radius:8px;cursor:pointer;font-size:11px;transition:all 0.1s}
+.pj-list-row:hover{background:var(--bg)}
+.pj-list-row:not(:last-child){border-bottom:1px solid var(--bg)}
+.pj-status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.s-done{background:var(--grn)}.s-prog{background:#e67e22}.s-block{background:#e74c3c}.s-todo{background:var(--brd2)}
+.pj-l-title{flex:1;font-weight:600;color:var(--txt);line-height:1.3}
+.pj-l-resp{font-size:9px;color:var(--t2)}
+.pj-l-date{font-size:9px;font-family:'Montserrat',sans-serif;color:var(--t3);flex-shrink:0}
+.pri-high{background:#fde8ec;color:#c0392b}.pri-med{background:#fff3e0;color:#bf360c}.pri-crit{background:#c0392b;color:#fff}
+
+/* RRHH */
+.emp-card{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:12px;margin-bottom:8px;box-shadow:var(--sh)}
+.emp-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.emp-av-lg{width:40px;height:40px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--brand);border:2px solid var(--brand);flex-shrink:0}
+.emp-name-lg{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:2px}
+.emp-role-lg{font-size:10px;color:var(--t2)}
+.emp-dept-tag{font-size:9px;padding:2px 6px;border-radius:6px;background:var(--bd);color:var(--brand);font-weight:700}
+.emp-score-lg{margin-left:auto;text-align:center}
+.emp-score-num{font-family:'Darrell',sans-serif;font-size:20px;font-weight:700}
+.emp-score-lbl{font-size:9px;color:var(--t3);font-weight:500}
+.emp-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:8px}
+.emp-kpi{background:var(--bg);border-radius:8px;padding:7px 8px;text-align:center}
+.emp-kpi-v{font-size:13px;font-weight:700;color:var(--txt);font-family:'Darrell',sans-serif}
+.emp-kpi-l{font-size:9px;color:var(--t3);font-weight:600;text-transform:uppercase}
+.emp-kpi-t{font-size:8px;color:var(--t3)}
+.emp-goals{margin-bottom:7px}
+.emp-goal-row{display:flex;align-items:center;gap:7px;font-size:10px;padding:4px 0}
+.eg-icon{font-size:10px;flex-shrink:0}
+.eg-text{flex:1;color:var(--txt);font-weight:500}
+.eg-pct{font-size:9px;font-weight:700;color:var(--brand)}
+.eg-bar{height:3px;background:var(--bg);border-radius:2px;overflow:hidden;margin-top:2px}
+.eg-f{height:100%;background:var(--brand);border-radius:2px}
+
+/* ORGANIGRAMA */
+.org-tree{text-align:center}
+.org-root-node{display:inline-block;background:var(--brand);color:var(--w);border-radius:10px;padding:8px 16px;font-family:'Darrell',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.3px;text-transform:uppercase;margin-bottom:4px}
+.org-connector-v{width:2px;height:20px;background:var(--brd2);margin:0 auto}
+.org-ceo-node{display:inline-block;background:var(--w);border:2px solid var(--brand);border-radius:10px;padding:7px 14px;font-family:'Darrell',sans-serif;font-size:10px;color:var(--brand);font-weight:700;text-transform:uppercase;margin-bottom:4px}
+.org-level{display:flex;justify-content:center;gap:4px;margin-bottom:4px;flex-wrap:wrap}
+.org-node-sm{background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px 8px;text-align:center;font-size:9px;flex:1;min-width:60px;max-width:80px;box-shadow:var(--sh)}
+.org-n{font-weight:700;color:var(--brand);margin-bottom:2px;font-family:'Darrell',sans-serif;font-size:9px}
+.org-r{color:var(--t2);font-size:8px;line-height:1.3}
+.org-rep{font-size:8px;color:var(--t3);margin-top:2px;font-style:italic}
+.org-h-line{height:1px;background:var(--brd2);margin:0 auto;width:90%;margin-bottom:4px}
+
+/* AGENDA */
+.ag-month{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;margin-bottom:8px}
+.ag-mday{background:var(--w);border:1px solid var(--brd);border-radius:6px;padding:4px;min-height:56px}
+.ag-md-n{font-size:9px;color:var(--brand);font-weight:700;margin-bottom:2px;text-align:center;text-transform:uppercase}
+.ag-ev{background:var(--bd);border-left:2px solid var(--brand);border-radius:3px;padding:2px 3px;font-size:8px;color:var(--brand);margin-bottom:2px;font-weight:600;overflow:hidden;line-height:1.3}
+.ag-ev.mkt{background:#e8eaf6;border-left-color:#3949ab;color:#283593}
+.ag-ev.vt{background:#e8f5e9;border-left-color:#2e7d32;color:#1b5e20}
+.ag-ev.ops{background:#fff3e0;border-left-color:#e65100;color:#bf360c}
+.ag-ev.fin{background:#f3e5f5;border-left-color:#6a1b9a;color:#4a148c}
+.ag-year{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ag-month-mini{background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:8px;text-align:center}
+.ag-mm-name{font-family:'Darrell',sans-serif;font-size:9px;color:var(--brand);text-transform:uppercase;margin-bottom:4px;font-weight:700}
+.ag-mm-days{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.ag-mm-d{width:12px;height:12px;border-radius:2px;background:var(--bg);font-size:7px;color:var(--t3);display:flex;align-items:center;justify-content:center}
+.ag-mm-d.has-ev{background:var(--bd);color:var(--brand)}
+.ag-mm-d.today{background:var(--brand);color:var(--w)}
+.leg-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.leg{display:flex;align-items:center;gap:4px;font-size:9px;color:var(--t2);font-weight:600}
+.leg-dot{width:7px;height:7px;border-radius:2px;flex-shrink:0}
+
+/* LABS */
+.pipeline-row{display:flex;align-items:stretch;gap:0;margin-bottom:10px;overflow-x:auto}
+.pip-step{flex:1;text-align:center;min-width:70px}
+.pip-dot{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;margin:0 auto 4px;border:2px solid var(--brd)}
+.pip-d-done{background:var(--grn);color:var(--w);border-color:var(--grn)}
+.pip-d-act{background:#e67e22;color:var(--w);border-color:#e67e22}
+.pip-d-pend{background:var(--bg);color:var(--t3);border-color:var(--brd2)}
+.pip-label{font-size:8px;color:var(--t2);line-height:1.3;font-family:'Montserrat',sans-serif;font-weight:600}
+.pip-conn{position:absolute;top:11px;left:50%;right:-50%;height:1px;background:var(--brd2);z-index:0}
+
+/* NUEVOS NEGOCIOS */
+.opp-card{background:var(--w);border:1px solid var(--brd);border-radius:var(--r);padding:10px 12px;margin-bottom:7px;box-shadow:var(--sh)}
+.opp-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.opp-stage{font-size:9px;padding:2px 7px;border-radius:6px;font-weight:700;white-space:nowrap}
+.opp-name{font-size:11px;font-weight:700;color:var(--txt);flex:1}
+.opp-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.opp-m{background:var(--bg);border-radius:7px;padding:6px;text-align:center}
+.opp-mv{font-size:11px;font-weight:700;color:var(--txt);font-family:'Darrell',sans-serif}
+.opp-ml{font-size:8px;color:var(--t3);text-transform:uppercase;font-weight:600}
+
+/* LOGISTICS */
+.del-row{display:flex;align-items:center;gap:8px;padding:7px;border-radius:8px;background:var(--bg);margin-bottom:5px;font-size:11px}
+.del-av{width:28px;height:28px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--brand);flex-shrink:0}
+.del-info{flex:1}
+.del-n{font-weight:600;color:var(--txt)}
+.del-r{font-size:9px;color:var(--t3)}
+.del-status{font-size:9px;font-weight:700}
+
+/* FOOTER */
+.footer{margin-top:16px}
+.footer a{display:block;border-radius:10px;overflow:hidden;text-decoration:none}
+.footer img{width:100%;display:block}
+.footer-link{text-align:center;font-size:9px;color:var(--brand);font-weight:700;padding:6px}
+
+/* FINANCIAL */
+.fin-row{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid var(--bg);font-size:11px}
+.fin-row:last-child{border-bottom:none}
+.fn{flex:1;color:var(--txt);font-weight:500}
+.fa{font-weight:700;font-size:11px}
+.fa.pos{color:var(--grn)}.fa.neg{color:#e74c3c}.fa.neu{color:var(--t2)}
+.alert-ban{background:#fde8ec;border:1px solid #f5c0c8;border-radius:9px;padding:8px 11px;margin-bottom:9px;font-size:10px;color:#c0392b;font-weight:600;display:flex;align-items:center;gap:7px}
+
+/* ROLE VENTAS */
+.vmc{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:12px;margin-bottom:9px;box-shadow:var(--sh)}
+
+/* AGCARD */
+.agcard{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:9px;cursor:pointer;transition:all 0.12s;box-shadow:var(--sh)}
+.agcard:hover{border-color:var(--brand);background:var(--bd)}
+.agcard.sel{border-color:var(--brand);background:var(--bd)}
+.agav{width:26px;height:26px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;margin-bottom:4px;color:var(--brand);border:1px solid var(--brd)}
+.agn{font-size:10px;font-weight:700;color:var(--txt);margin-bottom:2px}
+.agr{font-size:9px;color:var(--t3)}
+
+/* COURSE CARDS */
+.cc{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:10px;cursor:pointer;box-shadow:var(--sh)}
+.cc:hover{border-color:var(--brand)}
+.cico{font-size:17px;margin-bottom:5px}
+.cn{font-size:11px;font-weight:700;color:var(--txt);margin-bottom:2px}
+.cd{font-size:10px;color:var(--t2);line-height:1.4;margin-bottom:6px}
+.cpb{height:3px;background:var(--bg);border-radius:2px;margin-bottom:3px;overflow:hidden}
+.cpp{height:100%;border-radius:2px;background:var(--brand)}
+.cm{display:flex;justify-content:space-between;font-size:9px;color:var(--t3);font-weight:600}
+
+/* HEALTH BAR */
+.hbar{display:flex;align-items:center;gap:7px;background:var(--bg);border-radius:8px;padding:6px 10px;margin-bottom:10px;font-size:10px;font-weight:600}
+.hd{width:7px;height:7px;border-radius:50%}
+</style>
+
+<div class="app" id="app">
+
+<!-- LOGIN -->
+<div class="ls" id="ls">
+  <div class="ll">
+    <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS-LOGO-PARAGUAYCOSMETICOS.svg?v=1769957943" alt="Blondas" onerror="this.style.display='none';document.getElementById('ll-fb').style.display='block'">
+    <div id="ll-fb" style="display:none;font-family:'Darrell',sans-serif;font-size:20px;color:#82324c;text-transform:uppercase">BLONDAS</div>
+    <div class="ll-s">Sistema Operativo Empresarial v6</div>
+  </div>
+  <div class="lc">
+    <div class="lt">Iniciar Sesión</div>
+    <div class="lf"><label class="lb">Usuario</label><input class="li" id="lu" placeholder="nombre@blondas.com.py"></div>
+    <div class="lf"><label class="lb">Contraseña</label><input class="li" type="password" id="lp" placeholder="••••••••"></div>
+    <div class="lf"><label class="lb">Perfil de acceso</label>
+      <select class="li" id="lr">
+        <option value="">— Seleccioná tu perfil —</option>
+        <optgroup label="DIRECTORIO">
+          <option value="mel">Mel Núñez · CEO / Directorio · Acceso total</option>
+        </optgroup>
+        <optgroup label="JEFES DE ÁREA (Admin)">
+          <option value="jvt">Melisa · Jefa Comercial · Admin Ventas</option>
+          <option value="jmkt">Sofía · Jefa Marketing · Admin MKT</option>
+          <option value="jfin">Víctor · Jefe Finanzas · Admin Fin.</option>
+          <option value="jops">Oscar · Jefe Operaciones · Admin Ops</option>
+          <option value="jcleo">Jefa CLEO · Admin Emprendedoras</option>
+        </optgroup>
+        <optgroup label="EQUIPO OPERATIVO">
+          <option value="vt">Vendedora · Equipo Ventas</option>
+          <option value="mkt">Equipo MKT · Operativo</option>
+          <option value="fin">Yenifer · Tesorería</option>
+          <option value="ops">Delivery · Operativo</option>
+          <option value="labs">Labs · Equipo Fábrica</option>
+          <option value="cleo">Emprendedora CLEO</option>
+        </optgroup>
+      </select>
+    </div>
+    <button class="lbt" onclick="doLogin()">INGRESAR AL SISTEMA</button>
+    <div class="lh">Acceso controlado · Los permisos se asignan según tu rol</div>
+    <div class="lpr">
+      <div class="lpr-t">Niveles de acceso</div>
+      <div class="lpr-r"><div class="pd pd-f"></div>CEO / Directorio — Acceso total</div>
+      <div class="lpr-r"><div class="pd pd-p"></div>Jefes de área — Dpto completo + empresa</div>
+      <div class="lpr-r"><div class="pd pd-o"></div>Operativos — Dashboard propio + cursos</div>
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="so" id="so" onclick="cS(event)">
+  <div class="sb" onclick="event.stopPropagation()">
+    <div class="si-w">
+      <input type="text" id="si" placeholder="Buscar módulos, empleados, proyectos..." oninput="doSearch(this.value)">
+      <button class="sc-btn" onclick="cS()">Cerrar</button>
+    </div>
+    <div class="sr" id="sr">
+      <div class="sr-lbl">Módulos</div>
+      <div class="sri" onclick="gS('dash')"><div class="sri-i">⬛</div><div><div class="sri-n">Dashboard CEO</div><div class="sri-s">Comando</div></div></div>
+      <div class="sri" onclick="gS('okrs')"><div class="sri-i">▤</div><div><div class="sri-n">KPIs / OKRs por departamento</div><div class="sri-s">Analytics</div></div></div>
+      <div class="sri" onclick="gS('bi')"><div class="sri-i">▦</div><div><div class="sri-n">Business Intelligence</div><div class="sri-s">Analytics</div></div></div>
+      <div class="sri" onclick="gS('finanzas')"><div class="sri-i">💰</div><div><div class="sri-n">Finanzas · P&L · Caja</div><div class="sri-s">Analytics</div></div></div>
+      <div class="sri" onclick="gS('proyectos')"><div class="sri-i">◫</div><div><div class="sri-n">Proyectos y campañas</div><div class="sri-s">Empresa</div></div></div>
+      <div class="sri" onclick="gS('rrhh')"><div class="sri-i">👥</div><div><div class="sri-n">RRHH · Legajos · Evaluaciones</div><div class="sri-s">Empresa</div></div></div>
+      <div class="sri" onclick="gS('logistica')"><div class="sri-i">🚚</div><div><div class="sri-n">Logística · Depósito · Delivery</div><div class="sri-s">Operaciones</div></div></div>
+      <div class="sri" onclick="gS('academia')"><div class="sri-i">◑</div><div><div class="sri-n">Universidad Blondas</div><div class="sri-s">Crecimiento</div></div></div>
+      <div class="sri" onclick="gS('labs')"><div class="sri-i">◐</div><div><div class="sri-n">Blondas Labs I+D</div><div class="sri-s">Crecimiento</div></div></div>
+      <div class="sri" onclick="gS('ideas')"><div class="sri-i">◍</div><div><div class="sri-n">Nuevos Negocios</div><div class="sri-s">Crecimiento</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<div class="tb" id="topbar" style="display:none">
+  <div class="tbl">
+    <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS-LOGO-PARAGUAYCOSMETICOS.svg?v=1769957943" alt="Blondas" style="height:40px" onerror="this.style.display='none';document.getElementById('ltb').style.display='block'">
+    <span id="ltb" class="tbl-txt" style="display:none">BLONDAS OS</span>
+  </div>
+  <div class="up" onclick="doLogout()">
+    <div class="uav" id="uav">ML</div>
+    <div><div class="un" id="uname">Mel Núñez</div><div class="ur" id="urole">CEO · Salir</div></div>
+  </div>
+  <div class="tbr">
+    <button class="ib" onclick="openS()" title="Buscar (⌘K)">🔍</button>
+    <button class="ib" onclick="showP('alertas')" title="Alertas">⚠<div class="nd"></div></button>
+  </div>
+</div>
+
+<div class="lay" id="lay" style="display:none">
+
+<!-- SIDEBAR -->
+<div class="side" id="side">
+<div id="sb-mel" style="display:none">
+  <div class="ss"><div class="sl">Comando</div>
+    <button class="ni on" onclick="showP('dash',this)"><span class="ni-i">⬛</span>Dashboard CEO</button>
+    <button class="ni" onclick="showP('juntas',this)"><span class="ni-i">◉</span>Sala de juntas</button>
+    <button class="ni" onclick="showP('salas',this)"><span class="ni-i">◈</span>Salas 1:1</button>
+    <button class="ni" onclick="showP('memoria',this)"><span class="ni-i">▣</span>Memoria <span class="nb nbr">12</span></button>
+  </div>
+  <div class="ss"><div class="sl">Analytics</div>
+    <button class="ni" onclick="showP('bi',this)"><span class="ni-i">▦</span>BI / Reportes</button>
+    <button class="ni" onclick="showP('okrs',this)"><span class="ni-i">▤</span>KPIs / OKRs</button>
+    <button class="ni" onclick="showP('finanzas',this)"><span class="ni-i">💰</span>Finanzas</button>
+    <button class="ni" onclick="showP('alertas',this)"><span class="ni-i">▲</span>Alertas <span class="nb nbr">4</span></button>
+  </div>
+  <div class="ss"><div class="sl">Empresa</div>
+    <button class="ni" onclick="showP('agenda',this)"><span class="ni-i">📅</span>Agenda</button>
+    <button class="ni" onclick="showP('proyectos',this)"><span class="ni-i">◫</span>Proyectos</button>
+    <button class="ni" onclick="showP('rrhh',this)"><span class="ni-i">👥</span>RRHH</button>
+    <button class="ni" onclick="showP('logistica',this)"><span class="ni-i">🚚</span>Logística</button>
+    <button class="ni" onclick="showP('org',this)"><span class="ni-i">◻</span>Organigrama</button>
+    <button class="ni" onclick="showP('docs',this)"><span class="ni-i">📄</span>Documentos</button>
+  </div>
+  <div class="ss"><div class="sl">Crecimiento</div>
+    <button class="ni" onclick="showP('academia',this)"><span class="ni-i">◑</span>Universidad</button>
+    <button class="ni" onclick="showP('labs',this)"><span class="ni-i">◐</span>Labs I+D</button>
+    <button class="ni" onclick="showP('ideas',this)"><span class="ni-i">◍</span>Nuevos Negocios</button>
+  </div>
+</div>
+<div id="sb-role" style="display:none">
+  <div class="ss"><div class="sl" id="rll">Mi área</div>
+    <button class="ni on" id="rni1" onclick="showRolePanel(0)"><span class="ni-i">⬛</span><span id="rn1">Dashboard</span></button>
+    <button class="ni" id="rni2" onclick="showRolePanel(1)"><span class="ni-i">▤</span><span id="rn2">KPIs</span></button>
+    <button class="ni" id="rni3" onclick="showRolePanel(2)"><span class="ni-i">◑</span><span id="rn3">Academia</span></button>
+    <button class="ni" id="rni4" onclick="showRolePanel(3)"><span class="ni-i">◈</span><span id="rn4">Chat gerente</span></button>
+  </div>
+</div>
+</div>
+
+<div class="cnt" id="cnt">
+
+<!-- DASHBOARD CEO -->
+<div id="panel-dash" class="pn on">
+  <div class="hbar"><div class="hd" style="background:var(--grn)"></div><span style="color:var(--t2)">Sistemas activos:</span><span style="color:var(--grn);font-weight:700">Shopify ✓ · Kommo ✓ · CLEO ✓ · Windsor ✓</span></div>
+  <div class="ph">Dashboard CEO <span class="phs">datos simulados · 14 abr 2026</span></div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">VENTAS HOY</div><div class="kcv">11.2M</div><div class="kcd up-c">↑ 8%</div></div>
+    <div class="kc"><div class="kcl">META MES</div><div class="kcv">38%</div><div class="kcd wn-c">14/30</div></div>
+    <div class="kc"><div class="kcl">MER</div><div class="kcv">3.7x</div><div class="kcd wn-c">meta 5x</div></div>
+    <div class="kc"><div class="kcl">TICKET PROM.</div><div class="kcv">163k</div><div class="kcd dn-c">meta 250k</div></div>
+  </div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">ROAS</div><div class="kcv">2.4x</div><div class="kcd up-c">↑ meta 2x</div></div>
+    <div class="kc"><div class="kcl">LEADS HOY</div><div class="kcv">47</div><div class="kcd dn-c">↓ 12%</div></div>
+    <div class="kc"><div class="kcl">DESPACHOS</div><div class="kcv">64/68</div><div class="kcd up-c">94%</div></div>
+    <div class="kc"><div class="kcl">CLEO PORTAL</div><div class="kcv">55%</div><div class="kcd dn-c">16 días</div></div>
+  </div>
+  <div class="card"><div class="ct">Canales hoy</div>
+    <div class="brw"><div class="brl">E-commerce</div><div class="brt"><div class="brf" style="width:72%;background:var(--brand)">72%</div></div></div>
+    <div class="brw"><div class="brl">Emprendedoras</div><div class="brt"><div class="brf" style="width:15%;background:#6b4c5e">15%</div></div></div>
+    <div class="brw"><div class="brl">Mayoristas</div><div class="brt"><div class="brf" style="width:8%;background:#9a7e88">8%</div></div></div>
+    <div class="brw"><div class="brl">Showroom</div><div class="brt"><div class="brf" style="width:5%;background:#c4b0b8">5%</div></div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="ct">Alertas</div>
+      <div class="alr"><div class="adt acr"></div><div><div class="atx">CLEO backend 10% · 16 días</div><div class="am">CRÍTICO · CLEO</div></div></div>
+      <div class="alr"><div class="adt acr"></div><div><div class="atx">Resultado -23.8M Gs este mes</div><div class="am">CRÍTICO · FINANZAS</div></div></div>
+      <div class="alr"><div class="adt aal"></div><div><div class="atx">Campaña FRÍO ROAS 0.9x</div><div class="am">ALERTA · MKT</div></div></div>
+    </div>
+    <div class="card"><div class="ct">Acciones hoy</div>
+      <div class="row"><div class="rn">Confirmar dev CLEO Portal</div><div class="tag tr">Urgente</div></div>
+      <div class="row"><div class="rn">Pausar campaña FRÍO</div><div class="tag tr">Hoy</div></div>
+      <div class="row"><div class="rn">P&L con Víctor</div><div class="tag ta">Viernes</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SALA JUNTAS -->
+<div id="panel-juntas" class="pn">
+  <div class="ph">Sala de juntas <span class="phs">7 gerentes</span></div>
+  <div class="hc"><div class="hct">Memoria persistente · Railway</div><div class="hcb">Todo lo que se decide acá queda guardado. Los agentes lo recuerdan en la próxima sesión.</div></div>
+  <div class="cw" id="jchat">
+    <div class="cb cba"><div class="cbw">CEO</div>Sala activa. 7 gerentes presentes. ¿Agenda del día, Mel?</div>
+    <div class="cb cbm"><div class="cbw">MEL</div>Estado CLEO Portal y quién resuelve el backend esta semana.</div>
+    <div class="cb cba"><div class="cbw">CLEO</div>Backend 10%. Login Shopify no conectado. Necesito confirmar dev hoy.</div>
+    <div class="cb cba"><div class="cbw">FINANCIERO</div>Cada día sin portal = 1.632.000 Gs en suscripciones PRO sin cobrar. 24 emprendedoras con 30 días gratis corriendo.</div>
+  </div>
+  <div class="ir"><input type="text" id="ji" placeholder="Dar orden a todos los gerentes..."><button class="btnv" onclick="sc('j')">Enviar ↗</button></div>
+</div>
+
+<!-- SALAS 1:1 -->
+<div id="panel-salas" class="pn">
+  <div class="ph">Salas 1:1</div>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:9px">
+    <div class="agcard" onclick="aS('CEO','CEO',this)"><div class="agav">CEO</div><div class="agn">CEO</div><div class="agr">estrategia</div></div>
+    <div class="agcard" onclick="aS('Comercial','COM',this)"><div class="agav">COM</div><div class="agn">Comercial</div><div class="agr">ventas</div></div>
+    <div class="agcard" onclick="aS('Marketing','MKT',this)"><div class="agav">MKT</div><div class="agn">Marketing</div><div class="agr">ads</div></div>
+    <div class="agcard" onclick="aS('Operaciones','OPS',this)"><div class="agav">OPS</div><div class="agn">Operaciones</div><div class="agr">stock</div></div>
+    <div class="agcard" onclick="aS('Financiero','FIN',this)"><div class="agav">FIN</div><div class="agn">Financiero</div><div class="agr">caja</div></div>
+    <div class="agcard" onclick="aS('CLEO','CLO',this)"><div class="agav">CLO</div><div class="agn">CLEO</div><div class="agr">emprendedoras</div></div>
+    <div class="agcard" onclick="aS('Tecnología','TEC',this)"><div class="agav">TEC</div><div class="agn">Tecnología</div><div class="agr">sistemas</div></div>
+    <div class="agcard" onclick="aS('Labs','LAB',this)"><div class="agav">LAB</div><div class="agn">Labs I+D</div><div class="agr">productos</div></div>
+  </div>
+  <div id="sbox" style="display:none">
+    <div class="dv"></div>
+    <div class="ph" id="stit" style="font-size:13px">Sala privada</div>
+    <div class="cw" id="schat"></div>
+    <div class="ir"><input type="text" id="si-chat" placeholder="Escribí tu mensaje..."><button class="btnv" onclick="sc('s')">Enviar ↗</button></div>
+  </div>
+</div>
+
+<!-- MEMORIA -->
+<div id="panel-memoria" class="pn">
+  <div class="ph">Memoria <span class="phs">Railway · PostgreSQL</span></div>
+  <div class="hc"><div class="hct">Sin límite de contexto</div><div class="hcb">Cada decisión se guarda en tu servidor. El contexto nunca se pierde.</div></div>
+  <div class="card"><div class="ct">Registro reciente</div>
+    <div class="row"><div class="rn"><span class="tag tg" style="margin-right:5px">DECISIÓN</span>Dos portales: CLEO emprendedoras / Blondas OS equipo</div><div class="tag tgr">14:32</div></div>
+    <div class="row"><div class="rn"><span class="tag tb-t" style="margin-right:5px">COMANDO</span>Construir OS v6 con todas las correcciones</div><div class="tag tgr">14:28</div></div>
+    <div class="row"><div class="rn"><span class="tag tr" style="margin-right:5px">ALERTA</span>CLEO backend 10% · dev pendiente</div><div class="tag tgr">14:15</div></div>
+    <div class="row"><div class="rn"><span class="tag ta" style="margin-right:5px">PENDIENTE</span>Mentora CLEO vacante</div><div class="tag tgr">ayer</div></div>
+  </div>
+</div>
+
+<!-- BI -->
+<div id="panel-bi" class="pn">
+  <div class="ph">Business Intelligence <span class="phs">empresa + por departamento</span></div>
+  <div class="tabs">
+    <button class="tab on" onclick="st('bi','emp',this)">Empresa</button>
+    <button class="tab" onclick="st('bi','com',this)">Comercial</button>
+    <button class="tab" onclick="st('bi','mkt',this)">MKT</button>
+    <button class="tab" onclick="st('bi','ops',this)">Ops</button>
+    <button class="tab" onclick="st('bi','fin',this)">Finanzas</button>
+    <button class="tab" onclick="st('bi','cle',this)">CLEO</button>
+  </div>
+  <div id="bi-emp" class="tc on">
+    <div class="g4">
+      <div class="kc"><div class="kcl">VENTAS MES</div><div class="kcv">189.4M</div><div class="kcd wn-c">meta 500M</div></div>
+      <div class="kc"><div class="kcl">MER</div><div class="kcv">3.7x</div><div class="kcd wn-c">meta 5x</div></div>
+      <div class="kc"><div class="kcl">MARGEN BRUTO</div><div class="kcv">67%</div><div class="kcd up-c">ok</div></div>
+      <div class="kc"><div class="kcl">RESULTADO OP.</div><div class="kcv">-23.8M</div><div class="kcd dn-c">negativo</div></div>
+    </div>
+    <div class="card"><div class="ct">Esta semana vs semana anterior</div>
+      <div class="brw"><div class="brl">Sem. anterior</div><div class="brt"><div class="brf" style="width:65%;background:var(--brd2);color:var(--t2)">38.1M</div></div></div>
+      <div class="brw"><div class="brl">Esta semana</div><div class="brt"><div class="brf" style="width:75%;background:var(--brand)">39.5M ↑</div></div></div>
+    </div>
+    <div class="card"><div class="ct">Abril vs Marzo (comparativo)</div>
+      <div class="brw"><div class="brl">Marzo</div><div class="brt"><div class="brf" style="width:70%;background:var(--brd2);color:var(--t2)">350M</div></div></div>
+      <div class="brw"><div class="brl">Abr proy.</div><div class="brt"><div class="brf" style="width:81%;background:var(--brand)">405M</div></div></div>
+      <div class="brw"><div class="brl">Meta</div><div class="brt"><div class="brf" style="width:100%;background:var(--grn)">500M ✓</div></div></div>
+    </div>
+  </div>
+  <div id="bi-com" class="tc">
+    <div class="g4">
+      <div class="kc"><div class="kcl">VENTAS HOY</div><div class="kcv">11.2M</div><div class="kcd up-c">↑ 8%</div></div>
+      <div class="kc"><div class="kcl">TICKET</div><div class="kcv">163k</div><div class="kcd dn-c">meta 250k</div></div>
+      <div class="kc"><div class="kcl">PEDIDOS</div><div class="kcv">68</div><div class="kcd up-c">↑ 5</div></div>
+      <div class="kc"><div class="kcl">MAYORISTAS</div><div class="kcv">0</div><div class="kcd dn-c">14d inactivo</div></div>
+    </div>
+    <div class="card"><div class="ct">Por vendedora — mes actual</div>
+      <div class="brw"><div class="brl">Melisa</div><div class="brt"><div class="brf" style="width:71%;background:var(--brand)">42.5M</div></div></div>
+      <div class="brw"><div class="brl">Sofía</div><div class="brt"><div class="brf" style="width:64%;background:#6b4c5e">38.2M</div></div></div>
+      <div class="brw"><div class="brl">Noelia</div><div class="brt"><div class="brf" style="width:49%;background:#9a7e88">29.1M</div></div></div>
+      <div class="brw"><div class="brl">Sayla</div><div class="brt"><div class="brf" style="width:36%;background:#c4b0b8">21.8M</div></div></div>
+    </div>
+  </div>
+  <div id="bi-mkt" class="tc">
+    <div class="g4">
+      <div class="kc"><div class="kcl">ROAS</div><div class="kcv">2.4x</div><div class="kcd up-c">meta 2x</div></div>
+      <div class="kc"><div class="kcl">INVERSIÓN</div><div class="kcv">18.5M</div><div class="kcd wn-c">de 30M</div></div>
+      <div class="kc"><div class="kcl">CTR</div><div class="kcv">2.8%</div><div class="kcd up-c">meta 2%</div></div>
+      <div class="kc"><div class="kcl">CPM</div><div class="kcv">4.2k</div><div class="kcd up-c">bajo</div></div>
+    </div>
+    <div class="card"><div class="ct">ROAS por campaña</div>
+      <div class="brw"><div class="brl">Retargeting</div><div class="brt"><div class="brf" style="width:100%;background:var(--grn)">4.1x ✓</div></div></div>
+      <div class="brw"><div class="brl">Tibio</div><div class="brt"><div class="brf" style="width:52%;background:var(--brand)">2.1x</div></div></div>
+      <div class="brw"><div class="brl">Frío</div><div class="brt"><div class="brf" style="width:22%;background:#e74c3c">0.9x ⚠</div></div></div>
+    </div>
+  </div>
+  <div id="bi-ops" class="tc">
+    <div class="g4">
+      <div class="kc"><div class="kcl">PEDIDOS</div><div class="kcv">68</div></div>
+      <div class="kc"><div class="kcl">DESPACHADOS</div><div class="kcv">94%</div><div class="kcd up-c">ok</div></div>
+      <div class="kc"><div class="kcl">STOCK CRÍTICO</div><div class="kcv">2 SKU</div><div class="kcd dn-c">alerta</div></div>
+      <div class="kc"><div class="kcl">COSTO LOG.</div><div class="kcv">7.8%</div><div class="kcd up-c">meta &lt;8%</div></div>
+    </div>
+  </div>
+  <div id="bi-fin" class="tc">
+    <div class="g4">
+      <div class="kc"><div class="kcl">INGRESOS</div><div class="kcv">189.4M</div></div>
+      <div class="kc"><div class="kcl">EGRESOS</div><div class="kcv">213.2M</div><div class="kcd dn-c">sobre ingr.</div></div>
+      <div class="kc"><div class="kcl">RESULTADO</div><div class="kcv">-23.8M</div><div class="kcd dn-c">negativo</div></div>
+      <div class="kc"><div class="kcl">CAJA</div><div class="kcv">45.2M</div><div class="kcd dn-c">1.8 sem.</div></div>
+    </div>
+  </div>
+  <div id="bi-cle" class="tc">
+    <div class="g4">
+      <div class="kc"><div class="kcl">ACTIVAS</div><div class="kcv">24</div><div class="kcd dn-c">meta 300</div></div>
+      <div class="kc"><div class="kcl">KITS/MES</div><div class="kcv">3</div></div>
+      <div class="kc"><div class="kcl">PORTAL</div><div class="kcv">55%</div><div class="kcd dn-c">16 días</div></div>
+      <div class="kc"><div class="kcl">SUSCR. PRO</div><div class="kcv">0</div><div class="kcd wn-c">post portal</div></div>
+    </div>
+    <div class="card"><div class="ct">Ciclo de vida</div>
+      <div class="brw"><div class="brl">Activas</div><div class="brt"><div class="brf" style="width:40%;background:var(--grn)">24</div></div></div>
+      <div class="brw"><div class="brl">Inactivas</div><div class="brt"><div class="brf" style="width:25%;background:#e67e22">15</div></div></div>
+      <div class="brw"><div class="brl">Dormidas</div><div class="brt"><div class="brf" style="width:35%;background:#e74c3c">21</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- KPIs OKRs - RESTRUCTURADO POR DEPARTAMENTO -->
+<div id="panel-okrs" class="pn">
+  <div class="ph">KPIs / OKRs <span class="phs">por departamento · IA y humanos</span></div>
+  <div class="tabs" style="flex-wrap:wrap">
+    <button class="tab on" onclick="st('kp','all',this)">Empresa</button>
+    <button class="tab" onclick="st('kp','com',this)">Comercial</button>
+    <button class="tab" onclick="st('kp','mkt',this)">Marketing</button>
+    <button class="tab" onclick="st('kp','ops',this)">Operaciones</button>
+    <button class="tab" onclick="st('kp','fin',this)">Finanzas</button>
+    <button class="tab" onclick="st('kp','cle',this)">CLEO</button>
+    <button class="tab" onclick="st('kp','ceo',this)">CEO</button>
+  </div>
+
+  <!-- EMPRESA -->
+  <div id="kp-all" class="tc on">
+    <div class="card"><div class="ct">Resumen empresa — abril 2026</div>
+      <div class="okr-row"><div class="on-">Facturación 500.000.000 Gs/mes</div><div class="od">COMERCIAL</div><div class="ob"><div class="of" style="width:38%;background:#e67e22"></div></div><div class="op" style="color:#e67e22">38%</div></div>
+      <div class="okr-row"><div class="on-">ROAS mínimo 2x</div><div class="od">MARKETING</div><div class="ob"><div class="of" style="width:100%;background:var(--grn)"></div></div><div class="op" style="color:var(--grn)">✓</div></div>
+      <div class="okr-row"><div class="on-">Resultado operativo positivo</div><div class="od">FINANZAS</div><div class="ob"><div class="of" style="width:15%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c">15%</div></div>
+      <div class="okr-row"><div class="on-">Despachos menos de 24h</div><div class="od">OPS</div><div class="ob"><div class="of" style="width:94%;background:var(--grn)"></div></div><div class="op" style="color:var(--grn)">94%</div></div>
+      <div class="okr-row"><div class="on-">CLEO Portal lanzado 30 abr</div><div class="od">CLEO</div><div class="ob"><div class="of" style="width:55%;background:#e67e22"></div></div><div class="op" style="color:#e67e22">55%</div></div>
+      <div class="okr-row"><div class="on-">Dependencia Mel menor a 20%</div><div class="od">CEO</div><div class="ob"><div class="of" style="width:30%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c">30%</div></div>
+    </div>
+  </div>
+
+  <!-- COMERCIAL -->
+  <div id="kp-com" class="tc">
+    <div class="card">
+      <div class="ct">OKRs del departamento</div>
+      <div class="okr-row"><div class="on-">Facturación mensual 500M Gs</div><div class="ob" style="width:80px"><div class="of" style="width:38%;background:#e67e22"></div></div><div class="op" style="color:#e67e22;width:30px">38%</div></div>
+      <div class="okr-row"><div class="on-">Ticket promedio 250.000 Gs</div><div class="ob" style="width:80px"><div class="of" style="width:65%;background:#e67e22"></div></div><div class="op" style="color:#e67e22;width:30px">65%</div></div>
+      <div class="okr-row"><div class="on-">Canal mayoristas reactivado</div><div class="ob" style="width:80px"><div class="of" style="width:5%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c;width:30px">5%</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-ia">AGENTE IA</span><div class="kd-title">Sub-agentes del Gerente Comercial</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Analista Ventas Shopify</div><div class="kd-a-status" style="color:var(--grn)">✓ Activo</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Auditor de Vendedoras</div><div class="kd-a-status" style="color:var(--grn)">✓ Activo</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Gestor de Mayoristas</div><div class="kd-a-status" style="color:#e74c3c">⚠ Canal inactivo</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-hum">EQUIPO HUMANO</span><div class="kd-title">Métricas individuales</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Melisa (supervisora)</div><div class="hr">42.5M · meta 60M</div><div class="hs score-hi">8.5</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Sofía</div><div class="hr">38.2M</div><div class="hs score-hi">8.0</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Noelia</div><div class="hr">29.1M</div><div class="hs score-md">7.0</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Sayla</div><div class="hr">21.8M</div><div class="hs score-md">6.5</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Cecilio</div><div class="hr">Mayoristas · 0 visitas</div><div class="hs score-lo">5.5 ⚠</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Luis</div><div class="hr">Mayoristas · 0 visitas</div><div class="hs score-lo">5.0 ⚠</div></div>
+    </div>
+  </div>
+
+  <!-- MARKETING -->
+  <div id="kp-mkt" class="tc">
+    <div class="card"><div class="ct">OKRs MKT</div>
+      <div class="okr-row"><div class="on-">ROAS mínimo 2x</div><div class="ob" style="width:80px"><div class="of" style="width:100%;background:var(--grn)"></div></div><div class="op" style="color:var(--grn);width:30px">✓ 2.4x</div></div>
+      <div class="okr-row"><div class="on-">Inversión mensual máx 30M Gs</div><div class="ob" style="width:80px"><div class="of" style="width:62%;background:var(--grn)"></div></div><div class="op" style="color:var(--grn);width:30px">18.5M</div></div>
+      <div class="okr-row"><div class="on-">Landing pages/mes mínimo 4</div><div class="ob" style="width:80px"><div class="of" style="width:25%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c;width:30px">1/4</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-ia">AGENTE IA</span><div class="kd-title">Sub-agentes MKT</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Analista Meta Ads</div><div class="kd-a-status" style="color:var(--grn)">✓ ROAS 2.4x</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Creador de Copies</div><div class="kd-a-status" style="color:var(--grn)">✓ Activo</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Monitor Redes</div><div class="kd-a-status" style="color:#e67e22">⚠ Sin datos</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Creador Landings</div><div class="kd-a-status" style="color:#e74c3c">⚠ 1/4 este mes</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-hum">EQUIPO HUMANO</span></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Sofía (jefa)</div><div class="hr">Ads + estrategia</div><div class="hs score-hi">8.0</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Hugo</div><div class="hr">Video + foto</div><div class="hs score-md">7.5</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Dahiana</div><div class="hr">Contenido UGC</div><div class="hs score-md">7.0</div></div>
+    </div>
+  </div>
+
+  <!-- OPERACIONES -->
+  <div id="kp-ops" class="tc">
+    <div class="card"><div class="ct">OKRs Operaciones</div>
+      <div class="okr-row"><div class="on-">Despachos en menos de 24h</div><div class="ob" style="width:80px"><div class="of" style="width:94%;background:var(--grn)"></div></div><div class="op" style="color:var(--grn);width:30px">94%</div></div>
+      <div class="okr-row"><div class="on-">0 quiebres stock producto estrella</div><div class="ob" style="width:80px"><div class="of" style="width:70%;background:#e67e22"></div></div><div class="op" style="color:#e67e22;width:30px">70%</div></div>
+      <div class="okr-row"><div class="on-">Costo logístico menor a 8%</div><div class="ob" style="width:80px"><div class="of" style="width:97%;background:var(--grn)"></div></div><div class="op" style="color:var(--grn);width:30px">7.8%</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-ia">AGENTE IA</span></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Monitor de Stock</div><div class="kd-a-status" style="color:#e67e22">⚠ 2 SKUs críticos</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Controlador Despachos</div><div class="kd-a-status" style="color:var(--grn)">✓ 94% a tiempo</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Reportes Diarios 8am</div><div class="kd-a-status" style="color:var(--grn)">✓ Enviando</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-hum">EQUIPO HUMANO</span></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Oscar (jefe depósito)</div><div class="hr">Picking, packing, despacho</div><div class="hs score-hi">8.0</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">🛵</div><div class="hn">Delivery 1</div><div class="hr">Ruta zona central</div><div class="hs score-hi">✓ Activo</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">🛵</div><div class="hn">Delivery 2</div><div class="hr">Ruta zona norte</div><div class="hs score-hi">✓ Activo</div></div>
+    </div>
+  </div>
+
+  <!-- FINANZAS -->
+  <div id="kp-fin" class="tc">
+    <div class="card"><div class="ct">OKRs Finanzas</div>
+      <div class="okr-row"><div class="on-">Resultado operativo positivo</div><div class="ob" style="width:80px"><div class="of" style="width:15%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c;width:30px">15%</div></div>
+      <div class="okr-row"><div class="on-">Caja mínima 1 mes de gastos</div><div class="ob" style="width:80px"><div class="of" style="width:45%;background:#e67e22"></div></div><div class="op" style="color:#e67e22;width:30px">45%</div></div>
+      <div class="okr-row"><div class="on-">Gastos fijos / ventas menor a 35%</div><div class="ob" style="width:80px"><div class="of" style="width:60%;background:#e67e22"></div></div><div class="op" style="color:#e67e22;width:30px">44%</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-ia">AGENTE IA</span></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Analista Rentabilidad</div><div class="kd-a-status" style="color:var(--grn)">✓ P&L diario</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Controlador Caja</div><div class="kd-a-status" style="color:#e74c3c">⚠ Caja 1.8 sem.</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Contador Paraguay</div><div class="kd-a-status" style="color:var(--grn)">✓ IVA al día</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-hum">EQUIPO HUMANO</span></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Víctor (jefe finanzas)</div><div class="hr">P&L, bancos, firmas</div><div class="hs score-md">7.5</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Yenifer</div><div class="hr">Tesorería, pagos</div><div class="hs score-md">7.0</div></div>
+    </div>
+  </div>
+
+  <!-- CLEO -->
+  <div id="kp-cle" class="tc">
+    <div class="card"><div class="ct">OKRs CLEO</div>
+      <div class="okr-row"><div class="on-">Portal lanzado 30 abr</div><div class="ob" style="width:80px"><div class="of" style="width:55%;background:#e67e22"></div></div><div class="op" style="color:#e67e22;width:30px">55%</div></div>
+      <div class="okr-row"><div class="on-">300 emprendedoras activas</div><div class="ob" style="width:80px"><div class="of" style="width:8%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c;width:30px">8%</div></div>
+      <div class="okr-row"><div class="on-">Retención 60% primer mes</div><div class="ob" style="width:80px"><div class="of" style="width:20%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c;width:30px">[D.P.]</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-ia">AGENTE IA</span></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Onboarding Automatizado</div><div class="kd-a-status" style="color:#e67e22">⚠ Portal pendiente</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Tracking Comisiones</div><div class="kd-a-status" style="color:#e67e22">⚠ Sin links trackeables</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Coach Emprendedoras</div><div class="kd-a-status" style="color:var(--grn)">✓ WhatsApp activo</div></div>
+    </div>
+    <div class="kd-sect">
+      <div class="kd-head"><span class="kd-badge kd-hum">EQUIPO HUMANO</span></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Mentora CLEO</div><div class="hr">Reactivación equipo</div><div class="hs score-lo">VACANTE ⚠</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">24 emprendedoras activas</div><div class="hr">de meta 300</div><div class="hs score-lo">8%</div></div>
+    </div>
+  </div>
+
+  <!-- CEO -->
+  <div id="kp-ceo" class="tc">
+    <div class="card"><div class="ct">OKRs CEO</div>
+      <div class="okr-row"><div class="on-">Resultado operativo positivo desde mes 1</div><div class="ob" style="width:80px"><div class="of" style="width:15%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c;width:30px">15%</div></div>
+      <div class="okr-row"><div class="on-">MER mayor a 5x</div><div class="ob" style="width:80px"><div class="of" style="width:74%;background:#e67e22"></div></div><div class="op" style="color:#e67e22;width:30px">3.7x</div></div>
+      <div class="okr-row"><div class="on-">Dependencia Mel menor a 20%</div><div class="ob" style="width:80px"><div class="of" style="width:30%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c;width:30px">30%</div></div>
+      <div class="okr-row"><div class="on-">7 Gerentes IA operativos</div><div class="ob" style="width:80px"><div class="of" style="width:85%;background:var(--grn)"></div></div><div class="op" style="color:var(--grn);width:30px">6/7</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FINANZAS -->
+<div id="panel-finanzas" class="pn">
+  <div class="ph">Finanzas <span class="phs">Víctor · Yenifer</span></div>
+  <div class="alert-ban">⚠ Caja cubre 1.8 semanas. Revisar P&L con Víctor el viernes.</div>
+  <div class="hc" style="margin-bottom:8px"><div class="hct">Google Drive — Conexión de gastos</div><div class="hcb">Cargá los gastos mensuales en la carpeta de Drive sincronizada. Finanzas los lee automáticamente para el P&L. <span style="color:var(--brand);font-weight:700">Carpeta: /Blondas/Finanzas/2026</span> — requiere integración GDrive activa.</div></div>
+  <div class="tabs">
+    <button class="tab on" onclick="st('fn','flu',this)">Flujo caja</button>
+    <button class="tab" onclick="st('fn','pl',this)">P&L</button>
+    <button class="tab" onclick="st('fn','tes',this)">Tesorería</button>
+    <button class="tab" onclick="st('fn','cob',this)">Cobranzas</button>
+    <button class="tab" onclick="st('fn','bal',this)">Balance</button>
+  </div>
+  <div id="fn-flu" class="tc on">
+    <div class="g4">
+      <div class="kc"><div class="kcl">INGRESOS</div><div class="kcv">189.4M</div><div class="kcd up-c">acum.</div></div>
+      <div class="kc"><div class="kcl">EGRESOS</div><div class="kcv">213.2M</div><div class="kcd dn-c">sobre</div></div>
+      <div class="kc"><div class="kcl">RESULTADO</div><div class="kcv">-23.8M</div><div class="kcd dn-c">negativo</div></div>
+      <div class="kc"><div class="kcl">CAJA</div><div class="kcv">45.2M</div><div class="kcd dn-c">1.8 sem.</div></div>
+    </div>
+    <div class="card"><div class="ct">Egresos fijos</div>
+      <div class="fin-row"><div class="fn">Alquiler showroom</div><div class="fa neg">-28.000.000 Gs</div></div>
+      <div class="fin-row"><div class="fn">Sueldos</div><div class="fa neg">-47.500.000 Gs</div></div>
+      <div class="fin-row"><div class="fn">Inversión ads</div><div class="fa neg">-18.500.000 Gs</div></div>
+      <div class="fin-row"><div class="fn">Costo producto</div><div class="fa neg">-62.000.000 Gs</div></div>
+    </div>
+    <button class="btnout" style="width:100%;margin-top:2px" onclick="alert('Cargar gasto — requiere backend Railway + GDrive')">+ Cargar gasto manual</button>
+  </div>
+  <div id="fn-pl" class="tc">
+    <div class="card">
+      <div style="display:flex;font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px"><div style="flex:1">Concepto</div><div style="width:75px;text-align:right">Mar 2026</div><div style="width:75px;text-align:right">Abr 2026</div></div>
+      <div class="fin-row"><div class="fn">Ventas brutas</div><div class="fa pos" style="width:75px;text-align:right">350.0M</div><div class="fa pos" style="width:75px;text-align:right">189.4M</div></div>
+      <div class="fin-row"><div class="fn">Costo productos</div><div class="fa neg" style="width:75px;text-align:right">-115.5M</div><div class="fa neg" style="width:75px;text-align:right">-62.0M</div></div>
+      <div class="fin-row"><div class="fn">Margen bruto</div><div class="fa pos" style="width:75px;text-align:right">234.5M</div><div class="fa pos" style="width:75px;text-align:right">127.4M</div></div>
+      <div class="dv"></div>
+      <div class="fin-row"><div class="fn">Gastos operativos</div><div class="fa neg" style="width:75px;text-align:right">-220.0M</div><div class="fa neg" style="width:75px;text-align:right">-151.2M</div></div>
+      <div class="fin-row"><div class="fn" style="font-weight:700">Resultado</div><div class="fa pos" style="width:75px;text-align:right">+14.5M</div><div class="fa neg" style="width:75px;text-align:right;font-size:12px">-23.8M</div></div>
+    </div>
+  </div>
+  <div id="fn-tes" class="tc">
+    <div class="g2">
+      <div class="kc"><div class="kcl">CAJA HOY</div><div class="kcv">45.2M</div></div>
+      <div class="kc"><div class="kcl">X PAGAR</div><div class="kcv">12.8M</div><div class="kcd dn-c">esta sem.</div></div>
+    </div>
+    <div class="card"><div class="ct">Movimientos recientes</div>
+      <div class="fin-row"><div class="fn">Cobro Shopify lun</div><div class="fa pos">+11.200.000 Gs</div></div>
+      <div class="fin-row"><div class="fn">Pago proveedor Labs</div><div class="fa neg">-8.400.000 Gs</div></div>
+      <div class="fin-row"><div class="fn">Sueldos semana 2</div><div class="fa neg">-23.750.000 Gs</div></div>
+    </div>
+  </div>
+  <div id="fn-cob" class="tc">
+    <div class="card"><div class="ct">Cobranzas pendientes</div>
+      <div class="row"><div class="rn">Mayorista Centro SA · fac. 14 mar</div><div class="tag tr">Vencida 30d</div></div>
+      <div class="row"><div class="rn">Mayorista Norte · fac. 1 abr</div><div class="tag ta">Vence 30 abr</div></div>
+      <div class="row"><div class="rn">Suscripciones PRO CLEO (24)</div><div class="tag tgr">Post portal</div></div>
+    </div>
+  </div>
+  <div id="fn-bal" class="tc">
+    <div class="card"><div class="ct">Balance simplificado</div>
+      <div class="fin-row"><div class="fn">Activo corriente</div><div class="fa pos">58.000.000 Gs</div></div>
+      <div class="fin-row"><div class="fn">Inventario</div><div class="fa neu">42.000.000 Gs</div></div>
+      <div class="fin-row"><div class="fn">Pasivo corriente</div><div class="fa neg">-12.800.000 Gs</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ALERTAS -->
+<div id="panel-alertas" class="pn">
+  <div class="ph">Alertas <span class="phs">4 sin resolver</span></div>
+  <div class="card"><div class="ct">Sistema</div>
+    <div class="alr"><div class="adt acr"></div><div><div class="atx">CLEO Portal backend 10%. Sin dev esta semana, el 30 abr está perdido.</div><div class="am">CRÍTICO · CLEO · Confirmar dev HOY</div></div></div>
+    <div class="alr"><div class="adt acr"></div><div><div class="atx">Resultado -23.800.000 Gs. Caja cubre 1.8 semanas.</div><div class="am">CRÍTICO · FINANZAS · P&L viernes</div></div></div>
+    <div class="alr"><div class="adt aal"></div><div><div class="atx">Campaña FRÍO Meta ROAS 0.9x. Pérdida activa.</div><div class="am">ALERTA · MARKETING · Pausar hoy</div></div></div>
+    <div class="alr"><div class="adt aal"></div><div><div class="atx">Mayoristas inactivos 14 días. Cecilio 5.5 · Luis 5.0</div><div class="am">ALERTA · COMERCIAL + RRHH</div></div></div>
+    <div class="alr"><div class="adt aat"></div><div><div class="atx">Mentora CLEO vacante. 21 emprendedoras dormidas.</div><div class="am">ATENCIÓN · RRHH</div></div></div>
+  </div>
+</div>
+
+<!-- AGENDA -->
+<div id="panel-agenda" class="pn">
+  <div class="ph">Agenda <span class="phs">Google Calendar</span></div>
+  <div class="tabs">
+    <button class="tab on" onclick="st('ag','sem',this)">Semana</button>
+    <button class="tab" onclick="st('ag','mes',this)">Mes</button>
+    <button class="tab" onclick="st('ag','yr',this)">Año</button>
+  </div>
+  <div class="leg-row">
+    <div class="leg"><div class="leg-dot" style="background:var(--brand)"></div>Mel</div>
+    <div class="leg"><div class="leg-dot" style="background:#3949ab"></div>MKT</div>
+    <div class="leg"><div class="leg-dot" style="background:#2e7d32"></div>Ventas</div>
+    <div class="leg"><div class="leg-dot" style="background:#e65100"></div>Ops</div>
+    <div class="leg"><div class="leg-dot" style="background:#6a1b9a"></div>Finanzas</div>
+  </div>
+  <div id="ag-sem" class="tc on">
+    <div class="ag-month" style="grid-template-columns:repeat(7,minmax(0,1fr))">
+      <div class="ag-mday"><div class="ag-md-n">LUN 14</div><div class="ag-ev">8am CEO</div><div class="ag-ev vt">10am ventas</div></div>
+      <div class="ag-mday"><div class="ag-md-n">MAR 15</div><div class="ag-ev mkt">9am ads</div><div class="ag-ev">3pm dev</div></div>
+      <div class="ag-mday"><div class="ag-md-n">MIÉ 16</div><div class="ag-ev ops">8am ops</div><div class="ag-ev">2pm portal</div></div>
+      <div class="ag-mday"><div class="ag-md-n">JUE 17</div><div class="ag-ev mkt">10am creativos</div></div>
+      <div class="ag-mday"><div class="ag-md-n">VIE 18</div><div class="ag-ev fin">9am P&L</div></div>
+      <div class="ag-mday"><div class="ag-md-n">SÁB 19</div><div class="ag-ev vt">10am tienda</div></div>
+      <div class="ag-mday"><div class="ag-md-n">DOM 20</div></div>
+    </div>
+    <button class="btng" style="width:100%;font-size:10px">+ Nuevo evento en Google Calendar ↗</button>
+  </div>
+  <div id="ag-mes" class="tc">
+    <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;margin-bottom:6px">
+      <div style="font-size:8px;font-weight:700;color:var(--t3);text-align:center;padding:3px">L</div>
+      <div style="font-size:8px;font-weight:700;color:var(--t3);text-align:center;padding:3px">M</div>
+      <div style="font-size:8px;font-weight:700;color:var(--t3);text-align:center;padding:3px">X</div>
+      <div style="font-size:8px;font-weight:700;color:var(--t3);text-align:center;padding:3px">J</div>
+      <div style="font-size:8px;font-weight:700;color:var(--t3);text-align:center;padding:3px">V</div>
+      <div style="font-size:8px;font-weight:700;color:var(--t3);text-align:center;padding:3px">S</div>
+      <div style="font-size:8px;font-weight:700;color:var(--t3);text-align:center;padding:3px">D</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px" id="month-grid"></div>
+  </div>
+  <div id="ag-yr" class="tc">
+    <div class="ag-year">
+      <div class="ag-month-mini"><div class="ag-mm-name">Enero</div><div class="ag-mm-days" id="yr-jan"></div></div>
+      <div class="ag-month-mini"><div class="ag-mm-name">Febrero</div><div class="ag-mm-days" id="yr-feb"></div></div>
+      <div class="ag-month-mini"><div class="ag-mm-name">Marzo</div><div class="ag-mm-days" id="yr-mar"></div></div>
+      <div class="ag-month-mini"><div class="ag-mm-name">Abril</div><div class="ag-mm-days" id="yr-apr"></div></div>
+      <div class="ag-month-mini"><div class="ag-mm-name">Mayo</div><div class="ag-mm-days" id="yr-may"></div></div>
+      <div class="ag-month-mini"><div class="ag-mm-name">Junio</div><div class="ag-mm-days" id="yr-jun"></div></div>
+      <div class="ag-month-mini"><div class="ag-mm-name">Julio</div><div class="ag-mm-days" id="yr-jul"></div></div>
+      <div class="ag-month-mini"><div class="ag-mm-name">Agosto</div><div class="ag-mm-days" id="yr-aug"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROYECTOS (Notion/Monday style) -->
+<div id="panel-proyectos" class="pn">
+  <div class="ph">Proyectos y campañas</div>
+  <div class="pj-views">
+    <button class="pj-vb on" onclick="spv('board',this)">📋 Tablero</button>
+    <button class="pj-vb" onclick="spv('list',this)">☰ Lista</button>
+  </div>
+
+  <div id="pv-board">
+    <div class="pj-board">
+      <div class="pj-col"><div class="pj-colt">Por hacer</div>
+        <div class="pj-card"><div class="pj-title">Reconexión IG/FB → Kommo</div><div class="pj-meta"><span class="tag ta">MED</span><span class="pj-ass">TEC</span><span class="pj-date">30 abr</span></div><div class="pj-prog"><div class="pj-prog-f" style="width:0%"></div></div></div>
+        <div class="pj-card"><div class="pj-title">Templates WhatsApp Meta</div><div class="pj-meta"><span class="tag ta">MED</span><span class="pj-ass">MKT</span><span class="pj-date">20 abr</span></div></div>
+      </div>
+      <div class="pj-col"><div class="pj-colt">En progreso</div>
+        <div class="pj-card" style="border-left:3px solid #e74c3c"><div class="pj-title">CLEO Portal — Backend</div><div class="pj-meta"><span class="tag tr">CRIT</span><span class="pj-ass">CLO</span><span class="pj-date">30 abr</span></div><div class="pj-prog"><div class="pj-prog-f" style="width:10%"></div></div></div>
+        <div class="pj-card" style="border-left:3px solid var(--brand)"><div class="pj-title">Blondas OS v6</div><div class="pj-meta"><span class="tag tbr">ALTA</span><span class="pj-ass">TEC</span><span class="pj-date">Hoy</span></div><div class="pj-prog"><div class="pj-prog-f" style="width:85%"></div></div></div>
+        <div class="pj-card"><div class="pj-title">Campaña Abril Rizos Lala</div><div class="pj-meta"><span class="tag ta">MED</span><span class="pj-ass">MKT</span><span class="pj-date">18 abr</span></div><div class="pj-prog"><div class="pj-prog-f" style="width:60%"></div></div></div>
+      </div>
+      <div class="pj-col"><div class="pj-colt">Revisión</div>
+        <div class="pj-card"><div class="pj-title">Pipeline Kommo consolidado</div><div class="pj-meta"><span class="tag ta">MED</span><span class="pj-ass">TEC</span><span class="pj-date">18 abr</span></div><div class="pj-prog"><div class="pj-prog-f" style="width:70%"></div></div></div>
+      </div>
+      <div class="pj-col"><div class="pj-colt">Completado</div>
+        <div class="pj-card"><div class="pj-title">Fase 4 — MCPs operativos</div><div class="pj-meta"><span class="tag tg">LISTO</span><span class="pj-date">12 abr</span></div><div class="pj-prog"><div class="pj-prog-f" style="width:100%"></div></div></div>
+        <div class="pj-card"><div class="pj-title">7 Skills AI instalados</div><div class="pj-meta"><span class="tag tg">LISTO</span><span class="pj-date">10 abr</span></div><div class="pj-prog"><div class="pj-prog-f" style="width:100%"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pv-list" style="display:none">
+    <div class="card"><div class="ct">Todos los proyectos</div>
+      <div class="pj-list-row"><div class="pj-status-dot s-prog" style="background:#e74c3c"></div><div class="pj-l-title">CLEO Portal · Backend 10% · CRÍTICO</div><div><span class="tag tr">Crit.</span></div><div class="pj-l-date">30 abr</div></div>
+      <div class="pj-list-row"><div class="pj-status-dot s-prog"></div><div class="pj-l-title">Blondas OS v6 · Command Center</div><div><span class="tag tbr">Alta</span></div><div class="pj-l-date">Hoy</div></div>
+      <div class="pj-list-row"><div class="pj-status-dot s-prog"></div><div class="pj-l-title">Campaña Abril · Rizos Lala</div><div><span class="tag ta">Med</span></div><div class="pj-l-date">18 abr</div></div>
+      <div class="pj-list-row"><div class="pj-status-dot s-todo"></div><div class="pj-l-title">Reconexión IG/FB → Kommo</div><div><span class="tag ta">Med</span></div><div class="pj-l-date">30 abr</div></div>
+      <div class="pj-list-row"><div class="pj-status-dot s-todo"></div><div class="pj-l-title">Templates WhatsApp Meta · Aprobación</div><div><span class="tag ta">Med</span></div><div class="pj-l-date">20 abr</div></div>
+      <div class="pj-list-row"><div class="pj-status-dot s-done"></div><div class="pj-l-title">Fase 4 — MCPs operativos</div><div><span class="tag tg">Hecho</span></div><div class="pj-l-date">12 abr</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- RRHH -->
+<div id="panel-rrhh" class="pn">
+  <div class="ph">RRHH <span class="phs">legajos · metas · evaluaciones</span></div>
+  <div class="tabs">
+    <button class="tab on" onclick="st('rr','eq',this)">Equipo</button>
+    <button class="tab" onclick="st('rr','fichas',this)">Fichas</button>
+    <button class="tab" onclick="st('rr','onb',this)">Onboarding</button>
+    <button class="tab" onclick="st('rr','ev',this)">Evaluaciones</button>
+  </div>
+  <div id="rr-eq" class="tc on">
+    <div class="g4" style="margin-bottom:8px">
+      <div class="kc"><div class="kcl">EQUIPO TOTAL</div><div class="kcv">12</div><div class="kcd up-c">activos</div></div>
+      <div class="kc"><div class="kcl">PROM. SCORE</div><div class="kcv">7.1</div><div class="kcd wn-c">/10</div></div>
+      <div class="kc"><div class="kcl">PLAN MEJORA</div><div class="kcv">2</div><div class="kcd dn-c">activos</div></div>
+      <div class="kc"><div class="kcl">VACANTES</div><div class="kcv">1</div><div class="kcd dn-c">Mentora CLEO</div></div>
+    </div>
+    <div class="emp-card">
+      <div class="emp-top">
+        <div class="emp-av-lg">ME</div>
+        <div style="flex:1"><div class="emp-name-lg">Melisa García</div><div class="emp-role-lg">Supervisora de Ventas</div><div style="display:flex;gap:4px;margin-top:4px"><span class="emp-dept-tag">VENTAS</span><span class="emp-dept-tag">ADMIN</span></div></div>
+        <div class="emp-score-lg"><div class="emp-score-num" style="color:var(--grn)">8.5</div><div class="emp-score-lbl">Puntuación</div></div>
+      </div>
+      <div class="emp-kpis">
+        <div class="emp-kpi"><div class="emp-kpi-v">42.5M</div><div class="emp-kpi-l">Ventas mes</div><div class="emp-kpi-t">meta 60M</div></div>
+        <div class="emp-kpi"><div class="emp-kpi-v">71%</div><div class="emp-kpi-l">Meta %</div></div>
+        <div class="emp-kpi"><div class="emp-kpi-v">3 años</div><div class="emp-kpi-l">Antigüedad</div></div>
+      </div>
+      <div class="emp-goals">
+        <div class="emp-goal-row"><span class="eg-icon">🎯</span><span class="eg-text">Meta mensual ventas</span><span class="eg-pct">71%</span></div>
+        <div class="eg-bar"><div class="eg-f" style="width:71%"></div></div>
+        <div class="emp-goal-row"><span class="eg-icon">📚</span><span class="eg-text">Curso IA completado</span><span class="eg-pct">20%</span></div>
+        <div class="eg-bar"><div class="eg-f" style="width:20%"></div></div>
+      </div>
+    </div>
+    <div class="emp-card">
+      <div class="emp-top">
+        <div class="emp-av-lg" style="background:#fde8ec;color:#e74c3c;border-color:#e74c3c">CE</div>
+        <div style="flex:1"><div class="emp-name-lg">Cecilio Ruiz</div><div class="emp-role-lg">Mayoristas ⚠ Plan de mejora activo</div><div style="margin-top:4px"><span class="emp-dept-tag">VENTAS</span></div></div>
+        <div class="emp-score-lg"><div class="emp-score-num" style="color:#e74c3c">5.5</div><div class="emp-score-lbl">2° mes bajo</div></div>
+      </div>
+      <div class="emp-kpis">
+        <div class="emp-kpi"><div class="emp-kpi-v">0</div><div class="emp-kpi-l">Visitas</div><div class="emp-kpi-t">14 días</div></div>
+        <div class="emp-kpi"><div class="emp-kpi-v">0M</div><div class="emp-kpi-l">Ventas</div></div>
+        <div class="emp-kpi"><div class="emp-kpi-v">Feb-Mar</div><div class="emp-kpi-l">Bajo 5.5</div></div>
+      </div>
+    </div>
+  </div>
+  <div id="rr-fichas" class="tc">
+    <select class="li" id="emp-sel" onchange="loadLegajo(this.value)" style="margin-bottom:10px">
+      <option value="">— Seleccioná un empleado —</option>
+      <option value="mel-s">Melisa García · Supervisora Ventas</option>
+      <option value="sof">Sofía López · Ventas + MKT</option>
+      <option value="osc">Oscar Díaz · Jefe Depósito</option>
+      <option value="vic">Víctor Pérez · Finanzas</option>
+      <option value="cec">Cecilio Ruiz · Mayoristas ⚠</option>
+    </select>
+    <div id="legajo-box">
+      <div class="hc"><div class="hct">Seleccioná un empleado</div><div class="hcb">El legajo digital incluye datos, documentos, cursos, métricas e historial de evaluaciones vinculado a su login.</div></div>
+    </div>
+  </div>
+  <div id="rr-onb" class="tc">
+    <div class="hc"><div class="hct">Onboarding automático</div><div class="hcb">Al crear el primer login de un empleado, este checklist se asigna automáticamente. No requiere intervención humana.</div></div>
+    <div class="card"><div class="ct">Checklist obligatorio día 1</div>
+      <div class="row"><div class="rn">▶ Video bienvenida Mel</div><div class="tag tbr">Obligatorio</div></div>
+      <div class="row"><div class="rn">📚 Módulo Cultura Blondas</div><div class="tag tbr">Obligatorio</div></div>
+      <div class="row"><div class="rn">✍ Firmar contrato digital</div><div class="tag tbr">Obligatorio</div></div>
+      <div class="row"><div class="rn">💄 Conocer productos Blondas</div><div class="tag tgr">Semana 1</div></div>
+      <div class="row"><div class="rn">🗺 Mapa del recorrido del cliente</div><div class="tag tgr">Semana 2</div></div>
+      <div class="row"><div class="rn">🤖 Tutorial Blondas OS</div><div class="tag tgr">Semana 2</div></div>
+    </div>
+  </div>
+  <div id="rr-ev" class="tc">
+    <div class="card"><div class="ct">Historial evaluaciones — Plan de mejora</div>
+      <div class="row"><div class="rn">Cecilio · Feb 5.0 · Mar 5.5 → Plan mejora</div><div class="tag tr">Activo</div></div>
+      <div class="row"><div class="rn">Luis · Feb 4.8 · Mar 5.0 → 2° mes bajo 5.5</div><div class="tag tr">Activo</div></div>
+    </div>
+    <button class="btnout" style="width:100%;margin-top:4px" onclick="alert('Nueva evaluación — requiere backend')">+ Cargar evaluación</button>
+  </div>
+</div>
+
+<!-- LOGÍSTICA (NUEVA PANEL) -->
+<div id="panel-logistica" class="pn">
+  <div class="ph">Logística <span class="phs">depósito · delivery · tracking</span></div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">PEDIDOS HOY</div><div class="kcv">68</div></div>
+    <div class="kc"><div class="kcl">DESPACHADOS</div><div class="kcv">64</div><div class="kcd up-c">94%</div></div>
+    <div class="kc"><div class="kcl">EN CAMINO</div><div class="kcv">18</div><div class="kcd wn-c">activos</div></div>
+    <div class="kc"><div class="kcl">PENDIENTES</div><div class="kcv">4</div><div class="kcd wn-c">hoy</div></div>
+  </div>
+  <div class="tabs">
+    <button class="tab on" onclick="st('log','dep',this)">Depósito</button>
+    <button class="tab" onclick="st('log','del',this)">Deliverys</button>
+    <button class="tab" onclick="st('log','stk',this)">Stock crítico</button>
+    <button class="tab" onclick="st('log','trk',this)">Tracking</button>
+  </div>
+  <div id="log-dep" class="tc on">
+    <div class="hc"><div class="hct">Oscar Díaz · Jefe Depósito</div><div class="hcb">Single point of failure — si Oscar falta, el depósito se para. Acción pendiente: documentar proceso para backup.</div></div>
+    <div class="card"><div class="ct">Actividad hoy</div>
+      <div class="row"><div class="rn">Picking completado</div><div class="tag tg">58/68 pedidos</div></div>
+      <div class="row"><div class="rn">Packing en proceso</div><div class="tag ta">10 pedidos</div></div>
+      <div class="row"><div class="rn">Devoluciones pendientes</div><div class="tag tgr">2 pedidos</div></div>
+      <div class="row"><div class="rn">Recepción de mercadería</div><div class="tag tb-t">Hoy 3pm</div></div>
+    </div>
+  </div>
+  <div id="log-del" class="tc">
+    <div class="del-row"><div class="del-av">D1</div><div class="del-info"><div class="del-n">Delivery 1</div><div class="del-r">Zona central · Lun a Sáb</div></div><div class="del-status" style="color:var(--grn)">En ruta · 12 entregas</div></div>
+    <div class="del-row"><div class="del-av">D2</div><div class="del-info"><div class="del-n">Delivery 2</div><div class="del-r">Zona norte · Lun a Sáb</div></div><div class="del-status" style="color:var(--grn)">En ruta · 10 entregas</div></div>
+    <div class="card" style="margin-top:8px"><div class="ct">Costos delivery</div>
+      <div class="fin-row"><div class="fn">Sueldo mínimo × 2</div><div class="fa neu">+2.800.000 Gs/mes</div></div>
+      <div class="fin-row"><div class="fn">Viáticos 30.000 Gs/día × 2</div><div class="fa neu">+1.560.000 Gs/mes</div></div>
+      <div class="fin-row"><div class="fn">Mantenimiento moto × 2</div><div class="fa neu">+200.000 Gs/mes</div></div>
+      <div class="fin-row"><div class="fn">Combustible estimado</div><div class="fa neu">+600.000 Gs/mes</div></div>
+    </div>
+  </div>
+  <div id="log-stk" class="tc">
+    <div class="card"><div class="ct">Stock crítico (menos de 30 unidades)</div>
+      <div class="row"><div class="rn">Serum Vitamina C 30ml</div><div class="tag tr">12u · Reponer hoy</div></div>
+      <div class="row"><div class="rn">Rizos Lala Champú 500ml</div><div class="tag ta">28u · Alerta</div></div>
+    </div>
+    <div class="card"><div class="ct">Stock normal</div>
+      <div class="row"><div class="rn">Bendita Crema Facial 50ml</div><div class="tag tg">145u</div></div>
+      <div class="row"><div class="rn">Dr. Asian Tónico</div><div class="tag tg">89u</div></div>
+      <div class="row"><div class="rn">Mel Beauty Serum</div><div class="tag tg">67u</div></div>
+    </div>
+    <div class="pn-note">Stock en tiempo real → requiere Windsor + Shopify conectados</div>
+  </div>
+  <div id="log-trk" class="tc">
+    <div class="card"><div class="ct">Pedidos en camino — hoy</div>
+      <div class="row"><div class="rn">#10482 · Ana González</div><div class="tag tg">Entregado 11am</div></div>
+      <div class="row"><div class="rn">#10483 · María López</div><div class="tag tg">Entregado 12pm</div></div>
+      <div class="row"><div class="rn">#10490 · Claudia Martínez</div><div class="tag ta">En camino · ETA 3pm</div></div>
+      <div class="row"><div class="rn">#10491 · Rosa Benítez</div><div class="tag ta">En camino · ETA 4pm</div></div>
+      <div class="row"><div class="rn">#10495 · Patricia Gómez</div><div class="tag tgr">Pendiente despacho</div></div>
+    </div>
+    <div class="pn-note">Tracking en tiempo real → requiere integración GPS delivery o app móvil</div>
+  </div>
+</div>
+
+<!-- ORGANIGRAMA -->
+<div id="panel-org" class="pn">
+  <div class="ph">Organigrama <span class="phs">estructura y líneas de reporte</span></div>
+  <div class="org-tree">
+    <div><div class="org-root-node">Mel Núñez Honzi · Fundadora / Directorio</div></div>
+    <div class="org-connector-v"></div>
+    <div><div class="org-ceo-node">CEO Grupo Blondas · Agente IA<br><span style="font-size:8px;font-weight:400;font-family:Montserrat;text-transform:none">Reporta a: Mel · Coordina: 7 gerentes</span></div></div>
+    <div class="org-connector-v"></div>
+    <div class="org-h-line"></div>
+    <div class="org-level">
+      <div class="org-node-sm"><div class="org-n">Comercial</div><div class="org-r">IA + 6 humanos</div><div class="org-rep">↑ CEO</div></div>
+      <div class="org-node-sm"><div class="org-n">Marketing</div><div class="org-r">IA + Sofía, Hugo, Dahiana</div><div class="org-rep">↑ CEO</div></div>
+      <div class="org-node-sm"><div class="org-n">Operaciones</div><div class="org-r">IA + Oscar + 2 del.</div><div class="org-rep">↑ CEO</div></div>
+      <div class="org-node-sm"><div class="org-n">Financiero</div><div class="org-r">Híbrido · Víctor, Yenifer</div><div class="org-rep">↑ CEO</div></div>
+    </div>
+    <div class="org-level" style="margin-top:5px">
+      <div class="org-node-sm"><div class="org-n">CLEO</div><div class="org-r">IA + emprendedoras</div><div class="org-rep">↑ CEO</div></div>
+      <div class="org-node-sm"><div class="org-n">Tecnología</div><div class="org-r">IA · 4 sub-ag.</div><div class="org-rep">↑ CEO</div></div>
+      <div class="org-node-sm"><div class="org-n">Nuevos Neg.</div><div class="org-r">IA</div><div class="org-rep">↑ CEO</div></div>
+      <div class="org-node-sm"><div class="org-n">Labs I+D</div><div class="org-r">IA + fábrica</div><div class="org-rep">↑ CEO</div></div>
+    </div>
+    <div style="margin-top:8px;font-size:9px;color:var(--t3);font-weight:500">Sub-agentes directos CEO: RRHH y Talento · Marca Personal Mel</div>
+  </div>
+</div>
+
+<!-- DOCUMENTOS -->
+<div id="panel-docs" class="pn">
+  <div class="ph">Documentos</div>
+  <div class="tabs">
+    <button class="tab on" onclick="st('dc','rrhh',this)">RRHH</button>
+    <button class="tab" onclick="st('dc','ops',this)">Ventas/Ops</button>
+    <button class="tab" onclick="st('dc','fin',this)">Finanzas</button>
+    <button class="tab" onclick="st('dc','legal',this)">Legal PY</button>
+  </div>
+  <div id="dc-rrhh" class="tc on">
+    <div class="card"><div class="ct">Recursos Humanos</div>
+      <div class="row"><div class="rn">📄 Solicitud de permiso de ausencia</div><button class="btng" style="font-size:9px;padding:2px 7px">Descargar</button></div>
+      <div class="row"><div class="rn">📄 Solicitud de vacaciones</div><button class="btng" style="font-size:9px;padding:2px 7px">Descargar</button></div>
+      <div class="row"><div class="rn">📄 Contrato laboral estándar PY</div><button class="btng" style="font-size:9px;padding:2px 7px">Descargar</button></div>
+      <div class="row"><div class="rn">📄 Evaluación de desempeño mensual</div><button class="btng" style="font-size:9px;padding:2px 7px">Descargar</button></div>
+      <div class="row"><div class="rn">📄 Plan de mejora de rendimiento</div><button class="btng" style="font-size:9px;padding:2px 7px">Descargar</button></div>
+      <div class="row"><div class="rn">📄 Política de conducta interna</div><button class="btng" style="font-size:9px;padding:2px 7px">Descargar</button></div>
+    </div>
+  </div>
+  <div id="dc-ops" class="tc">
+    <div class="card"><div class="ct">Ventas y Operaciones</div>
+      <div class="row"><div class="rn">📋 Script de ventas WhatsApp</div><button class="btnv" style="font-size:9px;padding:2px 7px">Ver</button></div>
+      <div class="row"><div class="rn">📋 Mapa del recorrido del cliente</div><button class="btnv" style="font-size:9px;padding:2px 7px">Ver</button></div>
+      <div class="row"><div class="rn">📋 Proceso de despacho</div><button class="btnv" style="font-size:9px;padding:2px 7px">Ver</button></div>
+      <div class="row"><div class="rn">📋 Política de devoluciones</div><button class="btnv" style="font-size:9px;padding:2px 7px">Ver</button></div>
+      <div class="row"><div class="rn">📋 Manual de atención al cliente</div><button class="btnv" style="font-size:9px;padding:2px 7px">Ver</button></div>
+      <div class="row"><div class="rn">📋 Guía de empaque y etiquetado</div><button class="btnv" style="font-size:9px;padding:2px 7px">Ver</button></div>
+    </div>
+  </div>
+  <div id="dc-fin" class="tc">
+    <div class="card"><div class="ct">Finanzas y Contabilidad</div>
+      <div class="row"><div class="rn">📊 Planilla de gastos mensual</div><button class="btng" style="font-size:9px;padding:2px 7px">Drive</button></div>
+      <div class="row"><div class="rn">📊 Formato de rendición de gastos</div><button class="btng" style="font-size:9px;padding:2px 7px">Drive</button></div>
+      <div class="row"><div class="rn">📊 Template P&L mensual</div><button class="btng" style="font-size:9px;padding:2px 7px">Drive</button></div>
+      <div class="row"><div class="rn">📊 Factura modelo comercial</div><button class="btng" style="font-size:9px;padding:2px 7px">Drive</button></div>
+    </div>
+  </div>
+  <div id="dc-legal" class="tc">
+    <div class="card"><div class="ct">Legal Paraguay</div>
+      <div class="row"><div class="rn">⚖️ Estatuto social Grupo Blondas</div><div class="tag tgr">Privado</div></div>
+      <div class="row"><div class="rn">⚖️ Términos y condiciones Shopify</div><button class="btnout" style="font-size:9px;padding:2px 7px">Ver</button></div>
+      <div class="row"><div class="rn">⚖️ Política de privacidad CLEO</div><button class="btnout" style="font-size:9px;padding:2px 7px">Ver</button></div>
+      <div class="row"><div class="rn">⚖️ Contrato de distribución mayoristas</div><button class="btnout" style="font-size:9px;padding:2px 7px">Ver</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ACADEMIA -->
+<div id="panel-academia" class="pn">
+  <div class="ph">Universidad Blondas</div>
+  <div class="tabs">
+    <button class="tab on" onclick="st('ac','n1',this)">Equipo interno</button>
+    <button class="tab" onclick="st('ac','n2',this)">CLEO</button>
+    <button class="tab" onclick="st('ac','n3',this)">Público</button>
+  </div>
+  <div id="ac-n1" class="tc on">
+    <div class="hc"><div class="hct">Bienvenida de Mel — video obligatorio</div><div class="hcb">Cada empleado nuevo empieza acá. Jefes de área suben sus módulos con video, PDF y texto. Cada módulo tiene cuestionario de evaluación.</div></div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px">
+      <div class="cc"><div class="cico">🎥</div><div class="cn">Bienvenida de Mel</div><div class="cd">Video personal. Misión, visión y cultura Blondas.</div><div class="cpb"><div class="cpp" style="width:100%"></div></div><div class="cm"><span>Video + PDF</span><span style="color:var(--grn)">Obligatorio</span></div></div>
+      <div class="cc"><div class="cico">🌟</div><div class="cn">Cultura Blondas</div><div class="cd">Valores, forma de trabajo, expectativas.</div><div class="cpb"><div class="cpp" style="width:100%"></div></div><div class="cm"><span>3 módulos + quiz</span><span style="color:var(--grn)">Obligatorio</span></div></div>
+      <div class="cc"><div class="cico">🗺️</div><div class="cn">Mapa del cliente</div><div class="cd">Descubrimiento → compra → fidelización.</div><div class="cpb"><div class="cpp" style="width:60%"></div></div><div class="cm"><span>3 módulos</span><span>60%</span></div></div>
+      <div class="cc"><div class="cico">💄</div><div class="cn">Productos Blondas</div><div class="cd">Ingredientes, beneficios y cómo vender.</div><div class="cpb"><div class="cpp" style="width:100%"></div></div><div class="cm"><span>4 + quiz</span><span style="color:var(--grn)">Completo</span></div></div>
+      <div class="cc"><div class="cico">📊</div><div class="cn">KPIs y métricas</div><div class="cd">Leer dashboards y tomar decisiones.</div><div class="cpb"><div class="cpp" style="width:80%"></div></div><div class="cm"><span>4 módulos</span><span>80%</span></div></div>
+      <div class="cc"><div class="cico">🤖</div><div class="cn">Blondas OS · Tutorial</div><div class="cd">Cómo usar la plataforma y los agentes IA.</div><div class="cpb"><div class="cpp" style="width:20%"></div></div><div class="cm"><span>2 módulos</span><span>20%</span></div></div>
+    </div>
+  </div>
+  <div id="ac-n2" class="tc">
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px">
+      <div class="cc"><div class="cico">💬</div><div class="cn">Vender por WhatsApp</div><div class="cd">Script, objeciones y cierre para emprendedoras.</div><div class="cpb"><div class="cpp" style="width:70%"></div></div><div class="cm"><span>5 + quiz</span><span>70%</span></div></div>
+      <div class="cc"><div class="cico">💰</div><div class="cn">Comisiones CLEO</div><div class="cd">Star, Pro, Mentora, Embajadora y niveles.</div><div class="cpb"><div class="cpp" style="width:100%"></div></div><div class="cm"><span>2 módulos</span><span style="color:var(--grn)">Completo</span></div></div>
+      <div class="cc"><div class="cico">📱</div><div class="cn">Redes para vender</div><div class="cd">IG, FB y TikTok para conseguir clientes.</div><div class="cpb"><div class="cpp" style="width:40%"></div></div><div class="cm"><span>6 módulos</span><span>40%</span></div></div>
+      <div class="cc"><div class="cico">🌟</div><div class="cn">Productos en profundidad</div><div class="cd">Para qué sirve cada producto y cómo recomendar.</div><div class="cpb"><div class="cpp" style="width:90%"></div></div><div class="cm"><span>4 módulos</span><span>90%</span></div></div>
+    </div>
+  </div>
+  <div id="ac-n3" class="tc">
+    <div class="hc"><div class="hct">Nivel 3 · Público general · En construcción</div><div class="hcb">Cursos de estética, peluquería, uñas, rizos y emprendimiento. Cada módulo acepta video, PDF y texto. Gestionado por Nuevos Negocios.</div></div>
+  </div>
+</div>
+
+<!-- LABS -->
+<div id="panel-labs" class="pn">
+  <div class="ph">Blondas Labs <span class="phs">I+D · Fábrica · Pedidos</span></div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">PRODUCCIÓN</div><div class="kcv">100%</div><div class="kcd up-c">en fecha</div></div>
+    <div class="kc"><div class="kcl">MERMAS</div><div class="kcv">3.2%</div><div class="kcd up-c">&lt;5% ok</div></div>
+    <div class="kc"><div class="kcl">PENDIENTES</div><div class="kcv">3</div><div class="kcd wn-c">entregas</div></div>
+    <div class="kc"><div class="kcl">I+D ACTIVOS</div><div class="kcv">3</div><div class="kcd up-c">proyectos</div></div>
+  </div>
+  <div class="tabs">
+    <button class="tab on" onclick="st('lb','ord',this)">Pedidos</button>
+    <button class="tab" onclick="st('lb','pend',this)">Pendientes</button>
+    <button class="tab" onclick="st('lb','id',this)">I+D Pipeline</button>
+    <button class="tab" onclick="st('lb','tend',this)">Tendencias</button>
+  </div>
+  <div id="lb-ord" class="tc on">
+    <div class="card"><div class="ct">Órdenes de producción activas</div>
+      <div class="row"><div class="rn">Rizos Lala Champú 500ml · 200u</div><div class="tag tg">En proceso</div></div>
+      <div class="row"><div class="rn">Bendita Crema Facial 50ml · 150u</div><div class="tag ta">Programado</div></div>
+      <div class="row"><div class="rn">Serum Vitamina C 30ml · 100u</div><div class="tag tr">URGENTE</div></div>
+      <div class="row"><div class="rn">Dr. Asian Tónico 100ml · 80u</div><div class="tag tb-t">Próxima semana</div></div>
+    </div>
+    <button class="btnout" style="width:100%;margin-top:2px">+ Nueva orden de producción</button>
+  </div>
+  <div id="lb-pend" class="tc">
+    <div class="card"><div class="ct">Pendientes de entrega a depósito</div>
+      <div class="row"><div class="rn">Lote Rizos Lala 200u · producción viernes</div><div class="tag ta">Pendiente entrega</div></div>
+      <div class="row"><div class="rn">Muestras Serum Barrera · 20u</div><div class="tag ta">Esta semana</div></div>
+      <div class="row"><div class="rn">Nuevo empaque Bendita Tu Eres</div><div class="tag tgr">Aprobación Mel</div></div>
+    </div>
+    <div class="card"><div class="ct">Stock de insumos críticos</div>
+      <div class="row"><div class="rn">Envases 30ml (vitamina C)</div><div class="tag tr">Stock bajo · Pedir hoy</div></div>
+      <div class="row"><div class="rn">Tapas bomba 500ml</div><div class="tag tg">Stock ok · 400u</div></div>
+      <div class="row"><div class="rn">Cajas kraft personalizadas</div><div class="tag ta">250u · Pedir esta semana</div></div>
+    </div>
+  </div>
+  <div id="lb-id" class="tc">
+    <div class="hc"><div class="hct">Pipeline I+D · 4 etapas</div><div class="hcb">Idea → Fórmula → Prototipo → Aprobado → Lanzamiento</div></div>
+    <div class="card"><div class="ct">Productos en desarrollo</div>
+      <div class="row"><div class="rn">Serum barrera con ceramidas</div><div class="tag ta">Fórmula · etapa 2</div></div>
+      <div class="row"><div class="rn">Gloss vegano Mel Beauty</div><div class="tag tb-t">Prototipo · etapa 3</div></div>
+      <div class="row"><div class="rn">Champú Rizos Lala Pro sin sulfatos</div><div class="tag tg">Aprobado · etapa 4</div></div>
+      <div class="row"><div class="rn">Crema aclarante corporal</div><div class="tag tgr">Idea · etapa 1</div></div>
+    </div>
+  </div>
+  <div id="lb-tend" class="tc">
+    <div class="card"><div class="ct">Tendencias semana 15 · 8 investigadas</div>
+      <div class="row"><div class="rn">🌍 Barrier skin care · ceramidas</div><div class="tag ta">Mundial</div></div>
+      <div class="row"><div class="rn">🇧🇷 Gloss labial vegano · +340% Shopee</div><div class="tag tb-t">Brasil</div></div>
+      <div class="row"><div class="rn">🌎 Rizos sin sulfatos 2.0</div><div class="tag tg">LATAM</div></div>
+      <div class="row"><div class="rn">🇵🇾 Crema aclarante corporal</div><div class="tag tg">Paraguay</div></div>
+      <div class="row"><div class="rn">🌍 Retinol encapsulado low-cost</div><div class="tag ta">Mundial</div></div>
+      <div class="row"><div class="rn">🇧🇷 Kit curly girl minimalista</div><div class="tag tb-t">Brasil</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- NUEVOS NEGOCIOS -->
+<div id="panel-ideas" class="pn">
+  <div class="ph">Nuevos Negocios <span class="phs">oportunidades · internacionalización</span></div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">OPORTUNIDADES</div><div class="kcv">5</div><div class="kcd up-c">identificadas</div></div>
+    <div class="kc"><div class="kcl">EN ANÁLISIS</div><div class="kcv">2</div></div>
+    <div class="kc"><div class="kcl">VALIDADAS</div><div class="kcv">1</div><div class="kcd up-c">CLEO LATAM</div></div>
+    <div class="kc"><div class="kcl">MERCADOS</div><div class="kcv">3</div><div class="kcd wn-c">evaluando</div></div>
+  </div>
+  <div class="opp-card">
+    <div class="opp-header">
+      <span class="opp-stage" style="background:#e8f5e9;color:#1b5e20">VALIDADO</span>
+      <div class="opp-name">CLEO replicable · Argentina / Chile</div>
+    </div>
+    <div class="opp-meta">
+      <div class="opp-m"><div class="opp-mv">2M USD</div><div class="opp-ml">Mercado est.</div></div>
+      <div class="opp-m"><div class="opp-mv">3.2x</div><div class="opp-ml">ROI 3 años</div></div>
+      <div class="opp-m"><div class="opp-mv">Q4 2026</div><div class="opp-ml">Deadline</div></div>
+    </div>
+  </div>
+  <div class="opp-card">
+    <div class="opp-header">
+      <span class="opp-stage" style="background:#fff3e0;color:#bf360c">ANÁLISIS</span>
+      <div class="opp-name">Universidad Blondas Nivel 3 · Público</div>
+    </div>
+    <div class="opp-meta">
+      <div class="opp-m"><div class="opp-mv">500k Gs</div><div class="opp-ml">Inversión est.</div></div>
+      <div class="opp-m"><div class="opp-mv">2.8x</div><div class="opp-ml">ROI 2 años</div></div>
+      <div class="opp-m"><div class="opp-mv">Q3 2026</div><div class="opp-ml">Lanzamiento</div></div>
+    </div>
+  </div>
+  <div class="opp-card">
+    <div class="opp-header">
+      <span class="opp-stage" style="background:#e8eaf6;color:#283593">EVALUANDO</span>
+      <div class="opp-name">Distribución propia · Sin mayoristas</div>
+    </div>
+    <div class="opp-meta">
+      <div class="opp-m"><div class="opp-mv">15%</div><div class="opp-ml">Margen extra</div></div>
+      <div class="opp-m"><div class="opp-mv">Alto</div><div class="opp-ml">Riesgo</div></div>
+      <div class="opp-m"><div class="opp-mv">2027</div><div class="opp-ml">Horizonte</div></div>
+    </div>
+  </div>
+  <div class="opp-card">
+    <div class="opp-header">
+      <span class="opp-stage" style="background:var(--bg);color:var(--t3)">IDEA</span>
+      <div class="opp-name">Serie A prep · Investor deck</div>
+    </div>
+    <div class="opp-meta">
+      <div class="opp-m"><div class="opp-mv">500k USD</div><div class="opp-ml">Objetivo</div></div>
+      <div class="opp-m"><div class="opp-mv">2028</div><div class="opp-ml">Horizonte</div></div>
+      <div class="opp-m"><div class="opp-mv">3 países</div><div class="opp-ml">Pre-requisito</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- VISTAS POR ROL -->
+<div id="panel-jvt" class="pn">
+  <div class="ph">Ventas Admin <span class="phs">Melisa · Vista jefa de equipo</span></div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">EQUIPO</div><div class="kcv">6</div></div>
+    <div class="kc"><div class="kcl">VENTAS HOY</div><div class="kcv">11.2M</div><div class="kcd up-c">↑ 8%</div></div>
+    <div class="kc"><div class="kcl">META MES %</div><div class="kcv">38%</div><div class="kcd wn-c">14/30</div></div>
+    <div class="kc"><div class="kcl">ALERTAS</div><div class="kcv">2</div><div class="kcd dn-c">equipo</div></div>
+  </div>
+  <div class="card"><div class="ct">Ranking equipo</div>
+    <div class="row"><div class="rn">Melisa (yo)</div><div style="font-size:10px;font-weight:700;color:var(--grn)">42.5M · 1°</div></div>
+    <div class="row"><div class="rn">Sofía</div><div style="font-size:10px;font-weight:700;color:var(--grn)">38.2M · 2°</div></div>
+    <div class="row"><div class="rn">Noelia</div><div style="font-size:10px;font-weight:700;color:#e67e22">29.1M · 3°</div></div>
+    <div class="row"><div class="rn">Sayla</div><div style="font-size:10px;font-weight:700;color:#e67e22">21.8M · 4°</div></div>
+    <div class="row"><div class="rn">Cecilio ⚠</div><div style="font-size:10px;font-weight:700;color:#e74c3c">Plan mejora</div></div>
+    <div class="row"><div class="rn">Luis ⚠</div><div style="font-size:10px;font-weight:700;color:#e74c3c">Plan mejora</div></div>
+  </div>
+</div>
+
+<div id="panel-vvt" class="pn">
+  <div class="ph">Mis ventas <span class="phs">dashboard individual</span></div>
+  <div class="vmc">
+    <div class="kcl">MI META DEL MES</div>
+    <div style="font-family:'Darrell',sans-serif;font-size:22px;color:var(--brand);margin:5px 0">42.5M / 60.000.000 Gs</div>
+    <div style="height:8px;background:var(--bg);border-radius:4px;margin:7px 0;overflow:hidden"><div style="height:100%;width:71%;background:var(--brand);border-radius:4px"></div></div>
+    <div style="font-size:10px;color:var(--t2);font-weight:600">71% · Necesitás 1.250.000 Gs/día para llegar</div>
+  </div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">HOY</div><div class="kcv">1.8M</div><div class="kcd up-c">↑ meta</div></div>
+    <div class="kc"><div class="kcl">SEMANA</div><div class="kcv">8.4M</div><div class="kcd up-c">buen ritmo</div></div>
+    <div class="kc"><div class="kcl">COMISIÓN</div><div class="kcv">2.1M</div><div class="kcd up-c">acumulada</div></div>
+    <div class="kc"><div class="kcl">BONO META</div><div class="kcv">+500k</div><div class="kcd wn-c">si llegás</div></div>
+  </div>
+</div>
+
+<div id="panel-jmkt" class="pn">
+  <div class="ph">Marketing Admin <span class="phs">Sofía · Vista jefa MKT</span></div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">ROAS HOY</div><div class="kcv">2.4x</div><div class="kcd up-c">↑ meta 2x</div></div>
+    <div class="kc"><div class="kcl">INVERSIÓN</div><div class="kcv">18.5M</div><div class="kcd wn-c">de 30M</div></div>
+    <div class="kc"><div class="kcl">CAMPAÑAS</div><div class="kcv">3</div><div class="kcd wn-c">activas</div></div>
+    <div class="kc"><div class="kcl">ALERTA</div><div class="kcv">1</div><div class="kcd dn-c">Frío 0.9x</div></div>
+  </div>
+  <div class="card"><div class="ct">Tablero campañas equipo</div>
+    <div class="row"><div class="rn">Retargeting</div><div class="tag tg">ROAS 4.1x ✓</div></div>
+    <div class="row"><div class="rn">Tibio · Intereses belleza PY</div><div class="tag ta">ROAS 2.1x</div></div>
+    <div class="row"><div class="rn">Frío · Lookalike 2%</div><div class="tag tr">ROAS 0.9x ⚠ Pausar</div></div>
+  </div>
+</div>
+
+<div id="panel-vmkt" class="pn">
+  <div class="ph">Marketing <span class="phs">equipo operativo</span></div>
+  <div class="card"><div class="ct">Mis tareas hoy</div>
+    <div class="row"><div class="rn">Subir creativo UGC Bendita</div><div class="tag ta">Hoy</div></div>
+    <div class="row"><div class="rn">Revisar copy Dr. Asian</div><div class="tag ta">Hoy</div></div>
+    <div class="row"><div class="rn">Propuesta copy Día de la Madre</div><div class="tag tgr">Esta semana</div></div>
+  </div>
+</div>
+
+<div id="panel-jfin" class="pn">
+  <div class="ph">Finanzas <span class="phs">Víctor · Vista jefe</span></div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">CAJA</div><div class="kcv">45.2M</div><div class="kcd dn-c">1.8 sem.</div></div>
+    <div class="kc"><div class="kcl">RESULTADO</div><div class="kcv">-23.8M</div><div class="kcd dn-c">negativo</div></div>
+    <div class="kc"><div class="kcl">COBRANZAS</div><div class="kcv">2</div><div class="kcd dn-c">pendientes</div></div>
+    <div class="kc"><div class="kcl">X PAGAR</div><div class="kcv">12.8M</div><div class="kcd dn-c">esta sem.</div></div>
+  </div>
+</div>
+
+<div id="panel-jops" class="pn">
+  <div class="ph">Operaciones <span class="phs">Oscar · Jefe depósito</span></div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">PEDIDOS</div><div class="kcv">68</div></div>
+    <div class="kc"><div class="kcl">DESPACHADOS</div><div class="kcv">64</div><div class="kcd up-c">94%</div></div>
+    <div class="kc"><div class="kcl">PENDIENTES</div><div class="kcv">4</div><div class="kcd wn-c">hoy</div></div>
+    <div class="kc"><div class="kcl">STOCK CRÍTICO</div><div class="kcv">2 SKU</div><div class="kcd dn-c">⚠</div></div>
+  </div>
+</div>
+
+<div id="panel-jcleo" class="pn">
+  <div class="ph">CLEO Admin <span class="phs">Vista jefa emprendedoras</span></div>
+  <div class="g4">
+    <div class="kc"><div class="kcl">ACTIVAS</div><div class="kcv">24</div><div class="kcd dn-c">meta 300</div></div>
+    <div class="kc"><div class="kcl">DORMIDAS</div><div class="kcv">21</div><div class="kcd dn-c">contactar</div></div>
+    <div class="kc"><div class="kcl">PORTAL</div><div class="kcv">55%</div><div class="kcd dn-c">16 días</div></div>
+    <div class="kc"><div class="kcl">KITS/MES</div><div class="kcv">3</div></div>
+  </div>
+</div>
+
+<div id="panel-vcleo" class="pn">
+  <div class="ph">CLEO <span class="phs">mi cuenta de emprendedora</span></div>
+  <div class="hc"><div class="hct">Portal CLEO — Lanzamiento 30 abril</div><div class="hcb">Tu cuenta completa estará disponible cuando el portal lance. Por ahora podés ver tus ventas y comisiones acá.</div></div>
+  <div class="g2">
+    <div class="kc"><div class="kcl">MIS VENTAS</div><div class="kcv">450k Gs</div><div class="kcd up-c">este mes</div></div>
+    <div class="kc"><div class="kcl">MI COMISIÓN</div><div class="kcv">135k Gs</div><div class="kcd up-c">30% markup</div></div>
+  </div>
+  <button class="btng" style="width:100%;font-size:11px">Contactar mentora · WhatsApp ↗</button>
+</div>
+
+<!-- FOOTER (nueva imagen) -->
+<div class="footer">
+  <a href="https://blondas.com.py" target="_blank">
+    <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS_2026_MANUAL_DE_MARCA_1.png?v=1776205444" alt="Blondas Manual de Marca 2026" onerror="this.style.background='var(--bd)';this.style.height='80px'">
+  </a>
+  <div class="footer-link">blondas.com.py</div>
+</div>
+
+</div><!-- cnt -->
+</div><!-- lay -->
+</div><!-- app -->
+
+<script>
+var curRole='';
+var salaAg='';
+var roleCfg={
+  mel:{av:'ML',name:'Mel Núñez',role:'CEO · Directorio · Salir',def:'dash',sbID:'sb-mel'},
+  jvt:{av:'ME',name:'Melisa García',role:'Jefa Ventas · Salir',def:'jvt',sbID:'sb-role',sub:['jvt','okrs','academia','salas'],lbl:['Mi equipo','KPIs','Academia','Chat gerente']},
+  jmkt:{av:'SF',name:'Sofía López',role:'Jefa Marketing · Salir',def:'jmkt',sbID:'sb-role',sub:['jmkt','okrs','academia','salas'],lbl:['Dashboard MKT','KPIs','Academia','Chat gerente']},
+  jfin:{av:'VI',name:'Víctor Pérez',role:'Jefe Finanzas · Salir',def:'jfin',sbID:'sb-role',sub:['jfin','finanzas','academia','salas'],lbl:['Dashboard Fin.','Finanzas','Academia','Chat']},
+  jops:{av:'OS',name:'Oscar Díaz',role:'Jefe Operaciones · Salir',def:'jops',sbID:'sb-role',sub:['jops','logistica','academia','salas'],lbl:['Dashboard Ops','Logística','Academia','Chat']},
+  jcleo:{av:'CL',name:'Jefa CLEO',role:'Admin CLEO · Salir',def:'jcleo',sbID:'sb-role',sub:['jcleo','okrs','academia','salas'],lbl:['Dashboard CLEO','KPIs','Academia','Chat']},
+  vt:{av:'VT',name:'Vendedora',role:'Equipo Ventas · Salir',def:'vvt',sbID:'sb-role',sub:['vvt','academia','salas','okrs'],lbl:['Mis ventas','Academia','Chat gerente','Mis KPIs']},
+  mkt:{av:'MK',name:'Equipo MKT',role:'Marketing · Salir',def:'vmkt',sbID:'sb-role',sub:['vmkt','academia','salas','okrs'],lbl:['Mis tareas','Academia','Chat gerente','Mis KPIs']},
+  fin:{av:'YE',name:'Yenifer',role:'Tesorería · Salir',def:'jfin',sbID:'sb-role',sub:['jfin','finanzas','academia','salas'],lbl:['Tesorería','Finanzas','Academia','Chat']},
+  ops:{av:'DL',name:'Delivery',role:'Operativo · Salir',def:'jops',sbID:'sb-role',sub:['jops','logistica','academia','salas'],lbl:['Mis entregas','Logística','Academia','Chat']},
+  labs:{av:'LB',name:'Equipo Labs',role:'Fábrica · Salir',def:'labs',sbID:'sb-role',sub:['labs','academia','salas','okrs'],lbl:['Labs I+D','Academia','Chat','KPIs']},
+  cleo:{av:'EM',name:'Emprendedora',role:'CLEO · Salir',def:'vcleo',sbID:'sb-role',sub:['vcleo','academia','salas','okrs'],lbl:['Mi cuenta','Academia','Chat','KPIs']}
+};
+
+function doLogin(){
+  var r=document.getElementById('lr').value;
+  if(!r){alert('Seleccioná tu perfil para ingresar');return;}
+  curRole=r;
+  var c=roleCfg[r];
+  document.getElementById('ls').style.display='none';
+  document.getElementById('topbar').style.display='flex';
+  document.getElementById('lay').style.display='flex';
+  document.getElementById('uav').textContent=c.av;
+  document.getElementById('uname').textContent=c.name;
+  document.getElementById('urole').textContent=c.role;
+  var sbm=document.getElementById('sb-mel');
+  var sbr=document.getElementById('sb-role');
+  if(r==='mel'){sbm.style.display='block';sbr.style.display='none';}
+  else{
+    sbm.style.display='none';sbr.style.display='block';
+    document.getElementById('rll').textContent=c.name.split(' ')[0];
+    if(c.lbl)for(var i=1;i<=4;i++)document.getElementById('rn'+i).textContent=c.lbl[i-1];
+  }
+  document.querySelectorAll('.pn').forEach(function(p){p.classList.remove('on');});
+  showP(c.def);
+  document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('on');});
+  if(r!=='mel'){var ni=document.getElementById('rni1');if(ni)ni.classList.add('on');}
+}
+
+function doLogout(){
+  if(!confirm('¿Cerrar sesión?'))return;
+  document.getElementById('ls').style.display='flex';
+  document.getElementById('topbar').style.display='none';
+  document.getElementById('lay').style.display='none';
+  document.getElementById('lr').value='';
+  curRole='';
+}
+
+function showRolePanel(idx){
+  var c=roleCfg[curRole];
+  if(!c||!c.sub)return;
+  document.querySelectorAll('.pn').forEach(function(p){p.classList.remove('on');});
+  showP(c.sub[idx]);
+  document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('on');});
+  var el=document.getElementById('rni'+(idx+1));
+  if(el)el.classList.add('on');
+}
+
+function showP(id,btn){
+  document.querySelectorAll('.pn').forEach(function(p){p.classList.remove('on');});
+  var el=document.getElementById('panel-'+id);
+  if(el)el.classList.add('on');
+  if(btn){document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('on');});btn.classList.add('on');}
+  // scroll to top
+  var cnt=document.getElementById('cnt');
+  if(cnt)cnt.scrollTop=0;
+}
+
+function st(grp,tab,btn){
+  var prefix=grp+'-';
+  document.querySelectorAll('[id^="'+prefix+'"]').forEach(function(c){c.classList.remove('on');});
+  var el=document.getElementById(prefix+tab);
+  if(el)el.classList.add('on');
+  var pp=btn.closest('.pn');
+  if(pp)pp.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});
+  btn.classList.add('on');
+}
+
+function openS(){document.getElementById('so').classList.add('open');setTimeout(function(){var i=document.getElementById('si');if(i)i.focus();},80);}
+function cS(e){if(!e||e.target===document.getElementById('so'))document.getElementById('so').classList.remove('open');}
+
+function doSearch(q){
+  var r=document.getElementById('sr');
+  var items=[
+    {id:'dash',n:'Dashboard CEO',s:'Comando'},{id:'juntas',n:'Sala de juntas',s:'Comando'},
+    {id:'bi',n:'Business Intelligence',s:'Analytics'},{id:'okrs',n:'KPIs / OKRs por departamento',s:'Analytics'},
+    {id:'finanzas',n:'Finanzas · P&L · Caja',s:'Analytics'},{id:'alertas',n:'Alertas activas',s:'Analytics'},
+    {id:'agenda',n:'Agenda · Calendar',s:'Empresa'},{id:'proyectos',n:'Proyectos y campañas',s:'Empresa'},
+    {id:'rrhh',n:'RRHH · Legajos',s:'Empresa'},{id:'logistica',n:'Logística · Depósito · Delivery',s:'Empresa'},
+    {id:'org',n:'Organigrama',s:'Empresa'},{id:'docs',n:'Documentos',s:'Empresa'},
+    {id:'academia',n:'Universidad Blondas',s:'Crecimiento'},{id:'labs',n:'Labs I+D',s:'Crecimiento'},
+    {id:'ideas',n:'Nuevos Negocios',s:'Crecimiento'}
+  ];
+  if(!q.trim()){
+    r.innerHTML='<div class="sr-lbl">Módulos</div>'+items.map(function(i){return '<div class="sri" onclick="gS(\''+i.id+'\')"><div class="sri-i">⬛</div><div><div class="sri-n">'+i.n+'</div><div class="sri-s">'+i.s+'</div></div></div>';}).join('');
+    return;
+  }
+  var f=items.filter(function(i){return i.n.toLowerCase().includes(q.toLowerCase())||i.s.toLowerCase().includes(q.toLowerCase());});
+  r.innerHTML=f.length?'<div class="sr-lbl">Resultados</div>'+f.map(function(i){return '<div class="sri" onclick="gS(\''+i.id+'\')"><div class="sri-i">⬛</div><div><div class="sri-n">'+i.n+'</div><div class="sri-s">'+i.s+'</div></div></div>';}).join(''):'<div style="padding:16px;text-align:center;font-size:11px;color:var(--t3)">Sin resultados</div>';
+}
+
+function gS(id){cS();showP(id);document.querySelectorAll('.ni').forEach(function(n){if(n.getAttribute('onclick')&&n.getAttribute('onclick').includes("'"+id+"'"))n.classList.add('on');});}
+
+function sc(type){
+  var iid=type==='j'?'ji':'si-chat';
+  var cid=type==='j'?'jchat':'schat';
+  var inp=document.getElementById(iid);
+  var txt=inp.value.trim();if(!txt)return;
+  var chat=document.getElementById(cid);
+  chat.innerHTML+='<div class="cb cbm"><div class="cbw">MEL</div>'+txt+'</div>';
+  var who=type==='j'?'CEO':salaAg.toUpperCase();
+  chat.innerHTML+='<div class="cb cba"><div class="cbw">'+who+'</div>Recibido. Prototipo — respuesta real con Railway + API Anthropic.</div>';
+  inp.value='';chat.scrollTop=chat.scrollHeight;
+}
+
+function aS(nombre,cod,el){
+  salaAg=nombre;
+  document.getElementById('sbox').style.display='block';
+  document.getElementById('stit').textContent='Sala privada — '+nombre;
+  document.querySelectorAll('.agcard').forEach(function(c){c.classList.remove('sel');});
+  el.classList.add('sel');
+  var c=document.getElementById('schat');
+  c.innerHTML='<div class="cb cba"><div class="cbw">'+cod+'</div>Sala activa. ¿Qué necesitás, Mel?</div>';
+}
+
+function spv(view,btn){
+  document.getElementById('pv-board').style.display=view==='board'?'block':'none';
+  document.getElementById('pv-list').style.display=view==='list'?'block':'none';
+  document.querySelectorAll('.pj-vb').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+}
+
+function loadLegajo(v){
+  var box=document.getElementById('legajo-box');
+  var data={
+    'mel-s':{n:'Melisa García',r:'Supervisora Ventas',ing:'15 mar 2022',sc:'8.5',c:'score-hi',ventas:'42.5M',meta:'60M',pct:'71',cur1:'Script ventas · 100%',cur2:'Cultura Blondas · 100%',cur3:'IA · 20%'},
+    'sof':{n:'Sofía López',r:'Ventas + MKT',ing:'20 jun 2023',sc:'8.0',c:'score-hi',ventas:'38.2M',meta:'60M',pct:'64',cur1:'Meta Ads · 100%',cur2:'Productos · 100%',cur3:'Mapa cliente · 60%'},
+    'osc':{n:'Oscar Díaz',r:'Jefe Depósito',ing:'1 ene 2020',sc:'8.0',c:'score-hi',ventas:'N/A',meta:'N/A',pct:'80',cur1:'Procesos depósito · 100%',cur2:'Cultura Blondas · 100%',cur3:'KPIs · 40%'},
+    'vic':{n:'Víctor Pérez',r:'Finanzas',ing:'10 mar 2021',sc:'7.5',c:'score-md',ventas:'N/A',meta:'N/A',pct:'75',cur1:'Control financiero · 100%',cur2:'Normativa PY · 100%',cur3:'IA Finanzas · 30%'},
+    'cec':{n:'Cecilio Ruiz',r:'Mayoristas ⚠',ing:'5 feb 2022',sc:'5.5',c:'score-lo',ventas:'0M',meta:'Plan mejora',pct:'10',cur1:'Script ventas · 60%',cur2:'Productos · 80%',cur3:'Plan mejora activo'}
+  };
+  if(!v||!data[v]){box.innerHTML='<div class="hc"><div class="hct">Seleccioná un empleado</div><div class="hcb">El legajo digital vinculado al login del empleado.</div></div>';return;}
+  var d=data[v];
+  box.innerHTML='<div class="emp-card"><div class="emp-top"><div class="emp-av-lg">'+d.n.substring(0,2).toUpperCase()+'</div><div style="flex:1"><div class="emp-name-lg">'+d.n+'</div><div class="emp-role-lg">'+d.r+'</div></div><div class="emp-score-lg"><div class="emp-score-num '+d.c+'">'+d.sc+'</div><div class="emp-score-lbl">/10</div></div></div><div class="emp-kpis"><div class="emp-kpi"><div class="emp-kpi-v">'+d.ventas+'</div><div class="emp-kpi-l">Ventas</div></div><div class="emp-kpi"><div class="emp-kpi-v">'+d.ing+'</div><div class="emp-kpi-l">Ingreso</div></div><div class="emp-kpi"><div class="emp-kpi-v">'+d.pct+'%</div><div class="emp-kpi-l">Meta</div></div></div></div><div class="card"><div class="ct">Documentos</div><div class="row"><div class="rn">📄 Contrato laboral</div><span class="tag tg">Subido</span></div><div class="row"><div class="rn">📄 CI copia</div><span class="tag tg">Subido</span></div><div class="row" style="cursor:pointer"><div class="rn" style="color:var(--brand);font-weight:700">➕ Subir documento...</div></div></div><div class="card"><div class="ct">Cursos</div><div class="row"><div class="rn">'+d.cur1+'</div></div><div class="row"><div class="rn">'+d.cur2+'</div></div><div class="row"><div class="rn">'+d.cur3+'</div></div></div>';
+}
+
+// Build month grid
+function buildMonthGrid(){
+  var g=document.getElementById('month-grid');
+  if(!g)return;
+  var h='';
+  var events={14:'ev',15:'ev mkt',17:'ev ops',18:'ev fin'};
+  for(var d=1;d<=30;d++){
+    var cls='ag-mm-d';
+    if(d===14)cls+=' today';
+    else if(events[d])cls+=' has-ev';
+    h+='<div class="'+cls+'">'+d+'</div>';
+  }
+  g.innerHTML=h;
+}
+
+// Build year mini
+function buildYear(){
+  var months=[{id:'yr-jan',days:31},{id:'yr-feb',days:28},{id:'yr-mar',days:31},{id:'yr-apr',days:30},{id:'yr-may',days:31},{id:'yr-jun',days:30},{id:'yr-jul',days:31},{id:'yr-aug',days:31}];
+  months.forEach(function(m){
+    var el=document.getElementById(m.id);
+    if(!el)return;
+    var h='';
+    for(var d=1;d<=m.days;d++){
+      var cls='ag-mm-d';
+      if(m.id==='yr-apr'&&d===14)cls+=' today';
+      else if(d%7===0||d%7===3)cls+=' has-ev';
+      h+='<div class="'+cls+'"></div>';
+    }
+    el.innerHTML=h;
+  });
+}
+
+document.getElementById('ji').addEventListener('keydown',function(e){if(e.key==='Enter')sc('j');});
+document.getElementById('si-chat').addEventListener('keydown',function(e){if(e.key==='Enter')sc('s');});
+document.getElementById('si').addEventListener('keydown',function(e){if(e.key==='Enter'){gS(document.getElementById('sr').querySelector('.sri') ? 'dash' : 'dash');}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')cS();if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openS();}});
+
+setTimeout(function(){buildMonthGrid();buildYear();},200);
+</script>
