@@ -1,161 +1,201 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Blondas OS — Plataforma Ejecutiva</title>
+<link rel="icon" href="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/logos_marcas_bl_11.png?v=1769993204">
+<link rel="apple-touch-icon" href="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/logos_marcas_bl_11.png?v=1769993204">
 <style>
-@font-face{font-family:'D';src:url('https://cdn.shopify.com/s/files/1/0980/5807/6454/files/Darrell_Rolando_Bold.woff2?v=1769994636') format('woff2');font-weight:700}
+@font-face{font-family:'D';src:url('https://cdn.shopify.com/s/files/1/0980/5807/6454/files/Darrell_Rolando_Bold.woff2?v=1769994636') format('woff2');font-weight:700;font-display:swap}
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--brand:#82324c;--bd:rgba(130,50,76,0.07);--grn:#27ae60;--w:#fff;--bg:#f2f2f4;--bg2:#fafafa;--brd:#e4e4ea;--brd2:#d0d0d8;--txt:#1c1c1e;--t2:#5c5c6e;--t3:#9898a8;--sh:0 1px 3px rgba(0,0,0,0.07);--r:10px;--rl:14px}
-body{margin:0}
-.app{font-family:'Montserrat',sans-serif;background:var(--bg);display:flex;flex-direction:column;font-size:12px;color:var(--txt);max-width:100%;margin:0 auto;min-height:700px}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --brand:#82324c;--bd:rgba(130,50,76,0.07);--bh:rgba(130,50,76,0.12);
+  --grn:#27ae60;--w:#fff;--bg:#f2f2f4;--bg2:#fafafa;
+  --brd:#e4e4ea;--brd2:#d0d0d8;--txt:#1c1c1e;--t2:#5c5c6e;--t3:#9898a8;
+  --sh:0 1px 3px rgba(0,0,0,0.07);--r:10px;--rl:14px;
+  --tb-h:54px;--sb-w:200px;--mob-nav-h:58px;
+}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Montserrat',sans-serif;background:var(--bg);font-size:12px;color:var(--txt)}
 
-/* LOGIN */
-.ls{position:absolute;top:0;left:0;right:0;bottom:0;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px;min-height:700px;z-index:100}
-.lc{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:28px 24px;width:100%;max-width:340px;box-shadow:0 4px 24px rgba(0,0,0,0.08)}
-.lt{font-family:'D',sans-serif;font-size:15px;color:var(--brand);text-transform:uppercase;letter-spacing:.5px;margin-bottom:18px;text-align:center}
-.lf{margin-bottom:12px}
-.lb{font-size:9px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;display:block}
-.li{width:100%;padding:8px 11px;border:1px solid var(--brd2);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:11px;color:var(--txt);outline:none;background:var(--bg2)}
+/* ═══════════════════════════════════════════
+   LOGIN SCREEN
+═══════════════════════════════════════════ */
+.ls{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;z-index:1000;overflow-y:auto}
+.ls-bg{position:absolute;inset:0;background-image:url('https://cdn.shopify.com/s/files/1/0980/5807/6454/files/logos_marcas_bl_11.png?v=1769993204');background-repeat:repeat;background-size:80px;opacity:.03;pointer-events:none}
+.ll{margin-bottom:28px;text-align:center;position:relative}
+.ll img{height:64px;display:block;margin:0 auto;filter:drop-shadow(0 2px 8px rgba(130,50,76,0.15))}
+.ll-s{font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-top:8px}
+.lc{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:28px 24px;width:100%;max-width:360px;box-shadow:0 8px 32px rgba(0,0,0,0.08);position:relative}
+.lt{font-family:'D',sans-serif;font-size:15px;color:var(--brand);text-transform:uppercase;letter-spacing:.5px;margin-bottom:20px;text-align:center}
+.lf{margin-bottom:13px}
+.lbl{font-size:9px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;display:block}
+.li{width:100%;padding:10px 13px;border:1px solid var(--brd2);border-radius:9px;font-family:'Montserrat',sans-serif;font-size:12px;color:var(--txt);outline:none;background:var(--bg2);transition:border-color .15s}
 .li:focus{border-color:var(--brand)}
-.lbt{width:100%;padding:10px;background:var(--brand);color:var(--w);border:none;border-radius:10px;font-family:'D',sans-serif;font-size:12px;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;margin-top:6px}
-.lbt:hover{background:#6b2840}
-.ll{text-align:center;margin-bottom:24px}
-.ll img{height:44px;display:block;margin:0 auto}
-.ll-s{font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:6px}
-.perm-r{display:flex;align-items:center;gap:7px;padding:4px 0;font-size:10px;color:var(--t2);font-weight:500}
+.lbt{width:100%;padding:12px;background:var(--brand);color:var(--w);border:none;border-radius:11px;font-family:'D',sans-serif;font-size:13px;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;margin-top:8px;transition:all .15s;box-shadow:0 4px 12px rgba(130,50,76,0.3)}
+.lbt:hover,.lbt:active{background:#6b2840;transform:translateY(-1px)}
+.lh{font-size:9px;color:var(--t3);text-align:center;margin-top:12px;font-weight:500}
+.lprs{margin-top:14px;border-top:1px solid var(--brd);padding-top:12px}
+.lpr-t{font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px}
+.perm-r{display:flex;align-items:center;gap:7px;padding:3px 0;font-size:10px;color:var(--t2);font-weight:500}
 .pd{width:7px;height:7px;border-radius:50%}
-.lprs{margin-top:12px;border-top:1px solid var(--brd);padding-top:10px}
-.lpr-t{font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
 
-/* SEARCH */
-.so{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);z-index:600;align-items:flex-start;justify-content:center;padding-top:80px}
+/* ═══════════════════════════════════════════
+   OVERLAYS & MODALS
+═══════════════════════════════════════════ */
+.so{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:600;align-items:flex-start;justify-content:center;padding-top:70px}
 .so.open{display:flex}
 .sb{background:var(--w);border-radius:var(--rl);padding:14px;width:90%;max-width:520px;box-shadow:0 8px 32px rgba(0,0,0,0.16)}
 .si-w{display:flex;gap:7px;margin-bottom:9px}
-.si-w input{flex:1;padding:9px 12px;border:1px solid var(--brd);border-radius:8px;font-size:12px;font-family:'Montserrat',sans-serif;outline:none;color:var(--txt)}
+.si-w input{flex:1;padding:10px 13px;border:1px solid var(--brd);border-radius:9px;font-size:13px;font-family:'Montserrat',sans-serif;outline:none;color:var(--txt)}
 .si-w input:focus{border-color:var(--brand)}
-.sc-btn{padding:9px 12px;background:var(--bg);border:1px solid var(--brd);border-radius:8px;cursor:pointer;font-size:10px;font-weight:600;color:var(--t2);font-family:'Montserrat',sans-serif}
-.sr{max-height:250px;overflow-y:auto}
-.sri{display:flex;align-items:center;gap:8px;padding:7px;border-radius:7px;cursor:pointer}
+.sc-btn{padding:10px 13px;background:var(--bg);border:1px solid var(--brd);border-radius:9px;cursor:pointer;font-size:11px;font-weight:600;color:var(--t2);font-family:'Montserrat',sans-serif}
+.sr{max-height:260px;overflow-y:auto}
+.sri{display:flex;align-items:center;gap:9px;padding:8px;border-radius:8px;cursor:pointer;transition:background .1s}
 .sri:hover{background:var(--bg)}
-.sri-i{width:26px;height:26px;border-radius:6px;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
-.sri-n{font-size:11px;font-weight:600;color:var(--txt)}
+.sri-i{width:28px;height:28px;border-radius:7px;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.sri-n{font-size:12px;font-weight:600;color:var(--txt)}
 .sri-s{font-size:9px;color:var(--t3)}
-.sr-lbl{font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;padding:5px 7px 2px}
+.sr-lbl{font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;padding:5px 8px 2px}
 
-/* MODALS */
-.overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.45);z-index:500;align-items:center;justify-content:center;padding:16px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:500;align-items:center;justify-content:center;padding:16px}
 .overlay.show{display:flex}
-.mp{background:var(--w);border-radius:16px;width:100%;max-width:580px;max-height:88vh;overflow-y:auto;box-shadow:0 12px 40px rgba(0,0,0,0.2)}
-.mp-h{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--brd);position:sticky;top:0;background:var(--w);z-index:1}
-.mp-t{flex:1;font-family:'D',sans-serif;font-size:13px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.3px;line-height:1.3}
-.mp-close{width:28px;height:28px;border-radius:50%;border:1px solid var(--brd);background:transparent;cursor:pointer;font-size:14px;color:var(--t2);flex-shrink:0}
-.mp-body{padding:14px 16px}
-.mf{margin-bottom:11px}
+.mp{background:var(--w);border-radius:16px;width:100%;max-width:600px;max-height:88vh;overflow-y:auto;box-shadow:0 12px 40px rgba(0,0,0,0.2)}
+.mp-h{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--brd);position:sticky;top:0;background:var(--w);z-index:1}
+.mp-t{flex:1;font-family:'D',sans-serif;font-size:14px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.3px;line-height:1.3}
+.mp-close{width:30px;height:30px;border-radius:50%;border:1px solid var(--brd);background:transparent;cursor:pointer;font-size:15px;color:var(--t2);flex-shrink:0}
+.mp-body{padding:16px 18px}
+.mf{margin-bottom:12px}
 .mfl{font-size:9px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;display:block}
-.mfi{width:100%;padding:8px 11px;border:1px solid var(--brd2);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:11px;color:var(--txt);outline:none;background:var(--bg2)}
+.mfi{width:100%;padding:9px 12px;border:1px solid var(--brd2);border-radius:9px;font-family:'Montserrat',sans-serif;font-size:12px;color:var(--txt);outline:none;background:var(--bg2);transition:border-color .15s}
 .mfi:focus{border-color:var(--brand)}
-.mfta{width:100%;padding:8px 11px;border:1px solid var(--brd2);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:11px;resize:vertical;min-height:65px;outline:none}
+.mfta{width:100%;padding:9px 12px;border:1px solid var(--brd2);border-radius:9px;font-family:'Montserrat',sans-serif;font-size:12px;resize:vertical;min-height:68px;outline:none;transition:border-color .15s}
 .mfta:focus{border-color:var(--brand)}
 
-/* TOPBAR */
-.tb{background:var(--w);border-bottom:1px solid var(--brd);padding:0 18px;display:flex;align-items:center;justify-content:space-between;height:54px;flex-shrink:0}
-.tbl img{height:38px;display:block}
-.tbl-t{font-family:'D',sans-serif;font-size:18px;color:var(--brand);text-transform:uppercase;letter-spacing:1px}
-.upi{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--brd);border-radius:20px;padding:4px 10px 4px 4px;cursor:pointer}
+/* Mobile sidebar overlay */
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:350}
+
+/* ═══════════════════════════════════════════
+   APP SHELL
+═══════════════════════════════════════════ */
+.app{display:none;flex-direction:column;height:100vh;overflow:hidden}
+.app.on{display:flex}
+
+/* ═══════════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════════ */
+.tb{background:var(--w);border-bottom:1px solid var(--brd);padding:0 18px;display:flex;align-items:center;justify-content:space-between;height:var(--tb-h);flex-shrink:0;z-index:300}
+.tb-left{display:flex;align-items:center;gap:10px}
+.ham{display:none;width:32px;height:32px;border-radius:8px;border:1px solid var(--brd);background:transparent;cursor:pointer;align-items:center;justify-content:center;font-size:15px;color:var(--t2);flex-shrink:0}
+.tbl{display:flex;align-items:center}
+.tbl img{height:42px;display:block;filter:drop-shadow(0 1px 4px rgba(130,50,76,0.1))}
+.tbl-txt{font-family:'D',sans-serif;font-size:20px;color:var(--brand);text-transform:uppercase;letter-spacing:1px;display:none}
+.upi{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--brd);border-radius:20px;padding:4px 10px 4px 4px;cursor:pointer;transition:all .15s}
+.upi:hover{background:var(--bh)}
 .uav{width:26px;height:26px;border-radius:50%;background:var(--brand);color:var(--w);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
 .un{font-size:10px;font-weight:600;color:var(--txt)}
 .ur{font-size:9px;color:var(--t3)}
 .tbr{display:flex;align-items:center;gap:6px}
-.ib{width:30px;height:30px;border-radius:8px;border:1px solid var(--brd);background:var(--w);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;position:relative;color:var(--t2)}
+.ib{width:32px;height:32px;border-radius:9px;border:1px solid var(--brd);background:var(--w);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;position:relative;color:var(--t2);transition:all .15s}
 .ib:hover{background:var(--bg)}
-.nd{position:absolute;top:4px;right:4px;width:5px;height:5px;border-radius:50%;background:#e74c3c}
+.nd{position:absolute;top:4px;right:4px;width:6px;height:6px;border-radius:50%;background:#e74c3c}
 
-/* LAYOUT */
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
 .lay{display:flex;flex:1;min-height:0;overflow:hidden}
-.side{width:190px;background:var(--w);border-right:1px solid var(--brd);display:flex;flex-direction:column;overflow-y:auto;flex-shrink:0}
+
+/* SIDEBAR */
+.side{width:var(--sb-w);background:var(--w);border-right:1px solid var(--brd);display:flex;flex-direction:column;overflow-y:auto;flex-shrink:0;transition:transform .25s}
+.sb-logo{padding:14px 12px 8px;border-bottom:1px solid var(--brd);display:flex;align-items:center;gap:8px}
+.sb-logo img{height:18px;filter:grayscale(20%)}
+.sb-logo-txt{font-family:'D',sans-serif;font-size:10px;color:var(--brand);text-transform:uppercase;letter-spacing:1px;font-weight:700}
 .ss{padding:9px 8px 3px}
-.sl{font-family:'D',sans-serif;font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1px;padding:2px 6px;margin-bottom:3px}
-.ni{display:flex;align-items:center;gap:7px;padding:5px 7px;border-radius:7px;cursor:pointer;font-size:11px;color:var(--t2);border:none;background:transparent;width:100%;text-align:left;transition:all .1s;font-family:'Montserrat',sans-serif;font-weight:500}
+.sl{font-family:'D',sans-serif;font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1px;padding:2px 7px;margin-bottom:3px}
+.ni{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:8px;cursor:pointer;font-size:11px;color:var(--t2);border:none;background:transparent;width:100%;text-align:left;transition:all .12s;font-family:'Montserrat',sans-serif;font-weight:500}
 .ni:hover{background:var(--bg);color:var(--txt)}
 .ni.on{background:var(--bd);color:var(--brand);font-weight:700}
-.ni-i{font-size:11px;width:14px;text-align:center;flex-shrink:0}
-.nib{margin-left:auto;font-size:9px;padding:1px 5px;border-radius:7px;font-weight:700}
-.nibr{background:#fde8ec;color:#c0392b}
-.nibg{background:#e8f5e9;color:#1b5e20}
+.ni-i{font-size:13px;width:16px;text-align:center;flex-shrink:0}
+.nib{margin-left:auto;font-size:9px;padding:1px 6px;border-radius:7px;font-weight:700}
+.nibr{background:#fde8ec;color:#c0392b}.nibg{background:#e8f5e9;color:#1b5e20}
 
 /* CONTENT */
-.cnt{flex:1;overflow-y:auto;padding:14px}
+.cnt{flex:1;overflow-y:auto;padding:14px;-webkit-overflow-scrolling:touch}
 .pn{display:none}.pn.on{display:block}
-.ph{font-family:'D',sans-serif;font-size:16px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.4px;margin-bottom:12px;display:flex;align-items:baseline;gap:8px}
+.ph{font-family:'D',sans-serif;font-size:17px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.4px;margin-bottom:13px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
 .phs{font-size:9px;color:var(--t3);font-family:'Montserrat',sans-serif;font-weight:500;text-transform:none;letter-spacing:0}
 
-/* COMPONENTS */
+/* ═══════════════════════════════════════════
+   COMPONENTS
+═══════════════════════════════════════════ */
 .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
 .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:10px}
-.kc{background:var(--w);border:1px solid var(--brd);border-radius:var(--r);padding:9px 11px;box-shadow:var(--sh)}
+.kc{background:var(--w);border:1px solid var(--brd);border-radius:var(--r);padding:10px 12px;box-shadow:var(--sh)}
 .kcl{font-size:9px;color:var(--t3);margin-bottom:2px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
-.kcv{font-size:16px;font-weight:700;color:var(--txt);font-family:'D',sans-serif;line-height:1.2}
+.kcv{font-size:18px;font-weight:700;color:var(--txt);font-family:'D',sans-serif;line-height:1.2}
 .kcd{font-size:9px;margin-top:1px;font-weight:600}
 .uc{color:var(--grn)}.dc{color:#e74c3c}.wc{color:#e67e22}
-.card{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:11px 13px;margin-bottom:9px;box-shadow:var(--sh)}
+.card{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:12px 14px;margin-bottom:9px;box-shadow:var(--sh)}
 .ct{font-family:'D',sans-serif;font-size:9px;font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.6px;margin-bottom:9px}
-.row{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid var(--bg);font-size:11px}
+.row{display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid var(--bg);font-size:11px}
 .row:last-child{border-bottom:none}
 .rn{flex:1;color:var(--txt);line-height:1.3;font-weight:500}
-.tag{font-size:9px;padding:2px 6px;border-radius:7px;font-weight:700;white-space:nowrap;flex-shrink:0}
+.tag{font-size:9px;padding:2px 7px;border-radius:7px;font-weight:700;white-space:nowrap;flex-shrink:0}
 .tg{background:#e8f5e9;color:#1b5e20}.ta{background:#fff3e0;color:#bf360c}
 .tr{background:#fde8ec;color:#c0392b}.tb-t{background:#e8eaf6;color:#283593}
 .tgr{background:var(--bg);color:var(--t3)}.tbr{background:var(--bd);color:var(--brand)}
-.brw{display:flex;align-items:center;gap:7px;margin-bottom:5px;font-size:10px}
-.brl{width:85px;color:var(--t2);text-align:right;flex-shrink:0;font-weight:600}
-.brt{flex:1;height:12px;background:var(--bg);border-radius:3px;overflow:hidden}
-.brf{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:5px;font-size:9px;color:var(--w);font-weight:700;white-space:nowrap}
+.brw{display:flex;align-items:center;gap:7px;margin-bottom:6px;font-size:10px}
+.brl{width:90px;color:var(--t2);text-align:right;flex-shrink:0;font-weight:600}
+.brt{flex:1;height:13px;background:var(--bg);border-radius:3px;overflow:hidden}
+.brf{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:6px;font-size:9px;color:var(--w);font-weight:700;white-space:nowrap}
 .tabs{display:flex;gap:2px;margin-bottom:10px;background:var(--bg);border-radius:9px;padding:3px;flex-wrap:wrap}
-.tab{padding:4px 9px;border-radius:7px;border:none;background:transparent;font-size:10px;cursor:pointer;color:var(--t2);font-family:'Montserrat',sans-serif;font-weight:600;transition:all .12s}
+.tab{padding:5px 10px;border-radius:7px;border:none;background:transparent;font-size:10px;cursor:pointer;color:var(--t2);font-family:'Montserrat',sans-serif;font-weight:600;transition:all .12s}
 .tab.on{background:var(--w);color:var(--brand);box-shadow:var(--sh)}
 .tc{display:none}.tc.on{display:block}
-.hc{background:var(--bd);border-radius:var(--r);padding:10px 12px;margin-bottom:9px;border-left:3px solid var(--brand)}
+.hc{background:var(--bd);border-radius:var(--r);padding:10px 13px;margin-bottom:9px;border-left:3px solid var(--brand)}
 .hct{font-family:'D',sans-serif;font-size:10px;font-weight:700;color:var(--brand);margin-bottom:3px;text-transform:uppercase;letter-spacing:.3px}
 .hcb{font-size:10px;color:var(--t2);line-height:1.6;font-weight:500}
-.btnv{padding:7px 13px;background:var(--brand);color:var(--w);border:none;border-radius:9px;font-size:10px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;white-space:nowrap;transition:all .15s}
+.btnv{padding:8px 14px;background:var(--brand);color:var(--w);border:none;border-radius:9px;font-size:11px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;white-space:nowrap;transition:all .15s;-webkit-appearance:none}
 .btnv:hover{background:#6b2840}
-.btng{padding:7px 13px;background:var(--grn);color:var(--w);border:none;border-radius:9px;font-size:10px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;white-space:nowrap}
-.btnout{padding:6px 11px;background:transparent;color:var(--brand);border:1.5px solid var(--brand);border-radius:9px;font-size:10px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;white-space:nowrap}
+.btng{padding:8px 14px;background:var(--grn);color:var(--w);border:none;border-radius:9px;font-size:11px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;white-space:nowrap;-webkit-appearance:none}
+.btnout{padding:7px 12px;background:transparent;color:var(--brand);border:1.5px solid var(--brand);border-radius:9px;font-size:11px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;white-space:nowrap;-webkit-appearance:none}
 .dv{border:none;border-top:1px solid var(--brd);margin:8px 0}
 .alr{display:flex;gap:7px;padding:7px 0;border-bottom:1px solid var(--bg);font-size:11px}
 .alr:last-child{border-bottom:none}
 .adt{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
 .acr{background:#e74c3c}.aal{background:#e67e22}.aat{background:var(--grn)}
-.fin-r{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid var(--bg);font-size:11px}
+.fin-r{display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid var(--bg);font-size:11px}
 .fin-r:last-child{border-bottom:none}
 .fna{font-weight:700;font-size:11px}
 .fna.pos{color:var(--grn)}.fna.neg{color:#e74c3c}.fna.neu{color:var(--t2)}
-.cw{display:flex;flex-direction:column;gap:7px;margin-bottom:9px;max-height:180px;overflow-y:auto}
-.cb{max-width:88%;padding:8px 11px;border-radius:11px;font-size:11px;line-height:1.5;font-weight:500}
+.cw{display:flex;flex-direction:column;gap:7px;margin-bottom:9px;max-height:200px;overflow-y:auto}
+.cb{max-width:88%;padding:9px 12px;border-radius:12px;font-size:11px;line-height:1.5;font-weight:500}
 .cbm{background:var(--brand);color:var(--w);align-self:flex-end;border-bottom-right-radius:3px}
 .cba{background:var(--w);border:1px solid var(--brd);color:var(--txt);align-self:flex-start;border-bottom-left-radius:3px}
 .cbw{font-size:9px;font-weight:700;margin-bottom:2px;text-transform:uppercase;letter-spacing:.4px}
 .cbm .cbw{color:rgba(255,255,255,.65)}.cba .cbw{color:var(--brand)}
 .ir{display:flex;gap:5px}
-.ir input{flex:1;font-size:11px;padding:7px 10px;border-radius:9px;border:1px solid var(--brd);font-family:'Montserrat',sans-serif;outline:none}
+.ir input{flex:1;font-size:12px;padding:9px 12px;border-radius:9px;border:1px solid var(--brd);font-family:'Montserrat',sans-serif;outline:none;-webkit-appearance:none}
 .ir input:focus{border-color:var(--brand)}
-.alert-ban{background:#fde8ec;border:1px solid #f5c0c8;border-radius:9px;padding:8px 11px;margin-bottom:9px;font-size:10px;color:#c0392b;font-weight:600;display:flex;align-items:center;gap:7px}
-.hbar{display:flex;align-items:center;gap:7px;background:var(--bg);border-radius:8px;padding:6px 10px;margin-bottom:10px;font-size:10px;font-weight:600}
-.hd{width:7px;height:7px;border-radius:50%}
-.pn-note{font-size:9px;color:var(--t3);font-style:italic;text-align:center;padding:7px;background:var(--bg);border-radius:7px;margin-top:5px}
-.agcard{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:9px;cursor:pointer;transition:all .12s;box-shadow:var(--sh)}
+.alert-ban{background:#fde8ec;border:1px solid #f5c0c8;border-radius:9px;padding:9px 12px;margin-bottom:10px;font-size:10px;color:#c0392b;font-weight:600;display:flex;align-items:center;gap:7px}
+.hbar{display:flex;align-items:center;gap:7px;background:var(--bg);border-radius:9px;padding:7px 11px;margin-bottom:10px;font-size:10px;font-weight:600;flex-wrap:wrap}
+.hd{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.pn-note{font-size:9px;color:var(--t3);font-style:italic;text-align:center;padding:8px;background:var(--bg);border-radius:8px;margin-top:6px}
+.agcard{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:10px;cursor:pointer;transition:all .12s;box-shadow:var(--sh)}
 .agcard:hover,.agcard.sel{border-color:var(--brand);background:var(--bd)}
-.agav{width:26px;height:26px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;margin-bottom:4px;color:var(--brand);border:1px solid var(--brd)}
+.agav{width:28px;height:28px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-bottom:4px;color:var(--brand);border:1px solid var(--brd)}
 .agn{font-size:10px;font-weight:700;color:var(--txt);margin-bottom:2px}.agr{font-size:9px;color:var(--t3)}
 
-/* PROYECTOS V7 */
-.pj7{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:12px 14px;margin-bottom:8px;cursor:pointer;box-shadow:var(--sh);transition:all .12s;position:relative;padding-left:17px;overflow:hidden}
+/* PROYECTOS */
+.pj7{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:12px 14px 12px 18px;margin-bottom:8px;cursor:pointer;box-shadow:var(--sh);transition:all .12s;position:relative;overflow:hidden}
 .pj7:hover{border-color:var(--brand);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.1)}
 .pj7::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px}
-.pj7.crit::before{background:#e74c3c}
-.pj7.high::before{background:#e67e22}
-.pj7.med::before{background:#f1c40f}
-.pj7.done::before{background:var(--grn)}
+.pj7.crit::before{background:#e74c3c}.pj7.high::before{background:#e67e22}.pj7.med::before{background:#f1c40f}.pj7.done::before{background:var(--grn)}
 .pj7-top{display:flex;align-items:center;gap:8px;margin-bottom:5px}
 .pj7-n{flex:1;font-size:12px;font-weight:700;color:var(--txt);line-height:1.3}
 .pj7-sem{width:10px;height:10px;border-radius:50%;flex-shrink:0}
@@ -163,10 +203,8 @@ body{margin:0}
 .pj7-det{font-size:10px;color:var(--t2);margin-bottom:7px;line-height:1.4}
 .pj7-bar{height:4px;background:var(--bg);border-radius:2px;overflow:hidden;margin-bottom:5px}
 .pj7-fill{height:100%;border-radius:2px}
-.pj7-foot{display:flex;align-items:center;gap:6px;font-size:9px;color:var(--t3);font-weight:600}
-.pj7-ft{flex:1;display:flex;gap:8px}
-.mp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}
-.mp-kpi{background:var(--bg);border-radius:8px;padding:8px 10px}
+.pj7-foot{display:flex;align-items:center;gap:6px;font-size:9px;color:var(--t3);font-weight:600;flex-wrap:wrap}
+.mp-kpi{background:var(--bg);border-radius:9px;padding:8px 10px}
 .mp-kv{font-size:14px;font-weight:700;color:var(--brand);font-family:'D',sans-serif}
 .mp-kl{font-size:9px;color:var(--t3);text-transform:uppercase;font-weight:600}
 .mp-kpi-check{display:flex;align-items:center;gap:6px;padding:5px 0;font-size:11px;border-bottom:1px solid var(--bg)}
@@ -175,92 +213,220 @@ body{margin:0}
 .chk-box.done{background:var(--brand);color:var(--w)}
 
 /* MAYORISTAS */
-.ma-card{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:12px;margin-bottom:7px;cursor:pointer;box-shadow:var(--sh);transition:all .12s}
-.ma-card:hover{border-color:var(--brand)}
+.ma-card{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:12px 13px;margin-bottom:7px;cursor:pointer;box-shadow:var(--sh);transition:all .12s}
+.ma-card:hover,.ma-card:active{border-color:var(--brand)}
 .ma-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}
-.ma-av{width:36px;height:36px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--brand);flex-shrink:0;border:1.5px solid var(--brand)}
+.ma-av{width:38px;height:38px;border-radius:50%;background:var(--bd);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--brand);flex-shrink:0;border:2px solid var(--brand)}
 .ma-n{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:2px}
 .ma-r{font-size:10px;color:var(--t2)}
 .ma-st{margin-left:auto;text-align:right}
-.st-act{color:var(--grn);font-weight:700;font-size:10px}
-.st-tib{color:#e67e22;font-weight:700;font-size:10px}
-.st-dor{color:#e74c3c;font-weight:700;font-size:10px}
-.st-pro{color:#3949ab;font-weight:700;font-size:10px}
+.st-act{color:var(--grn);font-weight:700;font-size:10px}.st-tib{color:#e67e22;font-weight:700;font-size:10px}
+.st-dor{color:#e74c3c;font-weight:700;font-size:10px}.st-pro{color:#3949ab;font-weight:700;font-size:10px}
 .ma-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.ma-k{background:var(--bg);border-radius:6px;padding:5px 7px;text-align:center}
+.ma-k{background:var(--bg);border-radius:7px;padding:5px 7px;text-align:center}
 .ma-kv{font-size:11px;font-weight:700;color:var(--txt);font-family:'D',sans-serif}
 .ma-kl{font-size:8px;color:var(--t3);text-transform:uppercase;font-weight:600}
-.visit-form{background:var(--bg);border-radius:10px;padding:12px;margin-bottom:9px}
-.visit-list-item{display:flex;align-items:center;gap:8px;padding:7px;background:var(--w);border-radius:8px;margin-bottom:4px;font-size:11px;border:1px solid var(--brd)}
-.vl-date{font-size:9px;color:var(--brand);font-weight:700;width:55px;flex-shrink:0}
+.visit-list-item{display:flex;align-items:center;gap:8px;padding:8px;background:var(--w);border-radius:9px;margin-bottom:4px;font-size:11px;border:1px solid var(--brd)}
+.vl-date{font-size:9px;color:var(--brand);font-weight:700;width:56px;flex-shrink:0}
 .vl-info{flex:1}
 .vl-n{font-weight:600;color:var(--txt)}
 .vl-r{font-size:9px;color:var(--t2)}
-.vl-amt{font-size:11px;font-weight:700}
+.vl-amt{font-size:11px;font-weight:700;flex-shrink:0}
 
 /* MKT FLOW */
-.mkt-stages{display:grid;grid-template-columns:repeat(7,minmax(75px,1fr));gap:4px;margin-bottom:10px;overflow-x:auto}
+.mkt-stages{display:grid;grid-template-columns:repeat(7,minmax(80px,1fr));gap:4px;margin-bottom:10px;overflow-x:auto;padding-bottom:4px}
 .mkt-col{border-radius:8px;padding:7px 5px}
-.mkt-colt{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid rgba(255,255,255,.2);text-align:center;color:var(--t2)}
+.mkt-colt{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid rgba(0,0,0,.08);text-align:center;color:var(--t2)}
 .mkt-card{background:var(--w);border-radius:7px;padding:7px 8px;margin-bottom:4px;cursor:pointer;box-shadow:var(--sh);transition:all .1s;border:1px solid var(--brd)}
-.mkt-card:hover{border-color:var(--brand);transform:translateY(-1px)}
+.mkt-card:hover,.mkt-card:active{border-color:var(--brand)}
 .mkt-cn{font-size:10px;font-weight:700;color:var(--txt);margin-bottom:3px;line-height:1.3}
 .mkt-cm{font-size:9px;color:var(--t2)}
-.appr-card{background:var(--w);border:1.5px solid #e67e22;border-radius:var(--rl);padding:12px;margin-bottom:8px;box-shadow:0 2px 8px rgba(230,126,34,.15)}
+.appr-card{background:var(--w);border:1.5px solid #e67e22;border-radius:var(--rl);padding:13px;margin-bottom:9px;box-shadow:0 2px 8px rgba(230,126,34,.15)}
 .appr-badge{font-size:9px;padding:2px 7px;border-radius:6px;background:#fff3e0;color:#bf360c;font-weight:700;display:inline-block;margin-bottom:6px}
 .appr-title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:4px}
 .appr-desc{font-size:10px;color:var(--t2);margin-bottom:8px;line-height:1.5}
-.appr-btns{display:flex;gap:6px}
-.btn-app{flex:1;padding:8px;background:var(--grn);color:var(--w);border:none;border-radius:8px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px}
-.btn-rej{flex:1;padding:8px;background:#fde8ec;color:#e74c3c;border:1px solid #f5c0c8;border-radius:8px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px}
-.btn-edit{flex:1;padding:8px;background:var(--bd);color:var(--brand);border:1px solid var(--brand);border-radius:8px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px}
-.flow-step{display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg);border-radius:9px;margin-bottom:5px;font-size:11px}
-.fs-num{width:22px;height:22px;border-radius:50%;background:var(--brand);color:var(--w);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;font-family:'D',sans-serif}
-.fs-txt{flex:1;color:var(--txt);font-weight:500;line-height:1.4}
-.fs-who{font-size:9px;font-weight:700;color:var(--brand)}
+.appr-btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn-app{flex:1;min-width:80px;padding:9px;background:var(--grn);color:var(--w);border:none;border-radius:8px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;-webkit-appearance:none}
+.btn-rej{flex:1;min-width:80px;padding:9px;background:#fde8ec;color:#e74c3c;border:1px solid #f5c0c8;border-radius:8px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;-webkit-appearance:none}
+.btn-edit{flex:1;min-width:80px;padding:9px;background:var(--bd);color:var(--brand);border:1px solid var(--brand);border-radius:8px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;-webkit-appearance:none}
 
 /* KOMMO */
 .k-pipe{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-bottom:10px}
-.k-col{background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:7px}
+.k-col{background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:8px}
 .k-colt{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--brd);color:var(--t2)}
-.k-card{background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:7px;margin-bottom:4px;font-size:10px;cursor:pointer;box-shadow:var(--sh);transition:all .1s}
+.k-card{background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px 8px;margin-bottom:4px;font-size:10px;cursor:pointer;box-shadow:var(--sh);transition:border-color .1s}
 .k-card:hover{border-color:var(--brand)}
 .k-n{font-weight:700;color:var(--txt);margin-bottom:2px;line-height:1.3}
 .k-m{font-size:9px;color:var(--t3)}
 .k-a{font-size:10px;font-weight:700;color:var(--brand)}
 .k-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
-.k-st{background:var(--w);border:1px solid var(--brd);border-radius:var(--r);padding:8px;text-align:center;box-shadow:var(--sh)}
-.k-sv{font-size:15px;font-weight:700;font-family:'D',sans-serif;color:var(--brand)}
+.k-st{background:var(--w);border:1px solid var(--brd);border-radius:var(--r);padding:9px;text-align:center;box-shadow:var(--sh)}
+.k-sv{font-size:16px;font-weight:700;font-family:'D',sans-serif;color:var(--brand)}
 .k-sl{font-size:9px;color:var(--t3);font-weight:600;text-transform:uppercase}
 
-/* AUTOMATIZACIONES */
-.auto-row{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:var(--bg);border-radius:8px;margin-bottom:5px;font-size:11px}
+/* AUTOMATIONS */
+.auto-row{display:flex;align-items:flex-start;gap:8px;padding:9px 11px;background:var(--bg);border-radius:9px;margin-bottom:5px;font-size:11px}
 .auto-id{font-size:9px;font-weight:700;color:var(--brand);width:25px;flex-shrink:0;margin-top:1px}
 .auto-txt{flex:1;color:var(--txt);line-height:1.4;font-weight:500}
 .auto-s{font-size:9px;font-weight:700;white-space:nowrap;margin-top:1px}
 .a-on{color:var(--grn)}.a-pend{color:#e67e22}.a-off{color:#e74c3c}
 
+/* KPIs DEPT */
+.kd-sect{margin-bottom:12px}
+.kd-head{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.kd-badge{font-size:9px;padding:3px 8px;border-radius:6px;font-weight:700}
+.kd-ia{background:var(--bd);color:var(--brand)}.kd-hum{background:#e8f5e9;color:#1b5e20}
+.kd-title{font-family:'D',sans-serif;font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.kd-agent-row{display:flex;align-items:center;gap:7px;padding:5px 8px;background:var(--bd);border-radius:7px;margin-bottom:4px;font-size:11px}
+.kd-a-ico{font-size:10px;flex-shrink:0}
+.kd-a-name{flex:1;font-weight:600;color:var(--brand)}
+.kd-a-status{font-size:9px;font-weight:700}
+.kd-hrow{display:flex;align-items:center;gap:7px;padding:5px 8px;background:var(--bg);border-radius:7px;margin-bottom:4px;font-size:11px}
+.kd-hrow .hn{flex:1;font-weight:600;color:var(--txt)}
+.kd-hrow .hr{font-size:9px;color:var(--t2)}
+.kd-hrow .hs{font-size:10px;font-weight:700}
+.score-hi{color:var(--grn)}.score-md{color:#e67e22}.score-lo{color:#e74c3c}
+.okr-row{display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid var(--bg);font-size:11px}
+.okr-row:last-child{border-bottom:none}
+.on_{flex:1;color:var(--txt);font-weight:500;line-height:1.3}
+.od{font-size:9px;color:var(--brand);font-weight:700;width:60px;flex-shrink:0}
+.ob{width:65px;height:4px;background:var(--bg);border-radius:2px;overflow:hidden;flex-shrink:0}
+.of{height:100%;border-radius:2px}
+.op{font-size:9px;font-weight:700;color:var(--t3);width:26px;text-align:right;flex-shrink:0}
+
+/* MOBILE BOTTOM NAV */
+.mob-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;
+  height:var(--mob-nav-h);background:var(--w);
+  border-top:1px solid var(--brd);z-index:300;
+  align-items:center;justify-content:space-around;padding:0 4px;
+  box-shadow:0 -4px 16px rgba(0,0,0,0.06);
+}
+.mob-btn{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:4px 8px;border:none;background:transparent;cursor:pointer;
+  font-family:'Montserrat',sans-serif;flex:1;max-width:70px;
+  -webkit-appearance:none;
+}
+.mob-btn-i{font-size:18px;line-height:1}
+.mob-btn-t{font-size:9px;font-weight:600;color:var(--t3);line-height:1}
+.mob-btn.on .mob-btn-t{color:var(--brand)}
+.mob-btn.on .mob-btn-i{filter:opacity(1)}
+
 /* FOOTER */
 .footer{margin-top:16px}
-.footer a{display:block;border-radius:10px;overflow:hidden;text-decoration:none}
+.footer a{display:block;border-radius:11px;overflow:hidden;text-decoration:none}
 .footer img{width:100%;display:block}
-.footer-lnk{text-align:center;font-size:9px;color:var(--brand);font-weight:700;padding:6px;display:block}
+.footer-lnk{text-align:center;font-size:9px;color:var(--brand);font-weight:700;padding:7px;display:block}
+
+/* ═══════════════════════════════════════════
+   BB MARK DECORATION
+═══════════════════════════════════════════ */
+.bb-mark{width:20px;height:20px;object-fit:contain;opacity:.6}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — TABLET 768-1100px
+═══════════════════════════════════════════ */
+@media (max-width:1100px) and (min-width:769px){
+  :root{--sb-w:180px}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .k-pipe{grid-template-columns:repeat(3,1fr)}
+  .mkt-stages{grid-template-columns:repeat(4,minmax(75px,1fr))}
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE ≤768px
+═══════════════════════════════════════════ */
+@media (max-width:768px){
+  :root{--tb-h:50px;--mob-nav-h:58px}
+  html,body{overflow:hidden}
+
+  /* LOGIN MOBILE */
+  .ls{padding:16px;justify-content:flex-start;padding-top:40px}
+  .ll img{height:52px}
+  .lc{max-width:100%;padding:22px 18px}
+  .lbt{font-size:12px;padding:13px}
+
+  /* TOPBAR MOBILE */
+  .tb{padding:0 12px}
+  .ham{display:flex}
+  .tbl img{height:34px}
+  .un,.ur{display:none}
+  .upi{padding:4px;border-radius:50%;border:1px solid var(--brd)}
+  .upi span:last-child{display:none}
+
+  /* SIDEBAR — DRAWER */
+  .side{
+    position:fixed;left:-210px;top:var(--tb-h);bottom:0;
+    width:210px;z-index:400;transition:transform .25s ease;
+    box-shadow:none;border-right:none;
+  }
+  .side.mob-open{
+    transform:translateX(210px);
+    box-shadow:4px 0 20px rgba(0,0,0,0.12);
+  }
+  .mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:399;display:none}
+  .mob-overlay.show{display:block}
+
+  /* CONTENT MOBILE */
+  .cnt{padding:10px;padding-bottom:calc(var(--mob-nav-h) + 8px)}
+
+  /* GRIDS MOBILE */
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .g2{grid-template-columns:1fr}
+  .k-pipe{grid-template-columns:1fr 1fr;overflow-x:visible}
+  .mkt-stages{grid-template-columns:repeat(3,minmax(85px,1fr))}
+  .k-stats{grid-template-columns:repeat(2,1fr)}
+  .pj-board{grid-template-columns:1fr 1fr}
+  .ma-kpis{grid-template-columns:repeat(3,1fr)}
+
+  /* TYPOGRAPHY */
+  .ph{font-size:15px}
+  .kcv{font-size:16px}
+  .tabs .tab{font-size:10px;padding:4px 8px}
+
+  /* MODALS MOBILE */
+  .overlay{padding:8px;align-items:flex-end}
+  .mp{border-radius:16px 16px 0 0;max-width:100%;max-height:92vh}
+
+  /* BOTTOM NAV */
+  .mob-nav{display:flex}
+
+  /* HIDE TOPBAR USER INFO */
+  .tb .upi .un,.tb .upi .ur{display:none}
+
+  /* CARD ADJUSTMENTS */
+  .appr-btns{flex-direction:column}
+  .btn-app,.btn-rej,.btn-edit{min-width:100%;flex:unset}
+}
+
+/* ═══════════════════════════════════════════
+   SMALL PHONES ≤380px
+═══════════════════════════════════════════ */
+@media (max-width:380px){
+  .ll img{height:44px}
+  .kcv{font-size:14px}
+  .g4{grid-template-columns:repeat(2,1fr);gap:6px}
+  .cnt{padding:8px;padding-bottom:calc(var(--mob-nav-h) + 6px)}
+}
 </style>
+</head>
+<body>
 
-<div class="app" id="app">
-
-<!-- LOGIN -->
+<!-- ═══ LOGIN ═══ -->
 <div class="ls" id="ls">
+  <div class="ls-bg"></div>
+  <div class="ll">
+    <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/blondas_logo_transparente.png?v=1776210393" alt="Blondas" onerror="this.style.display='none';document.getElementById('ls-fb').style.display='block'">
+    <div id="ls-fb" style="display:none;font-family:'D',sans-serif;font-size:24px;color:var(--brand);text-transform:uppercase">BLONDAS</div>
+    <div class="ll-s">Plataforma Ejecutiva · v7</div>
+  </div>
   <div class="lc">
-    <div class="ll">
-      <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS-LOGO-PARAGUAYCOSMETICOS.svg?v=1769957943" alt="Blondas" onerror="this.style.display='none';this.nextSibling.style.display='block'">
-      <div style="display:none;font-family:'D',sans-serif;font-size:22px;color:var(--brand);text-transform:uppercase">BLONDAS</div>
-      <div class="ll-s">OS v7 · Sistema Ejecutivo</div>
-    </div>
     <div class="lt">Iniciar Sesión</div>
-    <div class="lf"><label class="lb">Usuario</label><input class="li" id="lu" placeholder="nombre@blondas.com.py"></div>
-    <div class="lf"><label class="lb">Contraseña</label><input class="li" type="password" id="lp" placeholder="••••••••"></div>
-    <div class="lf"><label class="lb">Perfil de acceso</label>
+    <div class="lf"><label class="lbl">Usuario</label><input class="li" id="lu" placeholder="nombre@blondas.com.py" inputmode="email" autocomplete="email"></div>
+    <div class="lf"><label class="lbl">Contraseña</label><input class="li" type="password" id="lp" placeholder="••••••••" autocomplete="current-password"></div>
+    <div class="lf"><label class="lbl">Perfil de acceso</label>
       <select class="li" id="lr">
         <option value="">— Seleccioná tu perfil —</option>
         <optgroup label="DIRECTORIO"><option value="mel">Mel Núñez · CEO / Directorio · Acceso total</option></optgroup>
@@ -279,194 +445,176 @@ body{margin:0}
         </optgroup>
       </select>
     </div>
-    <button class="lbt" onclick="doLogin()">INGRESAR</button>
-    <div class="lprs"><div class="lpr-t">Niveles de acceso</div>
-      <div class="perm-r"><div class="pd" style="background:var(--grn)"></div>CEO · Acceso total</div>
+    <button class="lbt" onclick="doLogin()">INGRESAR AL SISTEMA</button>
+    <div class="lh">Acceso controlado · Permisos según tu rol</div>
+    <div class="lprs">
+      <div class="lpr-t">Niveles de acceso</div>
+      <div class="perm-r"><div class="pd" style="background:var(--grn)"></div>CEO · Acceso total a todos los módulos</div>
       <div class="perm-r"><div class="pd" style="background:#e67e22"></div>Jefes · Su área + empresa + aprobaciones</div>
-      <div class="perm-r"><div class="pd" style="background:var(--brd2)"></div>Operativos · Solo su dashboard + academia</div>
+      <div class="perm-r"><div class="pd" style="background:var(--brd2)"></div>Operativos · Dashboard propio + academia</div>
     </div>
   </div>
 </div>
 
-<!-- SEARCH -->
+<!-- ═══ SEARCH ═══ -->
 <div class="so" id="so" onclick="cS(event)">
   <div class="sb" onclick="event.stopPropagation()">
-    <div class="si-w"><input type="text" id="si" placeholder="Buscar módulos, proyectos, clientes..." oninput="doSearch(this.value)"><button class="sc-btn" onclick="cS()">✕ Cerrar</button></div>
+    <div class="si-w"><input type="text" id="si" placeholder="Buscar módulos, proyectos, clientes..." oninput="doSearch(this.value)" autofocus><button class="sc-btn" onclick="cS()">✕</button></div>
     <div class="sr" id="sr">
-      <div class="sr-lbl">Módulos</div>
-      <div class="sri" onclick="gS('mayoristas')"><div class="sri-i">🏪</div><div><div class="sri-n">Mayoristas · Visitas · Clientes</div><div class="sri-s">Ventas</div></div></div>
+      <div class="sr-lbl">Accesos rápidos</div>
+      <div class="sri" onclick="gS('mayoristas')"><div class="sri-i">🏪</div><div><div class="sri-n">Mayoristas · Visitas</div><div class="sri-s">Ventas</div></div></div>
       <div class="sri" onclick="gS('mktflow')"><div class="sri-i">🚀</div><div><div class="sri-n">Flujo MKT · Idea → Meta</div><div class="sri-s">Marketing</div></div></div>
       <div class="sri" onclick="gS('kommo')"><div class="sri-i">📊</div><div><div class="sri-n">Kommo CRM · Pipeline</div><div class="sri-s">Marketing</div></div></div>
       <div class="sri" onclick="gS('proyectos')"><div class="sri-i">◫</div><div><div class="sri-n">Proyectos · Campañas</div><div class="sri-s">Empresa</div></div></div>
-      <div class="sri" onclick="gS('automations')"><div class="sri-i">⚡</div><div><div class="sri-n">Automatizaciones</div><div class="sri-s">Sistema</div></div></div>
-      <div class="sri" onclick="gS('dash')"><div class="sri-i">⬛</div><div><div class="sri-n">Dashboard CEO</div><div class="sri-s">Comando</div></div></div>
+      <div class="sri" onclick="gS('automations')"><div class="sri-i">⚡</div><div><div class="sri-n">Automatizaciones A1-A16</div><div class="sri-s">Sistema</div></div></div>
       <div class="sri" onclick="gS('finanzas')"><div class="sri-i">💰</div><div><div class="sri-n">Finanzas · P&L · Drive</div><div class="sri-s">Analytics</div></div></div>
-      <div class="sri" onclick="gS('rrhh')"><div class="sri-i">👥</div><div><div class="sri-n">RRHH · Legajos</div><div class="sri-s">Empresa</div></div></div>
     </div>
   </div>
 </div>
 
-<!-- MODAL PROYECTO -->
+<!-- ═══ MOBILE SIDEBAR OVERLAY ═══ -->
+<div class="mob-overlay" id="mob-overlay" onclick="closeSidebar()"></div>
+
+<!-- ═══ MODALS ═══ -->
 <div class="overlay" id="modal-proj" onclick="cModal('proj',event)">
   <div class="mp" onclick="event.stopPropagation()">
-    <div class="mp-h">
-      <div class="mp-t" id="mpn">Proyecto</div>
-      <div id="mp-sem" style="width:10px;height:10px;border-radius:50%;background:var(--grn);flex-shrink:0"></div>
-      <button class="mp-close" onclick="cModal('proj')">✕</button>
-    </div>
+    <div class="mp-h"><div class="mp-t" id="mpn">Proyecto</div><div id="mp-sem" style="width:10px;height:10px;border-radius:50%;background:var(--grn);flex-shrink:0"></div><button class="mp-close" onclick="cModal('proj')">✕</button></div>
     <div class="mp-body" id="mp-body"></div>
   </div>
 </div>
-
-<!-- MODAL MAYORISTA -->
 <div class="overlay" id="modal-ma" onclick="cModal('ma',event)">
   <div class="mp" onclick="event.stopPropagation()">
-    <div class="mp-h">
-      <div class="mp-t" id="man">Cliente</div>
-      <button class="mp-close" onclick="cModal('ma')">✕</button>
-    </div>
+    <div class="mp-h"><div class="mp-t" id="man">Cliente</div><button class="mp-close" onclick="cModal('ma')">✕</button></div>
     <div class="mp-body" id="ma-body"></div>
   </div>
 </div>
-
-<!-- MODAL NUEVO PROYECTO -->
 <div class="overlay" id="modal-newproj" onclick="cModal('newproj',event)">
   <div class="mp" onclick="event.stopPropagation()">
-    <div class="mp-h">
-      <div class="mp-t">Nuevo Proyecto</div>
-      <button class="mp-close" onclick="cModal('newproj')">✕</button>
-    </div>
+    <div class="mp-h"><div class="mp-t">Nuevo Proyecto</div><button class="mp-close" onclick="cModal('newproj')">✕</button></div>
     <div class="mp-body">
       <div class="mf"><label class="mfl">Nombre del proyecto *</label><input class="mfi" id="np-name" placeholder="Ej: Campaña Día de la Madre"></div>
-      <div class="mf"><label class="mfl">Departamento *</label>
-        <select class="mfi" id="np-dept"><option>Marketing</option><option>Comercial</option><option>Operaciones</option><option>Finanzas</option><option>CLEO</option><option>Tecnología</option><option>Labs</option></select></div>
+      <div class="mf"><label class="mfl">Departamento *</label><select class="mfi" id="np-dept"><option>Marketing</option><option>Comercial</option><option>Operaciones</option><option>Finanzas</option><option>CLEO</option><option>Tecnología</option><option>Labs</option></select></div>
       <div class="mf"><label class="mfl">Líder responsable *</label><input class="mfi" id="np-leader" placeholder="Ej: Sofía López"></div>
       <div class="mf"><label class="mfl">Equipo (separado por comas)</label><input class="mfi" id="np-team" placeholder="Ej: Hugo, Dahiana, Agente MKT"></div>
       <div class="g2" style="gap:8px">
         <div class="mf"><label class="mfl">Fecha límite *</label><input class="mfi" id="np-date" type="date"></div>
-        <div class="mf"><label class="mfl">Prioridad</label>
-          <select class="mfi" id="np-pri"><option value="crit">🔴 Crítica</option><option value="high">🟠 Alta</option><option value="med">🟡 Media</option></select></div>
+        <div class="mf"><label class="mfl">Prioridad</label><select class="mfi" id="np-pri"><option value="crit">🔴 Crítica</option><option value="high">🟠 Alta</option><option value="med">🟡 Media</option></select></div>
       </div>
-      <div class="mf"><label class="mfl">Descripción y objetivo</label><textarea class="mfta" id="np-desc" placeholder="¿Para qué es este proyecto? ¿Qué resultado esperamos?"></textarea></div>
-      <div class="mf"><label class="mfl">KPIs del proyecto (uno por línea)</label><textarea class="mfta" id="np-kpis" placeholder="Ej: ROAS 3x mínimo&#10;3 creativos aprobados&#10;Landing page lista"></textarea></div>
-      <div style="display:flex;gap:8px;margin-top:4px">
-        <button class="btnv" style="flex:1" onclick="saveProject()">CREAR PROYECTO</button>
-        <button class="btnout" onclick="cModal('newproj')">Cancelar</button>
-      </div>
-      <div class="pn-note" style="margin-top:8px">El proyecto queda en estado "Pendiente aprobación" hasta que el jefe del área lo apruebe.</div>
+      <div class="mf"><label class="mfl">Descripción y objetivo</label><textarea class="mfta" id="np-desc" placeholder="¿Para qué es este proyecto?"></textarea></div>
+      <div class="mf"><label class="mfl">KPIs del proyecto (uno por línea)</label><textarea class="mfta" id="np-kpis" placeholder="ROAS 3x mínimo&#10;3 creativos aprobados"></textarea></div>
+      <div style="display:flex;gap:8px;margin-top:4px"><button class="btnv" style="flex:1" onclick="saveProject()">CREAR PROYECTO</button><button class="btnout" onclick="cModal('newproj')">Cancelar</button></div>
+      <div class="pn-note" style="margin-top:8px">El proyecto queda en estado "Pendiente aprobación" hasta que el jefe de área lo apruebe.</div>
     </div>
   </div>
 </div>
-
-<!-- MODAL NUEVA VISITA MAYORISTA -->
 <div class="overlay" id="modal-visit" onclick="cModal('visit',event)">
   <div class="mp" onclick="event.stopPropagation()">
-    <div class="mp-h">
-      <div class="mp-t">Registrar visita</div>
-      <button class="mp-close" onclick="cModal('visit')">✕</button>
-    </div>
+    <div class="mp-h"><div class="mp-t">Registrar Visita</div><button class="mp-close" onclick="cModal('visit')">✕</button></div>
     <div class="mp-body">
-      <div class="mf"><label class="mfl">Cliente visitado *</label>
-        <select class="mfi" id="vt-client">
-          <option>Distribuidora Centro SA (Roberto Gómez)</option>
-          <option>Salón Beauty Norte (Patricia Lara)</option>
-          <option>Cosméticos del Sur (Ana Benítez)</option>
-          <option>Tienda Natural PY (Carlos Vera)</option>
-          <option>+ Nuevo cliente</option>
-        </select></div>
-      <div class="mf"><label class="mfl">Vendedor</label>
-        <select class="mfi" id="vt-vendor"><option>Cecilio Ruiz</option><option>Luis Ramírez</option></select></div>
+      <div class="mf"><label class="mfl">Cliente visitado *</label><select class="mfi" id="vt-client"><option>Distribuidora Centro SA (Roberto Gómez)</option><option>Salón Beauty Norte (Patricia Lara)</option><option>Cosméticos del Sur (Ana Benítez)</option><option>Tienda Natural PY (Carlos Vera)</option><option>+ Nuevo cliente</option></select></div>
+      <div class="mf"><label class="mfl">Vendedor</label><select class="mfi" id="vt-vendor"><option>Cecilio Ruiz</option><option>Luis Ramírez</option></select></div>
       <div class="g2" style="gap:8px">
-        <div class="mf"><label class="mfl">Fecha de visita *</label><input class="mfi" type="date" id="vt-date"></div>
-        <div class="mf"><label class="mfl">¿Realizó pedido?</label>
-          <select class="mfi" id="vt-order"><option value="si">Sí</option><option value="no">No</option></select></div>
+        <div class="mf"><label class="mfl">Fecha *</label><input class="mfi" type="date" id="vt-date"></div>
+        <div class="mf"><label class="mfl">¿Realizó pedido?</label><select class="mfi" id="vt-order" onchange="document.getElementById('vt-amount-wrap').style.display=this.value==='si'?'block':'none'"><option value="si">Sí</option><option value="no">No</option></select></div>
       </div>
-      <div class="mf" id="vt-amount-wrap"><label class="mfl">Monto del pedido (Gs)</label><input class="mfi" type="number" id="vt-amount" placeholder="Ej: 8500000"></div>
-      <div class="mf"><label class="mfl">Motivo de no compra (si aplica)</label>
-        <select class="mfi" id="vt-reason"><option value="">N/A</option><option>Muy caro</option><option>Ya tiene stock</option><option>Dueño no estaba</option><option>Prefiere otra marca</option><option>Espera fin de mes</option><option>Otro</option></select></div>
-      <div class="mf"><label class="mfl">Próxima visita programada</label><input class="mfi" type="date" id="vt-next"></div>
-      <div class="mf"><label class="mfl">Notas de la visita</label><textarea class="mfta" id="vt-notes" placeholder="Condiciones del local, necesidades del cliente, comentarios..."></textarea></div>
+      <div class="mf" id="vt-amount-wrap"><label class="mfl">Monto del pedido (Gs)</label><input class="mfi" type="number" id="vt-amount" placeholder="Ej: 8500000" inputmode="numeric"></div>
+      <div class="mf"><label class="mfl">Motivo de no compra (si aplica)</label><select class="mfi" id="vt-reason"><option value="">N/A</option><option>Muy caro</option><option>Ya tiene stock</option><option>Dueño no estaba</option><option>Prefiere otra marca</option><option>Espera fin de mes</option><option>Otro</option></select></div>
+      <div class="mf"><label class="mfl">Próxima visita</label><input class="mfi" type="date" id="vt-next"></div>
+      <div class="mf"><label class="mfl">Notas</label><textarea class="mfta" id="vt-notes" placeholder="Condiciones, necesidades, comentarios..."></textarea></div>
       <button class="btng" style="width:100%" onclick="saveVisit()">GUARDAR VISITA</button>
     </div>
   </div>
 </div>
 
+<!-- ═══ APP ═══ -->
+<div class="app" id="app">
+
 <!-- TOPBAR -->
-<div class="tb" id="topbar" style="display:none">
-  <div class="tbl">
-    <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS-LOGO-PARAGUAYCOSMETICOS.svg?v=1769957943" alt="Blondas" onerror="this.style.display='none';this.nextSibling.style.display='block'">
-    <span style="display:none" class="tbl-t">BLONDAS OS</span>
+<div class="tb">
+  <div class="tb-left">
+    <button class="ham" id="ham-btn" onclick="toggleSidebar()">☰</button>
+    <div class="tbl">
+      <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/blondas_logo_transparente.png?v=1776210393" alt="Blondas" onerror="this.style.display='none';this.nextSibling.style.display='block'">
+      <span class="tbl-txt">BLONDAS</span>
+    </div>
   </div>
-  <div class="upi" onclick="doLogout()">
+  <div class="upi" onclick="doLogout()" title="Cerrar sesión">
     <div class="uav" id="uav">ML</div>
     <div><div class="un" id="uname">Mel Núñez</div><div class="ur" id="urole">CEO · Salir</div></div>
   </div>
   <div class="tbr">
-    <button class="ib" onclick="openS()" title="Buscar ⌘K">🔍</button>
+    <button class="ib" onclick="openS()" title="Buscar (⌘K)">🔍</button>
     <button class="ib" onclick="showP('alertas')" title="Alertas">⚠<div class="nd"></div></button>
   </div>
 </div>
 
-<div class="lay" id="lay" style="display:none">
+<!-- LAYOUT -->
+<div class="lay" id="lay">
 
 <!-- SIDEBAR -->
 <div class="side" id="side">
-<div id="sb-mel" style="display:none">
-  <div class="ss"><div class="sl">Comando</div>
-    <button class="ni on" onclick="showP('dash',this)"><span class="ni-i">⬛</span>Dashboard CEO</button>
-    <button class="ni" onclick="showP('juntas',this)"><span class="ni-i">◉</span>Sala de juntas</button>
-    <button class="ni" onclick="showP('salas',this)"><span class="ni-i">◈</span>Salas 1:1</button>
-    <button class="ni" onclick="showP('memoria',this)"><span class="ni-i">▣</span>Memoria <span class="nib nibr">12</span></button>
+  <div class="sb-logo">
+    <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/logos_marcas_bl_11.png?v=1769993204" alt="BB" class="bb-mark">
+    <div class="sb-logo-txt">Blondas OS</div>
   </div>
-  <div class="ss"><div class="sl">Analytics</div>
-    <button class="ni" onclick="showP('bi',this)"><span class="ni-i">▦</span>BI / Reportes</button>
-    <button class="ni" onclick="showP('okrs',this)"><span class="ni-i">▤</span>KPIs / OKRs</button>
-    <button class="ni" onclick="showP('finanzas',this)"><span class="ni-i">💰</span>Finanzas</button>
-    <button class="ni" onclick="showP('automations',this)"><span class="ni-i">⚡</span>Automatizaciones</button>
-    <button class="ni" onclick="showP('alertas',this)"><span class="ni-i">▲</span>Alertas <span class="nib nibr">4</span></button>
+  <div id="sb-mel" style="display:none">
+    <div class="ss"><div class="sl">Comando</div>
+      <button class="ni on" onclick="spn('dash',this)">⬛ Dashboard CEO</button>
+      <button class="ni" onclick="spn('juntas',this)">◉ Sala de juntas</button>
+      <button class="ni" onclick="spn('salas',this)">◈ Salas 1:1</button>
+      <button class="ni" onclick="spn('memoria',this)">▣ Memoria <span class="nib nibr">12</span></button>
+    </div>
+    <div class="ss"><div class="sl">Analytics</div>
+      <button class="ni" onclick="spn('bi',this)">▦ BI / Reportes</button>
+      <button class="ni" onclick="spn('okrs',this)">▤ KPIs / OKRs</button>
+      <button class="ni" onclick="spn('finanzas',this)">💰 Finanzas</button>
+      <button class="ni" onclick="spn('automations',this)">⚡ Automatizaciones</button>
+      <button class="ni" onclick="spn('alertas',this)">▲ Alertas <span class="nib nibr">4</span></button>
+    </div>
+    <div class="ss"><div class="sl">Ventas</div>
+      <button class="ni" onclick="spn('mayoristas',this)">🏪 Mayoristas</button>
+      <button class="ni" onclick="spn('kommo',this)">📊 Kommo CRM</button>
+    </div>
+    <div class="ss"><div class="sl">Marketing</div>
+      <button class="ni" onclick="spn('mktflow',this)">🚀 Flujo MKT</button>
+      <button class="ni" onclick="spn('mkt-social',this)">📱 Redes / Drive</button>
+    </div>
+    <div class="ss"><div class="sl">Empresa</div>
+      <button class="ni" onclick="spn('proyectos',this)">◫ Proyectos</button>
+      <button class="ni" onclick="spn('rrhh',this)">👥 RRHH</button>
+      <button class="ni" onclick="spn('logistica',this)">🚚 Logística</button>
+      <button class="ni" onclick="spn('agenda',this)">📅 Agenda</button>
+      <button class="ni" onclick="spn('org',this)">◻ Organigrama</button>
+      <button class="ni" onclick="spn('docs',this)">📄 Documentos</button>
+    </div>
+    <div class="ss"><div class="sl">Crecimiento</div>
+      <button class="ni" onclick="spn('academia',this)">◑ Universidad</button>
+      <button class="ni" onclick="spn('labs',this)">◐ Labs I+D</button>
+      <button class="ni" onclick="spn('ideas',this)">◍ Nuevos Negocios</button>
+    </div>
   </div>
-  <div class="ss"><div class="sl">Ventas</div>
-    <button class="ni" onclick="showP('mayoristas',this)"><span class="ni-i">🏪</span>Mayoristas</button>
-    <button class="ni" onclick="showP('kommo',this)"><span class="ni-i">📊</span>Kommo CRM</button>
+  <div id="sb-role" style="display:none">
+    <div class="ss"><div class="sl" id="rll">Mi área</div>
+      <button class="ni on" id="rni1" onclick="showRoleP(0)">⬛ <span id="rn1">Dashboard</span></button>
+      <button class="ni" id="rni2" onclick="showRoleP(1)">▤ <span id="rn2">KPIs</span></button>
+      <button class="ni" id="rni3" onclick="showRoleP(2)">◑ <span id="rn3">Academia</span></button>
+      <button class="ni" id="rni4" onclick="showRoleP(3)">◈ <span id="rn4">Chat</span></button>
+    </div>
   </div>
-  <div class="ss"><div class="sl">Marketing</div>
-    <button class="ni" onclick="showP('mktflow',this)"><span class="ni-i">🚀</span>Flujo MKT</button>
-    <button class="ni" onclick="showP('mkt-social',this)"><span class="ni-i">📱</span>Redes / Drive</button>
-  </div>
-  <div class="ss"><div class="sl">Empresa</div>
-    <button class="ni" onclick="showP('proyectos',this)"><span class="ni-i">◫</span>Proyectos</button>
-    <button class="ni" onclick="showP('rrhh',this)"><span class="ni-i">👥</span>RRHH</button>
-    <button class="ni" onclick="showP('logistica',this)"><span class="ni-i">🚚</span>Logística</button>
-    <button class="ni" onclick="showP('agenda',this)"><span class="ni-i">📅</span>Agenda</button>
-    <button class="ni" onclick="showP('docs',this)"><span class="ni-i">📄</span>Documentos</button>
-  </div>
-  <div class="ss"><div class="sl">Crecimiento</div>
-    <button class="ni" onclick="showP('academia',this)"><span class="ni-i">◑</span>Universidad</button>
-    <button class="ni" onclick="showP('labs',this)"><span class="ni-i">◐</span>Labs I+D</button>
-    <button class="ni" onclick="showP('ideas',this)"><span class="ni-i">◍</span>Nuevos Negocios</button>
-  </div>
-</div>
-<div id="sb-role" style="display:none">
-  <div class="ss"><div class="sl" id="rll">Mi área</div>
-    <button class="ni on" id="rni1" onclick="showRoleP(0)"><span class="ni-i">⬛</span><span id="rn1">Dashboard</span></button>
-    <button class="ni" id="rni2" onclick="showRoleP(1)"><span class="ni-i">▤</span><span id="rn2">KPIs</span></button>
-    <button class="ni" id="rni3" onclick="showRoleP(2)"><span class="ni-i">◑</span><span id="rn3">Academia</span></button>
-    <button class="ni" id="rni4" onclick="showRoleP(3)"><span class="ni-i">◈</span><span id="rn4">Chat</span></button>
-  </div>
-</div>
-</div>
+</div><!-- /side -->
 
+<!-- CONTENT -->
 <div class="cnt" id="cnt">
 
 <!-- DASHBOARD CEO -->
 <div id="panel-dash" class="pn on">
-  <div class="hbar"><div class="hd" style="background:var(--grn)"></div><span style="color:var(--t2)">Sistemas:</span><span style="color:var(--grn);font-weight:700">Shopify ✓ · Kommo ✓ · Meta via Windsor ✓ · CLEO ✓</span></div>
+  <div class="hbar"><div class="hd" style="background:var(--grn)"></div><span style="color:var(--t2)">Sistemas:</span><span style="color:var(--grn);font-weight:700">Shopify ✓ · Kommo ✓ · Meta ✓ · CLEO ✓</span></div>
   <div class="ph">Dashboard CEO <span class="phs">14 abr 2026 · datos simulados</span></div>
   <div class="g4">
     <div class="kc"><div class="kcl">VENTAS HOY</div><div class="kcv">11.2M</div><div class="kcd uc">↑ 8%</div></div>
     <div class="kc"><div class="kcl">META MES</div><div class="kcv">38%</div><div class="kcd wc">14/30</div></div>
     <div class="kc"><div class="kcl">MER</div><div class="kcv">3.7x</div><div class="kcd wc">meta 5x</div></div>
-    <div class="kc"><div class="kcl">ROAS</div><div class="kcv">2.4x</div><div class="kcd uc">↑ meta 2x</div></div>
+    <div class="kc"><div class="kcl">ROAS</div><div class="kcv">2.4x</div><div class="kcd uc">↑ 2x</div></div>
   </div>
   <div class="g4">
     <div class="kc"><div class="kcl">TICKET PROM.</div><div class="kcv">163k</div><div class="kcd dc">meta 250k</div></div>
@@ -476,33 +624,39 @@ body{margin:0}
   </div>
   <div class="g2">
     <div class="card"><div class="ct">Alertas urgentes</div>
-      <div class="alr"><div class="adt acr"></div><div><div style="font-size:10px;font-weight:600;color:var(--txt)">CLEO backend 10% · 16 días</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">CRÍTICO · CLEO</div></div></div>
-      <div class="alr"><div class="adt acr"></div><div><div style="font-size:10px;font-weight:600;color:var(--txt)">Resultado -23.8M Gs · caja 1.8 sem.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">CRÍTICO · FINANZAS</div></div></div>
+      <div class="alr"><div class="adt acr"></div><div><div style="font-size:10px;font-weight:600;color:var(--txt)">CLEO backend 10% · 16 días críticos</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">CRÍTICO · CLEO</div></div></div>
+      <div class="alr"><div class="adt acr"></div><div><div style="font-size:10px;font-weight:600;color:var(--txt)">Resultado -23.8M · Caja 1.8 sem.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">CRÍTICO · FINANZAS</div></div></div>
       <div class="alr"><div class="adt aal"></div><div><div style="font-size:10px;font-weight:600;color:var(--txt)">Campaña FRÍO ROAS 0.9x → PAUSAR</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">ALERTA · MKT</div></div></div>
     </div>
     <div class="card"><div class="ct">Pendientes de aprobación</div>
       <div class="row"><div class="rn">Campaña Día de la Madre · MKT</div><div class="tag ta">Aprobar</div></div>
-      <div class="row"><div class="rn">Proyecto Mentora CLEO · RRHH</div><div class="tag ta">Pendiente</div></div>
+      <div class="row"><div class="rn">Proyecto Mentora CLEO</div><div class="tag ta">Pendiente</div></div>
       <div class="row"><div class="rn">Aumento presupuesto Retargeting</div><div class="tag tbr">Revisar</div></div>
     </div>
   </div>
   <div class="card"><div class="ct">Canales hoy</div>
-    <div class="brw"><div class="brl">E-commerce</div><div class="brt"><div class="brf" style="width:72%;background:var(--brand)">72% · 8.1M</div></div></div>
+    <div class="brw"><div class="brl">E-commerce</div><div class="brt"><div class="brf" style="width:72%;background:var(--brand)">72%</div></div></div>
     <div class="brw"><div class="brl">Emprendedoras</div><div class="brt"><div class="brf" style="width:15%;background:#6b4c5e">15%</div></div></div>
     <div class="brw"><div class="brl">Mayoristas</div><div class="brt"><div class="brf" style="width:8%;background:#9a7e88">8%</div></div></div>
     <div class="brw"><div class="brl">Showroom</div><div class="brt"><div class="brf" style="width:5%;background:#c4b0b8">5%</div></div></div>
+  </div>
+  <div class="footer">
+    <a href="https://blondas.com.py" target="_blank">
+      <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS_2026_MANUAL_DE_MARCA_1.png?v=1776205444" alt="Blondas 2026" onerror="this.style.background='var(--bd)';this.style.height='60px'">
+    </a>
+    <div class="footer-lnk">blondas.com.py</div>
   </div>
 </div>
 
 <!-- SALA JUNTAS -->
 <div id="panel-juntas" class="pn">
-  <div class="ph">Sala de juntas <span class="phs">7 gerentes · memoria Railway</span></div>
-  <div class="hc"><div class="hct">Memoria persistente activa</div><div class="hcb">Todo lo que se decide acá se guarda en Railway. Mel puede guardar o borrar cada registro desde el panel Memoria.</div></div>
+  <div class="ph">Sala de juntas <span class="phs">7 gerentes</span></div>
+  <div class="hc"><div class="hct">Memoria persistente · Railway</div><div class="hcb">Todo lo que se decide acá se guarda. Los agentes recuerdan el contexto en la próxima sesión.</div></div>
   <div class="cw" id="jchat">
     <div class="cb cba"><div class="cbw">CEO</div>Sala activa. 7 gerentes presentes. ¿Agenda del día, Mel?</div>
-    <div class="cb cbm"><div class="cbw">MEL</div>Estado CLEO Portal y quién resuelve el backend esta semana.</div>
-    <div class="cb cba"><div class="cbw">CLEO</div>Backend 10%. Login Shopify no conectado. Necesito dev confirmado hoy.</div>
-    <div class="cb cba"><div class="cbw">FINANCIERO</div>Cada día sin portal = 1.632.000 Gs en suscripciones sin cobrar.</div>
+    <div class="cb cbm"><div class="cbw">MEL</div>Estado CLEO Portal y prioridades esta semana.</div>
+    <div class="cb cba"><div class="cbw">CLEO</div>Backend 10%. Necesito confirmar Cowork para esta semana. El 30 abril está encima.</div>
+    <div class="cb cba"><div class="cbw">FINANCIERO</div>Cada día sin portal = 1.632.000 Gs en suscripciones PRO sin cobrar.</div>
   </div>
   <div class="ir"><input type="text" id="ji" placeholder="Dar orden a todos los gerentes..."><button class="btnv" onclick="sc('j')">Enviar ↗</button></div>
 </div>
@@ -516,40 +670,39 @@ body{margin:0}
     <div class="agcard" onclick="aS('Marketing','MKT',this)"><div class="agav">MKT</div><div class="agn">Marketing</div><div class="agr">ads</div></div>
     <div class="agcard" onclick="aS('Operaciones','OPS',this)"><div class="agav">OPS</div><div class="agn">Operaciones</div><div class="agr">stock</div></div>
     <div class="agcard" onclick="aS('Financiero','FIN',this)"><div class="agav">FIN</div><div class="agn">Financiero</div><div class="agr">caja</div></div>
-    <div class="agcard" onclick="aS('CLEO','CLO',this)"><div class="agav">CLO</div><div class="agn">CLEO</div><div class="agr">emprendedoras</div></div>
+    <div class="agcard" onclick="aS('CLEO','CLO',this)"><div class="agav">CLO</div><div class="agn">CLEO</div><div class="agr">portal</div></div>
     <div class="agcard" onclick="aS('Tecnología','TEC',this)"><div class="agav">TEC</div><div class="agn">Tecnología</div><div class="agr">sistemas</div></div>
-    <div class="agcard" onclick="aS('Labs','LAB',this)"><div class="agav">LAB</div><div class="agn">Labs I+D</div><div class="agr">productos</div></div>
+    <div class="agcard" onclick="aS('Labs','LAB',this)"><div class="agav">LAB</div><div class="agn">Labs I+D</div><div class="agr">fábrica</div></div>
   </div>
   <div id="sbox" style="display:none">
     <div class="dv"></div>
-    <div class="ph" id="stit" style="font-size:13px">Sala privada</div>
+    <div class="ph" id="stit" style="font-size:14px">Sala privada</div>
     <div class="cw" id="schat"></div>
-    <div class="ir"><input type="text" id="si-c" placeholder="Escribí..."><button class="btnv" onclick="sc('s')">Enviar ↗</button></div>
+    <div class="ir"><input type="text" id="si-c" placeholder="Escribí tu mensaje..."><button class="btnv" onclick="sc('s')">↗</button></div>
   </div>
 </div>
 
 <!-- MEMORIA -->
 <div id="panel-memoria" class="pn">
   <div class="ph">Memoria <span class="phs">Railway · Mel controla qué se guarda</span></div>
-  <div class="card"><div class="ct">Registro · Mel puede guardar o borrar</div>
+  <div class="card"><div class="ct">Registro · Guardar 📌 o borrar 🗑</div>
     <div id="mem-list">
       <div class="row" id="m1"><div class="rn"><span class="tag tg" style="margin-right:5px">DECISIÓN</span>Dos portales separados: CLEO emprendedoras / Blondas OS equipo</div><div style="display:flex;gap:4px"><button class="btng" style="font-size:9px;padding:2px 7px" onclick="pinMem('m1')">📌</button><button class="btnout" style="font-size:9px;padding:2px 7px;color:#e74c3c;border-color:#e74c3c" onclick="delMem('m1')">🗑</button></div></div>
-      <div class="row" id="m2"><div class="rn"><span class="tag tbr" style="margin-right:5px">COMANDO</span>Construir OS v7 con flujo MKT, mayoristas, Kommo y automatizaciones</div><div style="display:flex;gap:4px"><button class="btng" style="font-size:9px;padding:2px 7px" onclick="pinMem('m2')">📌</button><button class="btnout" style="font-size:9px;padding:2px 7px;color:#e74c3c;border-color:#e74c3c" onclick="delMem('m2')">🗑</button></div></div>
-      <div class="row" id="m3"><div class="rn"><span class="tag tr" style="margin-right:5px">ALERTA</span>CLEO backend 10% · dev pendiente confirmar</div><div style="display:flex;gap:4px"><button class="btng" style="font-size:9px;padding:2px 7px" onclick="pinMem('m3')">📌</button><button class="btnout" style="font-size:9px;padding:2px 7px;color:#e74c3c;border-color:#e74c3c" onclick="delMem('m3')">🗑</button></div></div>
-      <div class="row" id="m4"><div class="rn"><span class="tag ta" style="margin-right:5px">PENDIENTE</span>Mentora CLEO vacante · bloquea reactivación 21 emprendedoras</div><div style="display:flex;gap:4px"><button class="btng" style="font-size:9px;padding:2px 7px" onclick="pinMem('m4')">📌</button><button class="btnout" style="font-size:9px;padding:2px 7px;color:#e74c3c;border-color:#e74c3c" onclick="delMem('m4')">🗑</button></div></div>
+      <div class="row" id="m2"><div class="rn"><span class="tag tbr" style="margin-right:5px">COMANDO</span>Construir OS v7 responsive con todos los módulos</div><div style="display:flex;gap:4px"><button class="btng" style="font-size:9px;padding:2px 7px" onclick="pinMem('m2')">📌</button><button class="btnout" style="font-size:9px;padding:2px 7px;color:#e74c3c;border-color:#e74c3c" onclick="delMem('m2')">🗑</button></div></div>
+      <div class="row" id="m3"><div class="rn"><span class="tag tr" style="margin-right:5px">ALERTA</span>CLEO backend 10% · dev Cowork esta semana</div><div style="display:flex;gap:4px"><button class="btng" style="font-size:9px;padding:2px 7px" onclick="pinMem('m3')">📌</button><button class="btnout" style="font-size:9px;padding:2px 7px;color:#e74c3c;border-color:#e74c3c" onclick="delMem('m3')">🗑</button></div></div>
     </div>
   </div>
-  <div class="pn-note">📌 Guardar = queda fijo en Railway aunque se borre la conversación · 🗑 Borrar = elimina del registro permanente</div>
+  <div class="pn-note">📌 Guardar = queda fijo en Railway · 🗑 Borrar = elimina del registro</div>
 </div>
 
 <!-- BI -->
 <div id="panel-bi" class="pn">
-  <div class="ph">BI / Reportes <span class="phs">empresa + dpto</span></div>
+  <div class="ph">BI / Reportes <span class="phs">empresa + por departamento</span></div>
   <div class="g4"><div class="kc"><div class="kcl">VENTAS MES</div><div class="kcv">189.4M</div><div class="kcd wc">38% meta</div></div><div class="kc"><div class="kcl">MER</div><div class="kcv">3.7x</div><div class="kcd wc">meta 5x</div></div><div class="kc"><div class="kcl">RESULTADO</div><div class="kcv">-23.8M</div><div class="kcd dc">negativo</div></div><div class="kc"><div class="kcl">CAJA</div><div class="kcv">45.2M</div><div class="kcd dc">1.8 sem.</div></div></div>
-  <div class="card"><div class="ct">Comparativo Marzo vs Abril</div>
-    <div class="brw"><div class="brl">Marzo</div><div class="brt"><div class="brf" style="width:70%;background:var(--brd2);color:var(--t2)">350M</div></div></div>
-    <div class="brw"><div class="brl">Abr proy.</div><div class="brt"><div class="brf" style="width:81%;background:var(--brand)">405M</div></div></div>
-    <div class="brw"><div class="brl">Meta</div><div class="brt"><div class="brf" style="width:100%;background:var(--grn)">500M ✓</div></div></div>
+  <div class="card"><div class="ct">Abril vs Marzo vs Meta</div>
+    <div class="brw"><div class="brl">Marzo final</div><div class="brt"><div class="brf" style="width:70%;background:var(--brd2);color:var(--t2)">350M</div></div></div>
+    <div class="brw"><div class="brl">Abr proyect.</div><div class="brt"><div class="brf" style="width:81%;background:var(--brand)">405M</div></div></div>
+    <div class="brw"><div class="brl">Meta</div><div class="brt"><div class="brf" style="width:100%;background:var(--grn)">500M</div></div></div>
   </div>
   <div class="card"><div class="ct">ROAS por campaña</div>
     <div class="brw"><div class="brl">Retargeting</div><div class="brt"><div class="brf" style="width:100%;background:var(--grn)">4.1x ✓</div></div></div>
@@ -560,15 +713,61 @@ body{margin:0}
 
 <!-- KPIs OKRs -->
 <div id="panel-okrs" class="pn">
-  <div class="ph">KPIs / OKRs <span class="phs">por departamento</span></div>
-  <div class="card"><div class="ct">Empresa · abril 2026</div>
-    <div class="row"><div class="rn">Facturación 500M Gs/mes</div><div class="tag ta">38%</div></div>
-    <div class="row"><div class="rn">ROAS mínimo 2x</div><div class="tag tg">✓ 2.4x</div></div>
-    <div class="row"><div class="rn">Resultado operativo positivo</div><div class="tag tr">15%</div></div>
-    <div class="row"><div class="rn">Despachos menos de 24h</div><div class="tag tg">94%</div></div>
-    <div class="row"><div class="rn">CLEO Portal lanzado 30 abr</div><div class="tag ta">55%</div></div>
-    <div class="row"><div class="rn">Ticket promedio 250.000 Gs</div><div class="tag ta">65%</div></div>
-    <div class="row"><div class="rn">Mayoristas reactivados</div><div class="tag tr">5%</div></div>
+  <div class="ph">KPIs / OKRs <span class="phs">por departamento · IA y humanos</span></div>
+  <div class="tabs">
+    <button class="tab on" onclick="st('kp','all',this)">Empresa</button>
+    <button class="tab" onclick="st('kp','com',this)">Comercial</button>
+    <button class="tab" onclick="st('kp','mkt',this)">MKT</button>
+    <button class="tab" onclick="st('kp','ops',this)">Ops</button>
+    <button class="tab" onclick="st('kp','fin',this)">Finanzas</button>
+    <button class="tab" onclick="st('kp','cle',this)">CLEO</button>
+  </div>
+  <div id="kp-all" class="tc on">
+    <div class="card"><div class="ct">Empresa · abril 2026</div>
+      <div class="okr-row"><div class="on_">Facturación 500M Gs/mes</div><div class="od">COMERCIAL</div><div class="ob"><div class="of" style="width:38%;background:#e67e22"></div></div><div class="op" style="color:#e67e22">38%</div></div>
+      <div class="okr-row"><div class="on_">ROAS mínimo 2x</div><div class="od">MKT</div><div class="ob"><div class="of" style="width:100%;background:var(--grn)"></div></div><div class="op" style="color:var(--grn)">✓</div></div>
+      <div class="okr-row"><div class="on_">Resultado operativo positivo</div><div class="od">FINANZAS</div><div class="ob"><div class="of" style="width:15%;background:#e74c3c"></div></div><div class="op" style="color:#e74c3c">15%</div></div>
+      <div class="okr-row"><div class="on_">Despachos en menos de 24h</div><div class="od">OPS</div><div class="ob"><div class="of" style="width:94%;background:var(--grn)"></div></div><div class="op" style="color:var(--grn)">94%</div></div>
+      <div class="okr-row"><div class="on_">CLEO Portal lanzado 30 abr</div><div class="od">CLEO</div><div class="ob"><div class="of" style="width:55%;background:#e67e22"></div></div><div class="op" style="color:#e67e22">55%</div></div>
+    </div>
+  </div>
+  <div id="kp-com" class="tc">
+    <div class="kd-sect"><div class="kd-head"><span class="kd-badge kd-ia">AGENTE IA</span><div class="kd-title">Gerente Comercial</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Analista Ventas Shopify</div><div class="kd-a-status" style="color:var(--grn)">✓ Activo</div></div>
+      <div class="kd-agent-row"><div class="kd-a-ico">🤖</div><div class="kd-a-name">Gestor Mayoristas</div><div class="kd-a-status" style="color:#e74c3c">⚠ Canal inactivo 14d</div></div>
+    </div>
+    <div class="kd-sect"><div class="kd-head"><span class="kd-badge kd-hum">EQUIPO HUMANO</span></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Melisa</div><div class="hr">42.5M · meta 60M</div><div class="hs score-hi">8.5</div></div>
+      <div class="kd-hrow"><div class="kd-a-ico">👤</div><div class="hn">Cecilio</div><div class="hr">0 visitas esta semana</div><div class="hs score-lo">5.5 ⚠</div></div>
+    </div>
+  </div>
+  <div id="kp-mkt" class="tc">
+    <div class="card"><div class="ct">OKRs MKT</div>
+      <div class="row"><div class="rn">ROAS mínimo 2x</div><div class="tag tg">✓ 2.4x</div></div>
+      <div class="row"><div class="rn">Landing pages/mes mínimo 4</div><div class="tag tr">1/4</div></div>
+      <div class="row"><div class="rn">Campaña FRÍO pausada</div><div class="tag tr">Pendiente</div></div>
+    </div>
+  </div>
+  <div id="kp-ops" class="tc">
+    <div class="card"><div class="ct">OKRs Operaciones</div>
+      <div class="row"><div class="rn">Despachos en menos de 24h</div><div class="tag tg">94%</div></div>
+      <div class="row"><div class="rn">0 quiebres stock estrella</div><div class="tag tr">2 SKU críticos</div></div>
+      <div class="row"><div class="rn">Costo logístico menor a 8%</div><div class="tag tg">7.8%</div></div>
+    </div>
+  </div>
+  <div id="kp-fin" class="tc">
+    <div class="card"><div class="ct">OKRs Finanzas</div>
+      <div class="row"><div class="rn">Resultado operativo positivo</div><div class="tag tr">15%</div></div>
+      <div class="row"><div class="rn">Caja mínima 1 mes de gastos</div><div class="tag ta">1.8 sem.</div></div>
+      <div class="row"><div class="rn">Gastos fijos / ventas menor 35%</div><div class="tag tr">44%</div></div>
+    </div>
+  </div>
+  <div id="kp-cle" class="tc">
+    <div class="card"><div class="ct">OKRs CLEO</div>
+      <div class="row"><div class="rn">Portal lanzado 30 abr</div><div class="tag ta">55% · 16 días</div></div>
+      <div class="row"><div class="rn">300 emprendedoras activas</div><div class="tag tr">24 activas · 8%</div></div>
+      <div class="row"><div class="rn">Mentora CLEO contratada</div><div class="tag tr">VACANTE ⚠</div></div>
+    </div>
   </div>
 </div>
 
@@ -577,17 +776,16 @@ body{margin:0}
   <div class="ph">Finanzas <span class="phs">Víctor · Yenifer</span></div>
   <div class="alert-ban">⚠ Caja cubre 1.8 semanas. P&L con Víctor el viernes.</div>
   <div class="hc"><div class="hct">Google Drive — Documentos contables</div>
-    <div class="hcb">Carpeta sincronizada para todos los documentos financieros. Hacé click en cada link para abrir directamente en Drive.</div>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:8px">
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand);cursor:pointer">📊 P&L Mensual</a>
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">💰 Planilla gastos</a>
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">🧾 Declaraciones IVA</a>
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📋 Órdenes de compra</a>
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📄 Contratos/Patentes</a>
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">💳 Comprobantes pago</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px 10px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📊 P&L Mensual</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px 10px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">💰 Planilla gastos</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px 10px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">🧾 Declaraciones IVA</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px 10px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📋 Órdenes de compra</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px 10px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📄 Contratos/Patentes</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px 10px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">💳 Comprobantes pago</a>
     </div>
   </div>
-  <div class="card"><div class="ct">Flujo caja — abril</div>
+  <div class="card"><div class="ct">Flujo caja · abril</div>
     <div class="fin-r"><div class="rn">INGRESOS ACUMULADOS</div><div class="fna pos">+189.400.000 Gs</div></div>
     <div class="fin-r"><div class="rn">Alquiler showroom</div><div class="fna neg">-28.000.000 Gs</div></div>
     <div class="fin-r"><div class="rn">Sueldos</div><div class="fna neg">-47.500.000 Gs</div></div>
@@ -595,39 +793,37 @@ body{margin:0}
     <div class="fin-r"><div class="rn">Costo producto</div><div class="fna neg">-62.000.000 Gs</div></div>
     <div class="fin-r" style="border-top:1px solid var(--brd);margin-top:4px;padding-top:6px"><div class="rn" style="font-weight:700">RESULTADO</div><div class="fna neg" style="font-size:13px">-23.800.000 Gs</div></div>
   </div>
-  <button class="btnout" style="width:100%;margin-top:2px" onclick="alert('Cargar gasto → requiere backend Railway + GDrive API')">+ Cargar gasto manual</button>
+  <button class="btnout" style="width:100%">+ Cargar gasto manual → Drive</button>
 </div>
 
 <!-- AUTOMATIZACIONES -->
 <div id="panel-automations" class="pn">
-  <div class="ph">Automatizaciones <span class="phs">A1-A16 · estado en tiempo real</span></div>
-  <div class="hc"><div class="hct">Qué ejecutan los agentes solos</div><div class="hcb">Estas reglas corren en segundo plano 24/7. Si un agente detecta la condición → ejecuta la acción → notifica al humano responsable.</div></div>
-  <div class="tabs"><button class="tab on" onclick="st('au','mkt',this)">Marketing</button><button class="tab" onclick="st('au','vt',this)">Ventas</button><button class="tab" onclick="st('au','ops',this)">Operaciones</button><button class="tab" onclick="st('au','fin',this)">Finanzas</button><button class="tab" onclick="st('au','cle',this)">CLEO</button></div>
+  <div class="ph">Automatizaciones <span class="phs">A1-A16 · estado</span></div>
+  <div class="tabs"><button class="tab on" onclick="st('au','mkt',this)">MKT</button><button class="tab" onclick="st('au','vt',this)">Ventas</button><button class="tab" onclick="st('au','ops',this)">Ops</button><button class="tab" onclick="st('au','fin',this)">Finanzas</button><button class="tab" onclick="st('au','cle',this)">CLEO</button></div>
   <div id="au-mkt" class="tc on">
-    <div class="auto-row"><div class="auto-id">A1</div><div class="auto-txt"><strong>Protección presupuesto</strong> · Si ROAS cae bajo 1.5x por 3h → pausa campaña automáticamente → notifica Sofía</div><div class="auto-s a-on">✓ Activa</div></div>
-    <div class="auto-row"><div class="auto-id">A2</div><div class="auto-txt"><strong>Escala automática</strong> · Si ROAS supera 4x por 6h → solicita aprobación a Mel para +20% presupuesto → si aprueba en 2h → ejecuta</div><div class="auto-s a-on">✓ Activa</div></div>
-    <div class="auto-row"><div class="auto-id">A3</div><div class="auto-txt"><strong>Creativo quemado</strong> · Si frecuencia supera 3.5x o CTR cae 30% en 48h → notifica Hugo/Dahiana para reemplazar</div><div class="auto-s a-on">✓ Activa</div></div>
-    <div class="auto-row"><div class="auto-id">A4</div><div class="auto-txt"><strong>Calendario editorial</strong> · Lunes 8am: el agente genera plan de contenido 7 días basado en tendencias + stock + fechas PY → envía a Sofía</div><div class="auto-s a-pend">⚙ Pendiente</div></div>
+    <div class="auto-row"><div class="auto-id">A1</div><div class="auto-txt"><strong>Protección presupuesto</strong> · Si ROAS cae bajo 1.5x por 3h → pausa campaña + notifica Sofía</div><div class="auto-s a-on">✓ Activa</div></div>
+    <div class="auto-row"><div class="auto-id">A2</div><div class="auto-txt"><strong>Escala automática</strong> · Si ROAS supera 4x por 6h → solicita aprobación Mel para +20% presupuesto</div><div class="auto-s a-on">✓ Activa</div></div>
+    <div class="auto-row"><div class="auto-id">A3</div><div class="auto-txt"><strong>Creativo quemado</strong> · Si frecuencia supera 3.5x o CTR cae 30% → notifica Hugo/Dahiana</div><div class="auto-s a-on">✓ Activa</div></div>
+    <div class="auto-row"><div class="auto-id">A4</div><div class="auto-txt"><strong>Calendario editorial</strong> · Lunes 8am: genera plan de contenido 7 días → envía a Sofía para aprobación</div><div class="auto-s a-pend">⚙ Pendiente</div></div>
   </div>
   <div id="au-vt" class="tc">
-    <div class="auto-row"><div class="auto-id">A5</div><div class="auto-txt"><strong>Respuesta inmediata</strong> · Si lead entra por Meta y no hay respuesta en Kommo en 15min → agente envía WhatsApp automático + crea tarea vendedor</div><div class="auto-s a-on">✓ Activa</div></div>
-    <div class="auto-row"><div class="auto-id">A6</div><div class="auto-txt"><strong>Carrito abandonado</strong> · 30min sin compra → WhatsApp → 2h sin respuesta → descuento envío gratis → 24h → mueve a lista retargeting Meta</div><div class="auto-s a-on">✓ Activa</div></div>
-    <div class="auto-row"><div class="auto-id">A7</div><div class="auto-txt"><strong>Alerta mayoristas</strong> · Cliente sin contacto 7d → tarea urgente en Kommo → si vendedor no actúa en 2d → escala a Melisa → 4d → escala a CEO</div><div class="auto-s a-on">✓ Activa</div></div>
-    <div class="auto-row"><div class="auto-id">A8</div><div class="auto-txt"><strong>Registro de visitas</strong> · Si Cecilio o Luis no cargaron visita antes de 6pm → recordatorio automático → si al día siguiente tampoco → alerta Melisa</div><div class="auto-s a-pend">⚙ Pendiente</div></div>
+    <div class="auto-row"><div class="auto-id">A5</div><div class="auto-txt"><strong>Respuesta inmediata</strong> · Lead entra por Meta → si no hay respuesta en 15min → WhatsApp automático</div><div class="auto-s a-on">✓ Activa</div></div>
+    <div class="auto-row"><div class="auto-id">A6</div><div class="auto-txt"><strong>Carrito abandonado</strong> · 30min → WA → 2h sin resp. → envío gratis → 24h → retargeting Meta</div><div class="auto-s a-on">✓ Activa</div></div>
+    <div class="auto-row"><div class="auto-id">A7</div><div class="auto-txt"><strong>Alerta mayoristas</strong> · Sin contacto 7d → tarea urgente Kommo → 2d sin acción → escala a Melisa → 4d → CEO</div><div class="auto-s a-on">✓ Activa</div></div>
+    <div class="auto-row"><div class="auto-id">A8</div><div class="auto-txt"><strong>Registro visitas</strong> · Cecilio/Luis sin carga antes 6pm → recordatorio → sin registro → alerta Melisa</div><div class="auto-s a-pend">⚙ Pendiente</div></div>
   </div>
   <div id="au-ops" class="tc">
-    <div class="auto-row"><div class="auto-id">A9</div><div class="auto-txt"><strong>Reposición stock</strong> · Si SKU cae bajo umbral definido → crea orden de compra borrador → notifica Oscar + Labs → Oscar aprueba → envía pedido</div><div class="auto-s a-on">✓ Activa</div></div>
-    <div class="auto-row"><div class="auto-id">A10</div><div class="auto-txt"><strong>Alerta despacho tardío</strong> · Pedido con más de 20h sin despachar → alerta Oscar → si en 2h no actúa → alerta CEO</div><div class="auto-s a-on">✓ Activa</div></div>
-    <div class="auto-row"><div class="auto-id">A11</div><div class="auto-txt"><strong>Control devoluciones</strong> · Cada devolución en Shopify → agente categoriza motivo → reporte semanal a Mel con análisis de causas</div><div class="auto-s a-pend">⚙ Pendiente</div></div>
+    <div class="auto-row"><div class="auto-id">A9</div><div class="auto-txt"><strong>Reposición stock</strong> · SKU bajo umbral → orden de compra borrador → notifica Oscar + Labs → aproba → envío</div><div class="auto-s a-on">✓ Activa</div></div>
+    <div class="auto-row"><div class="auto-id">A10</div><div class="auto-txt"><strong>Despacho tardío</strong> · Pedido más de 20h sin despachar → alerta Oscar → 2h sin acción → alerta CEO</div><div class="auto-s a-on">✓ Activa</div></div>
   </div>
   <div id="au-fin" class="tc">
-    <div class="auto-row"><div class="auto-id">A12</div><div class="auto-txt"><strong>Alerta de caja</strong> · Si caja proyectada a 7d cae bajo 1 semana de gastos fijos → alerta inmediata Mel + Víctor con monto exacto y fecha estimada cero</div><div class="auto-s a-on">✓ ACTIVA · Caja en riesgo ahora</div></div>
-    <div class="auto-row"><div class="auto-id">A13</div><div class="auto-txt"><strong>Cierre diario</strong> · 8pm: consolida ingresos del día (Shopify) + gastos cargados (Drive) → envía resumen 3 líneas a Mel vía WhatsApp</div><div class="auto-s a-pend">⚙ Pendiente</div></div>
-    <div class="auto-row"><div class="auto-id">A14</div><div class="auto-txt"><strong>Vencimientos</strong> · 5 días antes de cada vencimiento (IVA, alquiler, sueldos) → alerta Víctor + Yenifer con monto exacto</div><div class="auto-s a-on">✓ Activa</div></div>
+    <div class="auto-row"><div class="auto-id">A12</div><div class="auto-txt"><strong>Alerta de caja</strong> · Caja proyectada a 7d bajo 1 semana de gastos fijos → alerta inmediata Mel + Víctor</div><div class="auto-s a-on" style="color:#e74c3c">⚡ ACTIVA AHORA</div></div>
+    <div class="auto-row"><div class="auto-id">A13</div><div class="auto-txt"><strong>Cierre diario</strong> · 8pm: consolida ingresos + gastos → resumen 3 líneas al WhatsApp de Mel</div><div class="auto-s a-pend">⚙ Pendiente</div></div>
+    <div class="auto-row"><div class="auto-id">A14</div><div class="auto-txt"><strong>Vencimientos</strong> · 5 días antes de IVA, alquiler, sueldos → alerta Víctor + Yenifer con monto exacto</div><div class="auto-s a-on">✓ Activa</div></div>
   </div>
   <div id="au-cle" class="tc">
-    <div class="auto-row"><div class="auto-id">A15</div><div class="auto-txt"><strong>Reactivación emprendedoras</strong> · 15 días sin compra de kit → WhatsApp personalizado → sin respuesta 3d → escala a Mentora (cuando esté contratada)</div><div class="auto-s a-pend">⚙ Pendiente · sin mentora</div></div>
-    <div class="auto-row"><div class="auto-id">A16</div><div class="auto-txt"><strong>Bienvenida automática</strong> · Nueva emprendedora en portal → secuencia 5 días: día 1 bienvenida + curso, día 2 guía productos, día 3 script ventas, día 5 check-in</div><div class="auto-s a-pend">⚙ Pendiente · portal pendiente</div></div>
+    <div class="auto-row"><div class="auto-id">A15</div><div class="auto-txt"><strong>Reactivación emprendedoras</strong> · 15 días sin compra de kit → WhatsApp personalizado → 3d sin resp. → escala a Mentora</div><div class="auto-s a-pend">⚙ Sin mentora</div></div>
+    <div class="auto-row"><div class="auto-id">A16</div><div class="auto-txt"><strong>Bienvenida automática</strong> · Nueva emprendedora → secuencia 5 días: bienvenida, guía, script ventas, check-in</div><div class="auto-s a-pend">⚙ Portal pendiente</div></div>
   </div>
 </div>
 
@@ -635,72 +831,62 @@ body{margin:0}
 <div id="panel-alertas" class="pn">
   <div class="ph">Alertas <span class="phs">4 sin resolver</span></div>
   <div class="card"><div class="ct">Sistema</div>
-    <div class="alr"><div class="adt acr"></div><div><div style="font-size:10px;font-weight:600;color:var(--txt)">CLEO Portal backend 10%. Sin dev esta semana, el 30 abr se pierde.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">CRÍTICO · CLEO · Confirmar dev HOY</div></div></div>
-    <div class="alr"><div class="adt acr"></div><div><div style="font-size:10px;font-weight:600;color:var(--txt)">Resultado -23.800.000 Gs. Caja cubre 1.8 semanas.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">CRÍTICO · FINANZAS · P&L viernes</div></div></div>
-    <div class="alr"><div class="adt aal"></div><div><div style="font-size:10px;font-weight:600;color:var(--txt)">Campaña FRÍO ROAS 0.9x. Perdiendo dinero por hora.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">ALERTA · MKT · Pausar ahora</div></div></div>
-    <div class="alr"><div class="adt aal"></div><div><div style="font-size:10px;font-weight:600;color:var(--txt)">Mayoristas sin visita 14 días. Cecilio 5.5 · Luis 5.0.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">ALERTA · COMERCIAL</div></div></div>
+    <div class="alr"><div class="adt acr"></div><div><div style="font-size:10px;font-weight:600">CLEO Portal backend 10%. 30 abr en riesgo.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">CRÍTICO · CLEO</div></div></div>
+    <div class="alr"><div class="adt acr"></div><div><div style="font-size:10px;font-weight:600">Resultado -23.800.000 Gs. Caja 1.8 semanas.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">CRÍTICO · FINANZAS</div></div></div>
+    <div class="alr"><div class="adt aal"></div><div><div style="font-size:10px;font-weight:600">Campaña FRÍO ROAS 0.9x. Perdiendo dinero.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">ALERTA · MKT · Pausar ahora</div></div></div>
+    <div class="alr"><div class="adt aal"></div><div><div style="font-size:10px;font-weight:600">Mayoristas sin visita 14 días. Cecilio 5.5 · Luis 5.0.</div><div style="font-size:9px;color:var(--brand);font-weight:700;margin-top:2px">ALERTA · COMERCIAL</div></div></div>
   </div>
 </div>
 
-<!-- MAYORISTAS (MÓDULO COMPLETO) -->
+<!-- MAYORISTAS -->
 <div id="panel-mayoristas" class="pn">
-  <div class="ph">Mayoristas <span class="phs">Cecilio · Luis · clientes activos</span></div>
+  <div class="ph">Mayoristas <span class="phs">Cecilio · Luis</span></div>
   <div class="g4">
-    <div class="kc"><div class="kcl">ACTIVOS</div><div class="kcv" id="ma-cnt-act">1</div><div class="kcd uc">comprando</div></div>
-    <div class="kc"><div class="kcl">TIBIOS</div><div class="kcv" id="ma-cnt-tib">1</div><div class="kcd wc">sin compra 15d</div></div>
-    <div class="kc"><div class="kcl">DORMIDOS</div><div class="kcv" id="ma-cnt-dor">1</div><div class="kcd dc">sin compra 30d</div></div>
-    <div class="kc"><div class="kcl">PROSPECTOS</div><div class="kcv" id="ma-cnt-pro">1</div><div class="kcd wc">potencial</div></div>
+    <div class="kc"><div class="kcl">ACTIVOS</div><div class="kcv">1</div><div class="kcd uc">comprando</div></div>
+    <div class="kc"><div class="kcl">TIBIOS</div><div class="kcv">1</div><div class="kcd wc">15d</div></div>
+    <div class="kc"><div class="kcl">DORMIDOS</div><div class="kcv">1</div><div class="kcd dc">30d</div></div>
+    <div class="kc"><div class="kcl">PROSPECTOS</div><div class="kcv">1</div><div class="kcd wc">nuevos</div></div>
   </div>
-  <div style="display:flex;gap:7px;margin-bottom:10px">
+  <div style="display:flex;gap:7px;margin-bottom:10px;flex-wrap:wrap">
     <button class="btnv" onclick="openModal('visit')">+ Registrar visita</button>
-    <button class="btnout" onclick="alert('Agregar nuevo cliente mayorista')">+ Nuevo cliente</button>
-    <select style="flex:1;padding:6px 10px;border:1px solid var(--brd2);border-radius:9px;font-family:Montserrat,sans-serif;font-size:10px;color:var(--t2);outline:none" onchange="filterMA(this.value)">
-      <option value="">Todos los estados</option>
-      <option value="activo">Activos</option>
-      <option value="tibio">Tibios</option>
-      <option value="dormido">Dormidos</option>
-      <option value="prospecto">Prospectos</option>
-    </select>
+    <button class="btnout" onclick="alert('Agregar nuevo cliente')">+ Nuevo cliente</button>
   </div>
   <div class="tabs"><button class="tab on" onclick="st('ma','cli',this)">Clientes</button><button class="tab" onclick="st('ma','vis',this)">Visitas del día</button><button class="tab" onclick="st('ma','kpi',this)">KPIs equipo</button></div>
-  <div id="ma-cli" class="tc on" id="ma-list">
+  <div id="ma-cli" class="tc on">
     <div class="ma-card" onclick="openMA('ma1')">
-      <div class="ma-top"><div class="ma-av">DC</div><div><div class="ma-n">Distribuidora Centro SA</div><div class="ma-r">Roberto Gómez · Zona Centro · Cecilio</div></div><div class="ma-st"><div class="st-dor">● Dormido</div><div style="font-size:9px;color:var(--t3)">17 días sin compra</div></div></div>
+      <div class="ma-top"><div class="ma-av">DC</div><div><div class="ma-n">Distribuidora Centro SA</div><div class="ma-r">Roberto Gómez · Centro · Cecilio</div></div><div class="ma-st"><div class="st-dor">● Dormido</div><div style="font-size:9px;color:var(--t3)">17 días sin compra</div></div></div>
       <div class="ma-kpis"><div class="ma-k"><div class="ma-kv">8M Gs</div><div class="ma-kl">Últ. compra</div></div><div class="ma-k"><div class="ma-kv">2M Gs</div><div class="ma-kl">Crédito pend.</div></div><div class="ma-k"><div class="ma-kv">28 mar</div><div class="ma-kl">Últ. visita</div></div></div>
     </div>
     <div class="ma-card" onclick="openMA('ma2')">
-      <div class="ma-top"><div class="ma-av">SB</div><div><div class="ma-n">Salón Beauty Norte</div><div class="ma-r">Patricia Lara · Zona Norte · Luis</div></div><div class="ma-st"><div class="st-act">● Activo</div><div style="font-size:9px;color:var(--t3)">Compró hace 4 días</div></div></div>
+      <div class="ma-top"><div class="ma-av">SB</div><div><div class="ma-n">Salón Beauty Norte</div><div class="ma-r">Patricia Lara · Norte · Luis</div></div><div class="ma-st"><div class="st-act">● Activo</div><div style="font-size:9px;color:var(--t3)">Compró hace 4 días</div></div></div>
       <div class="ma-kpis"><div class="ma-k"><div class="ma-kv">15M Gs</div><div class="ma-kl">Este mes</div></div><div class="ma-k"><div class="ma-kv">0 Gs</div><div class="ma-kl">Crédito pend.</div></div><div class="ma-k"><div class="ma-kv">10 abr</div><div class="ma-kl">Últ. visita</div></div></div>
     </div>
     <div class="ma-card" onclick="openMA('ma3')">
-      <div class="ma-top"><div class="ma-av">CS</div><div><div class="ma-n">Cosméticos del Sur</div><div class="ma-r">Ana Benítez · Zona Sur · Cecilio</div></div><div class="ma-st"><div class="st-tib">● Tibio</div><div style="font-size:9px;color:var(--t3)">Sin compra 25 días</div></div></div>
+      <div class="ma-top"><div class="ma-av">CS</div><div><div class="ma-n">Cosméticos del Sur</div><div class="ma-r">Ana Benítez · Sur · Cecilio</div></div><div class="ma-st"><div class="st-tib">● Tibio</div><div style="font-size:9px;color:var(--t3)">25 días sin compra</div></div></div>
       <div class="ma-kpis"><div class="ma-k"><div class="ma-kv">4.5M Gs</div><div class="ma-kl">Últ. compra</div></div><div class="ma-k"><div class="ma-kv">500k</div><div class="ma-kl">Crédito pend.</div></div><div class="ma-k"><div class="ma-kv">5 abr</div><div class="ma-kl">Últ. visita</div></div></div>
     </div>
     <div class="ma-card" onclick="openMA('ma4')">
-      <div class="ma-top"><div class="ma-av">TN</div><div><div class="ma-n">Tienda Natural PY</div><div class="ma-r">Carlos Vera · Zona Centro · Luis</div></div><div class="ma-st"><div class="st-pro">● Prospecto</div><div style="font-size:9px;color:var(--t3)">Primer contacto</div></div></div>
+      <div class="ma-top"><div class="ma-av">TN</div><div><div class="ma-n">Tienda Natural PY</div><div class="ma-r">Carlos Vera · Centro · Luis</div></div><div class="ma-st"><div class="st-pro">● Prospecto</div><div style="font-size:9px;color:var(--t3)">Primer contacto</div></div></div>
       <div class="ma-kpis"><div class="ma-k"><div class="ma-kv">—</div><div class="ma-kl">Sin compra</div></div><div class="ma-k"><div class="ma-kv">0 Gs</div><div class="ma-kl">Crédito</div></div><div class="ma-k"><div class="ma-kv">Esta sem.</div><div class="ma-kl">Reunión</div></div></div>
     </div>
   </div>
   <div id="ma-vis" class="tc">
-    <div class="hc"><div class="hct">Visitas del día · 14 abril 2026</div><div class="hcb">Cecilio y Luis cargan cada visita desde el celular o la compu. El sistema actualiza el estado del cliente automáticamente.</div></div>
     <div id="visit-log">
-      <div class="visit-list-item"><div class="vl-date">14 abr · 10am</div><div class="vl-info"><div class="vl-n">Salón Beauty Norte</div><div class="vl-r">Luis Ramírez · Realizó pedido</div></div><div class="vl-amt" style="color:var(--grn)">+7.500.000 Gs</div></div>
-      <div class="visit-list-item"><div class="vl-date">14 abr · 2pm</div><div class="vl-info"><div class="vl-n">Cosméticos del Sur</div><div class="vl-r">Cecilio · No compró · "Tiene stock"</div></div><div class="vl-amt" style="color:var(--t3)">Sin pedido</div></div>
+      <div class="visit-list-item"><div class="vl-date">14 abr · 10am</div><div class="vl-info"><div class="vl-n">Salón Beauty Norte</div><div class="vl-r">Luis · Realizó pedido</div></div><div class="vl-amt" style="color:var(--grn)">+7.5M Gs</div></div>
+      <div class="visit-list-item"><div class="vl-date">14 abr · 2pm</div><div class="vl-info"><div class="vl-n">Cosméticos del Sur</div><div class="vl-r">Cecilio · "Tiene stock"</div></div><div class="vl-amt" style="color:var(--t3)">Sin pedido</div></div>
     </div>
     <button class="btng" style="width:100%;margin-top:8px" onclick="openModal('visit')">+ Registrar nueva visita</button>
   </div>
   <div id="ma-kpi" class="tc">
     <div class="g2">
       <div class="card"><div class="ct">Cecilio Ruiz</div>
-        <div class="row"><div class="rn">Visitas esta semana</div><div style="font-size:11px;font-weight:700;color:#e74c3c">1 / meta 5</div></div>
-        <div class="row"><div class="rn">Pedidos cerrados</div><div style="font-size:11px;font-weight:700;color:#e74c3c">0</div></div>
-        <div class="row"><div class="rn">Monto vendido mes</div><div style="font-size:11px;font-weight:700;color:#e74c3c">0 Gs</div></div>
-        <div class="row"><div class="rn">Score</div><div class="tag tr">5.5 ⚠ Plan mejora</div></div>
+        <div class="row"><div class="rn">Visitas esta semana</div><div style="font-weight:700;color:#e74c3c">1 / meta 5</div></div>
+        <div class="row"><div class="rn">Pedidos cerrados</div><div style="font-weight:700;color:#e74c3c">0</div></div>
+        <div class="row"><div class="rn">Score</div><div class="tag tr">5.5 ⚠</div></div>
       </div>
       <div class="card"><div class="ct">Luis Ramírez</div>
-        <div class="row"><div class="rn">Visitas esta semana</div><div style="font-size:11px;font-weight:700;color:var(--grn)">3 / meta 5</div></div>
-        <div class="row"><div class="rn">Pedidos cerrados</div><div style="font-size:11px;font-weight:700;color:var(--grn)">1</div></div>
-        <div class="row"><div class="rn">Monto vendido mes</div><div style="font-size:11px;font-weight:700;color:var(--grn)">15.000.000 Gs</div></div>
+        <div class="row"><div class="rn">Visitas esta semana</div><div style="font-weight:700;color:var(--grn)">3 / meta 5</div></div>
+        <div class="row"><div class="rn">Pedidos cerrados</div><div style="font-weight:700;color:var(--grn)">1</div></div>
         <div class="row"><div class="rn">Score</div><div class="tag ta">6.5 · Mejorando</div></div>
       </div>
     </div>
@@ -710,7 +896,7 @@ body{margin:0}
 <!-- KOMMO CRM -->
 <div id="panel-kommo" class="pn">
   <div class="ph">Kommo CRM <span class="phs">pipeline · leads · actividad</span></div>
-  <div class="hc"><div class="hct">Datos extraídos de Kommo vía API</div><div class="hcb"><strong>Shopify:</strong> pedidos → Kommo automáticamente · <strong>Meta Ads:</strong> leads → Kommo en tiempo real · <strong>WhatsApp:</strong> conversaciones → Kommo con historial completo</div></div>
+  <div class="hc"><div class="hct">Shopify + Meta + WhatsApp → Kommo en tiempo real</div><div class="hcb">Pedidos Shopify, leads Meta Ads y conversaciones WA se sincronizan automáticamente en Kommo.</div></div>
   <div class="k-stats">
     <div class="k-st"><div class="k-sv">47</div><div class="k-sl">Leads hoy</div></div>
     <div class="k-st"><div class="k-sv">31%</div><div class="k-sl">Conversión</div></div>
@@ -720,26 +906,21 @@ body{margin:0}
     <div class="k-st"><div class="k-sv">163k</div><div class="k-sl">Ticket prom.</div></div>
   </div>
   <div class="k-pipe">
-    <div class="k-col"><div class="k-colt">Nuevo lead <span style="color:var(--brand)">(12)</span></div>
-      <div class="k-card"><div class="k-n">Ana González</div><div class="k-m">Meta Ads · hace 5min</div></div>
-      <div class="k-card"><div class="k-n">María Lara</div><div class="k-m">IG orgánico · hace 12min</div></div>
-      <div class="k-card"><div class="k-n">Claudia Vera</div><div class="k-m">Meta Ads · hace 18min</div></div>
+    <div class="k-col"><div class="k-colt">Nuevo <span style="color:var(--brand)">(12)</span></div>
+      <div class="k-card"><div class="k-n">Ana González</div><div class="k-m">Meta Ads · 5min</div></div>
+      <div class="k-card"><div class="k-n">María Lara</div><div class="k-m">IG · 12min</div></div>
     </div>
     <div class="k-col"><div class="k-colt">Contactado <span style="color:var(--brand)">(9)</span></div>
-      <div class="k-card"><div class="k-n">Patricia Ruiz</div><div class="k-m">WhatsApp enviado</div><div class="k-a">Interesada en Rizos Lala</div></div>
-      <div class="k-card"><div class="k-n">Rosa Benítez</div><div class="k-m">Respondió · 15min</div></div>
+      <div class="k-card"><div class="k-n">Patricia Ruiz</div><div class="k-m">WA enviado</div><div class="k-a">Rizos Lala</div></div>
     </div>
     <div class="k-col"><div class="k-colt">Interesado <span style="color:var(--brand)">(7)</span></div>
-      <div class="k-card"><div class="k-n">Carmen López</div><div class="k-m">Pidió precio · Kit completo</div><div class="k-a">165.000 Gs</div></div>
-      <div class="k-card"><div class="k-n">Sofía Martínez</div><div class="k-m">Enviar catálogo</div></div>
+      <div class="k-card"><div class="k-n">Carmen López</div><div class="k-m">Pidió precio</div><div class="k-a">165.000 Gs</div></div>
     </div>
     <div class="k-col"><div class="k-colt">Propuesta <span style="color:var(--brand)">(5)</span></div>
       <div class="k-card"><div class="k-n">Laura Giménez</div><div class="k-m">Oferta enviada</div><div class="k-a">325.000 Gs</div></div>
-      <div class="k-card"><div class="k-n">Diana Torres</div><div class="k-m">Esperando decisión</div><div class="k-a">180.000 Gs</div></div>
     </div>
-    <div class="k-col"><div class="k-colt">Ganado ✓ <span style="color:var(--grn)">(8 hoy)</span></div>
-      <div class="k-card" style="border-color:var(--grn)"><div class="k-n">Elena Acosta</div><div class="k-m">Pagado · Shopify</div><div class="k-a" style="color:var(--grn)">290.000 Gs</div></div>
-      <div class="k-card" style="border-color:var(--grn)"><div class="k-n">Valentina Cruz</div><div class="k-m">Pagado · Shopify</div><div class="k-a" style="color:var(--grn)">175.000 Gs</div></div>
+    <div class="k-col"><div class="k-colt">Ganado ✓ <span style="color:var(--grn)">(8)</span></div>
+      <div class="k-card" style="border-color:var(--grn)"><div class="k-n">Elena Acosta</div><div class="k-m">Pagado</div><div class="k-a" style="color:var(--grn)">290.000 Gs</div></div>
     </div>
   </div>
   <div class="card"><div class="ct">Leads sin atender hace más de 1 hora ⚠</div>
@@ -749,69 +930,41 @@ body{margin:0}
   </div>
 </div>
 
-<!-- MKT FLOW (DE LA IDEA A META) -->
+<!-- MKT FLOW -->
 <div id="panel-mktflow" class="pn">
   <div class="ph">Flujo MKT <span class="phs">Idea → Brief → Creativo → Aprobación → Meta</span></div>
-  <div class="hc"><div class="hct">Cómo funciona el flujo</div><div class="hcb">El Agente MKT detecta oportunidades y genera la campaña completa. Un humano la revisa y aprueba. El agente la publica en Meta y la monitorea solo.</div></div>
-
-  <!-- PENDIENTES DE APROBACIÓN (visible para jefe MKT y Mel) -->
-  <div style="font-family:'D',sans-serif;font-size:10px;color:var(--brand);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Pendientes de aprobación · Sofía / Jefe Comercial / Mel</div>
+  <div style="font-family:'D',sans-serif;font-size:10px;color:var(--brand);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Pendientes de aprobación · Sofía / Melisa / Mel</div>
   <div class="appr-card">
     <div class="appr-badge">⏳ PENDIENTE APROBACIÓN · Creado por Agente MKT</div>
     <div class="appr-title">Campaña Día de la Madre — Multi-marca</div>
-    <div class="appr-desc"><strong>Audiencia:</strong> Mujeres 25-45 Paraguay · <strong>Presupuesto:</strong> 15.000.000 Gs · <strong>ROAS esperado:</strong> 3x+ · <strong>Duración:</strong> 5-15 mayo 2026<br><strong>Producto:</strong> Kit Día de la Madre (Bendita + Rizos Lala) · <strong>Copy A:</strong> "El mejor regalo para mamá viene de su corazón..."</div>
+    <div class="appr-desc"><strong>Audiencia:</strong> Mujeres 25-45 PY · <strong>Presupuesto:</strong> 15.000.000 Gs · <strong>ROAS esperado:</strong> 3x+ · <strong>Duración:</strong> 5-15 mayo 2026</div>
     <div class="appr-btns">
       <button class="btn-app" onclick="approveCamp(this)">✓ APROBAR Y PUBLICAR</button>
-      <button class="btn-edit" onclick="alert('Editor de campaña → editar copy, audiencia, presupuesto')">✏ EDITAR</button>
+      <button class="btn-edit" onclick="alert('Editor de campaña')">✏ EDITAR</button>
       <button class="btn-rej" onclick="rejectCamp(this)">✗ RECHAZAR</button>
     </div>
   </div>
-
-  <!-- PIPELINE COMPLETO -->
-  <div style="font-family:'D',sans-serif;font-size:10px;color:var(--brand);text-transform:uppercase;letter-spacing:.5px;margin:12px 0 8px">Pipeline de todas las campañas</div>
+  <div style="font-family:'D',sans-serif;font-size:10px;color:var(--brand);text-transform:uppercase;letter-spacing:.5px;margin:12px 0 8px">Pipeline · todas las campañas</div>
   <div class="mkt-stages">
-    <div class="mkt-col" style="background:#f8f8fa"><div class="mkt-colt">💡 Idea</div>
-      <div class="mkt-card"><div class="mkt-cn">San Juan 24 junio</div><div class="mkt-cm">Agente MKT · detectó</div></div>
-    </div>
-    <div class="mkt-col" style="background:#f0f0f8"><div class="mkt-colt">📋 Brief IA</div>
-      <div class="mkt-card"><div class="mkt-cn">Dr. Asian · Piel grasa PY</div><div class="mkt-cm">Brief generado</div></div>
-    </div>
-    <div class="mkt-col" style="background:#f8f0f8"><div class="mkt-colt">🎨 Creativo</div>
-      <div class="mkt-card"><div class="mkt-cn">UGC Rizos Lala v2</div><div class="mkt-cm">Hugo produciendo</div></div>
-    </div>
-    <div class="mkt-col" style="background:#fffaf0;border:1.5px dashed #e67e22"><div class="mkt-colt" style="color:#e67e22">⏳ REVISIÓN</div>
-      <div class="mkt-card" style="border-color:#e67e22"><div class="mkt-cn">Día de la Madre</div><div class="mkt-cm" style="color:#e67e22">Esperando Sofía/Mel</div></div>
-    </div>
-    <div class="mkt-col" style="background:#f0f8f0"><div class="mkt-colt" style="color:var(--grn)">✓ Aprobado</div>
-      <div class="mkt-card" style="border-color:var(--grn)"><div class="mkt-cn">Retargeting Rizos</div><div class="mkt-cm" style="color:var(--grn)">Aprobado · publicar</div></div>
-    </div>
-    <div class="mkt-col" style="background:#e8f5e9"><div class="mkt-colt" style="color:var(--grn)">🚀 Publicado</div>
-      <div class="mkt-card" style="border-color:var(--grn)"><div class="mkt-cn">Retargeting activo</div><div class="mkt-cm" style="color:var(--grn)">ROAS 4.1x ✓</div></div>
-    </div>
-    <div class="mkt-col" style="background:var(--bd)"><div class="mkt-colt" style="color:var(--brand)">📈 Monitoreando</div>
-      <div class="mkt-card" style="border-color:var(--brand)"><div class="mkt-cn">Tibio Bendita</div><div class="mkt-cm" style="color:var(--brand)">ROAS 2.1x</div></div>
-      <div class="mkt-card" style="border-color:#e74c3c"><div class="mkt-cn">Frío Lookalike ⚠</div><div class="mkt-cm" style="color:#e74c3c">ROAS 0.9x · PAUSAR</div></div>
-    </div>
-  </div>
-
-  <!-- VISIBILIDAD POR ROL -->
-  <div class="card"><div class="ct">Vista por rol — quién ve qué en este flujo</div>
-    <div class="row"><div class="rn">Mel (CEO)</div><div class="tag tg">Todo · puede aprobar cualquier campaña</div></div>
-    <div class="row"><div class="rn">Sofía / Jefe MKT</div><div class="tag tbr">Aprueba campañas + ve ROAS en vivo</div></div>
-    <div class="row"><div class="rn">Melisa / Jefe Comercial</div><div class="tag tbr">Ve campañas activas + leads que entran</div></div>
-    <div class="row"><div class="rn">Hugo / Dahiana · Operativo</div><div class="tag tgr">Solo sus tareas asignadas</div></div>
+    <div class="mkt-col" style="background:#f8f8fa"><div class="mkt-colt">💡 Idea</div><div class="mkt-card"><div class="mkt-cn">San Juan 24 jun</div><div class="mkt-cm">Agente MKT · detectó</div></div></div>
+    <div class="mkt-col" style="background:#f0f0f8"><div class="mkt-colt">📋 Brief IA</div><div class="mkt-card"><div class="mkt-cn">Dr. Asian · Piel grasa</div><div class="mkt-cm">Brief generado</div></div></div>
+    <div class="mkt-col" style="background:#f8f0f8"><div class="mkt-colt">🎨 Creativo</div><div class="mkt-card"><div class="mkt-cn">UGC Rizos Lala v2</div><div class="mkt-cm">Hugo produciendo</div></div></div>
+    <div class="mkt-col" style="background:#fffaf0;border:1.5px dashed #e67e22"><div class="mkt-colt" style="color:#e67e22">⏳ REVISIÓN</div><div class="mkt-card" style="border-color:#e67e22"><div class="mkt-cn">Día de la Madre</div><div class="mkt-cm" style="color:#e67e22">Esperando aprobación</div></div></div>
+    <div class="mkt-col" style="background:#f0f8f0"><div class="mkt-colt" style="color:var(--grn)">✓ Aprobado</div><div class="mkt-card" style="border-color:var(--grn)"><div class="mkt-cn">Retargeting Rizos</div><div class="mkt-cm" style="color:var(--grn)">Publicar hoy</div></div></div>
+    <div class="mkt-col" style="background:#e8f5e9"><div class="mkt-colt" style="color:var(--grn)">🚀 Publicado</div><div class="mkt-card" style="border-color:var(--grn)"><div class="mkt-cn">Retargeting activo</div><div class="mkt-cm" style="color:var(--grn)">ROAS 4.1x ✓</div></div></div>
+    <div class="mkt-col" style="background:var(--bd)"><div class="mkt-colt" style="color:var(--brand)">📈 Monitoreando</div><div class="mkt-card" style="border-color:var(--brand)"><div class="mkt-cn">Tibio Bendita</div><div class="mkt-cm">ROAS 2.1x</div></div><div class="mkt-card" style="border-color:#e74c3c"><div class="mkt-cn">Frío Lookalike ⚠</div><div class="mkt-cm" style="color:#e74c3c">ROAS 0.9x · PAUSAR</div></div></div>
   </div>
 </div>
 
-<!-- REDES SOCIALES / DRIVE MKT -->
+<!-- REDES SOCIALES -->
 <div id="panel-mkt-social" class="pn">
-  <div class="ph">Redes Sociales <span class="phs">contenido · drive · métricas</span></div>
-  <div class="hc"><div class="hct">Google Drive · Carpetas por marca</div><div class="hcb">Cada marca tiene su carpeta de creativos en Drive. El agente lee los archivos, sugiere el copy y programa los posteos.</div>
+  <div class="ph">Redes Sociales <span class="phs">contenido · drive por marca</span></div>
+  <div class="hc"><div class="hct">Google Drive · Carpetas por marca</div>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:8px">
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📁 Bendita Tu Eres</a>
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📁 Rizos Lala</a>
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📁 Dr. Asian</a>
-      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--w);border:1px solid var(--brd);border-radius:8px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📁 Mel Beauty</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📁 Bendita Tu Eres</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📁 Rizos Lala</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📁 Dr. Asian</a>
+      <a href="https://drive.google.com" target="_blank" style="display:flex;align-items:center;gap:6px;padding:8px;background:var(--w);border:1px solid var(--brd);border-radius:9px;text-decoration:none;font-size:10px;font-weight:600;color:var(--brand)">📁 Mel Beauty</a>
     </div>
   </div>
   <div class="card"><div class="ct">Calendario editorial · esta semana</div>
@@ -819,31 +972,28 @@ body{margin:0}
     <div class="row"><div class="rn">Mar 15 · Bendita · Story "tip piel seca"</div><div class="tag ta">Pendiente</div></div>
     <div class="row"><div class="rn">Mié 16 · Dr. Asian · Carrusel "rutina AM"</div><div class="tag tgr">En producción</div></div>
     <div class="row"><div class="rn">Jue 17 · Mel Beauty · Reel UGC</div><div class="tag tgr">En producción</div></div>
-    <div class="row"><div class="rn">Vie 18 · Todas las marcas · "Fin de semana"</div><div class="tag tgr">Pendiente</div></div>
   </div>
-  <div class="card"><div class="ct">KPIs orgánico · esta semana</div>
+  <div class="card"><div class="ct">KPIs orgánico · semana</div>
     <div class="brw"><div class="brl">Reach total</div><div class="brt"><div class="brf" style="width:65%;background:var(--brand)">48.200</div></div></div>
     <div class="brw"><div class="brl">Engagement</div><div class="brt"><div class="brf" style="width:42%;background:#6b4c5e">3.8%</div></div></div>
     <div class="brw"><div class="brl">Link clicks</div><div class="brt"><div class="brf" style="width:28%;background:var(--grn)">1.240</div></div></div>
-    <div class="brw"><div class="brl">Guardados</div><div class="brt"><div class="brf" style="width:20%;background:#9a7e88">892</div></div></div>
   </div>
 </div>
 
-<!-- PROYECTOS (V7 clickeables) -->
+<!-- PROYECTOS -->
 <div id="panel-proyectos" class="pn">
   <div class="ph">Proyectos <span class="phs">clickeá cualquier proyecto para ver el detalle</span></div>
-  <div style="display:flex;gap:7px;margin-bottom:10px">
+  <div style="display:flex;gap:7px;margin-bottom:10px;flex-wrap:wrap">
     <button class="btnv" onclick="openModal('newproj')">+ Nuevo proyecto</button>
-    <div style="display:flex;gap:4px;flex:1;flex-wrap:wrap">
-      <span class="tag" style="background:#fde8ec;color:#e74c3c;cursor:pointer">🔴 Críticos</span>
-      <span class="tag" style="background:#fff3e0;color:#bf360c;cursor:pointer">🟠 Alta prioridad</span>
-      <span class="tag" style="background:#e8f5e9;color:#1b5e20;cursor:pointer">🟢 Completados</span>
+    <div style="display:flex;gap:4px;flex-wrap:wrap">
+      <span class="tag" style="background:#fde8ec;color:#e74c3c">🔴 Críticos</span>
+      <span class="tag" style="background:#e8f5e9;color:#1b5e20">🟢 Completados</span>
     </div>
   </div>
   <div id="proj-list"></div>
 </div>
 
-<!-- RRHH (simplificado) -->
+<!-- RRHH -->
 <div id="panel-rrhh" class="pn">
   <div class="ph">RRHH <span class="phs">equipo · legajos · evaluaciones</span></div>
   <div class="g4"><div class="kc"><div class="kcl">EQUIPO</div><div class="kcv">12</div></div><div class="kc"><div class="kcl">PROM.</div><div class="kcv">7.1</div><div class="kcd wc">/10</div></div><div class="kc"><div class="kcl">PLAN MEJ.</div><div class="kcv">2</div><div class="kcd dc">activos</div></div><div class="kc"><div class="kcl">VACANTES</div><div class="kcv">1</div><div class="kcd dc">Mentora</div></div></div>
@@ -852,8 +1002,6 @@ body{margin:0}
     <div class="row"><div class="rn">Sofía López · Ventas + MKT</div><div style="font-weight:700;color:var(--grn)">8.0</div></div>
     <div class="row"><div class="rn">Oscar Díaz · Jefe Depósito</div><div style="font-weight:700;color:var(--grn)">8.0</div></div>
     <div class="row"><div class="rn">Víctor Pérez · Finanzas</div><div style="font-weight:700;color:#e67e22">7.5</div></div>
-    <div class="row"><div class="rn">Noelia · Vendedora</div><div style="font-weight:700;color:#e67e22">7.0</div></div>
-    <div class="row"><div class="rn">Sayla · Vendedora</div><div style="font-weight:700;color:#e67e22">6.5</div></div>
     <div class="row"><div class="rn">Cecilio Ruiz · Mayoristas ⚠</div><div style="font-weight:700;color:#e74c3c">5.5</div></div>
     <div class="row"><div class="rn">Luis Ramírez · Mayoristas ⚠</div><div style="font-weight:700;color:#e74c3c">5.0</div></div>
   </div>
@@ -862,26 +1010,53 @@ body{margin:0}
 <!-- LOGÍSTICA -->
 <div id="panel-logistica" class="pn">
   <div class="ph">Logística <span class="phs">depósito · delivery · stock</span></div>
-  <div class="g4"><div class="kc"><div class="kcl">PEDIDOS</div><div class="kcv">68</div></div><div class="kc"><div class="kcl">DESPACHADOS</div><div class="kcv">64</div><div class="kcd uc">94%</div></div><div class="kc"><div class="kcl">EN CAMINO</div><div class="kcv">18</div></div><div class="kc"><div class="kcl">STOCK CRÍTICO</div><div class="kcv">2 SKU</div><div class="kcd dc">⚠</div></div></div>
-  <div class="card"><div class="ct">Stock crítico</div><div class="row"><div class="rn">Serum Vitamina C 30ml</div><div class="tag tr">12u · Reponer hoy</div></div><div class="row"><div class="rn">Rizos Lala Champú 500ml</div><div class="tag ta">28u · Alerta</div></div></div>
+  <div class="g4"><div class="kc"><div class="kcl">PEDIDOS</div><div class="kcv">68</div></div><div class="kc"><div class="kcl">DESPACHADOS</div><div class="kcv">64</div><div class="kcd uc">94%</div></div><div class="kc"><div class="kcl">EN CAMINO</div><div class="kcv">18</div></div><div class="kc"><div class="kcl">CRÍTICO</div><div class="kcv">2 SKU</div><div class="kcd dc">⚠</div></div></div>
+  <div class="card"><div class="ct">Stock crítico</div>
+    <div class="row"><div class="rn">Serum Vitamina C 30ml</div><div class="tag tr">12u · Reponer hoy</div></div>
+    <div class="row"><div class="rn">Rizos Lala Champú 500ml</div><div class="tag ta">28u · Alerta</div></div>
+  </div>
 </div>
 
 <!-- AGENDA -->
 <div id="panel-agenda" class="pn">
   <div class="ph">Agenda <span class="phs">Google Calendar</span></div>
-  <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px">
-    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:65px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">LUN 14</div><div style="background:var(--bd);border-left:2px solid var(--brand);border-radius:3px;padding:2px 4px;font-size:8px;color:var(--brand);margin-bottom:2px;font-weight:600">8am CEO</div><div style="background:#e8f5e9;border-left:2px solid #2e7d32;border-radius:3px;padding:2px 4px;font-size:8px;color:#1b5e20;font-weight:600">10am ventas</div></div>
-    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:65px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">MAR 15</div><div style="background:#e8eaf6;border-left:2px solid #3949ab;border-radius:3px;padding:2px 4px;font-size:8px;color:#283593;font-weight:600">9am ads</div></div>
-    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:65px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">MIÉ 16</div><div style="background:#fff3e0;border-left:2px solid #e65100;border-radius:3px;padding:2px 4px;font-size:8px;color:#bf360c;font-weight:600">8am ops</div></div>
-    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:65px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">JUE 17</div><div style="background:#e8eaf6;border-left:2px solid #3949ab;border-radius:3px;padding:2px 4px;font-size:8px;color:#283593;font-weight:600">10am creativos</div></div>
-    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:65px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">VIE 18</div><div style="background:#f3e5f5;border-left:2px solid #6a1b9a;border-radius:3px;padding:2px 4px;font-size:8px;color:#4a148c;font-weight:600">9am P&L</div></div>
-    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:65px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">SÁB 19</div></div>
-    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:65px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">DOM 20</div></div>
+  <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;margin-bottom:8px">
+    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:60px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">LUN 14</div><div style="background:var(--bd);border-left:2px solid var(--brand);border-radius:3px;padding:2px 4px;font-size:8px;color:var(--brand);margin-bottom:2px;font-weight:600">8am CEO</div><div style="background:#e8f5e9;border-left:2px solid #2e7d32;border-radius:3px;padding:2px 4px;font-size:8px;color:#1b5e20;font-weight:600">10am VT</div></div>
+    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:60px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">MAR 15</div><div style="background:#e8eaf6;border-left:2px solid #3949ab;border-radius:3px;padding:2px 4px;font-size:8px;color:#283593;font-weight:600">9am ads</div></div>
+    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:60px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">MIÉ 16</div><div style="background:#fff3e0;border-left:2px solid #e65100;border-radius:3px;padding:2px 4px;font-size:8px;color:#bf360c;font-weight:600">8am ops</div></div>
+    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:60px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">JUE 17</div><div style="background:#e8eaf6;border-left:2px solid #3949ab;border-radius:3px;padding:2px 4px;font-size:8px;color:#283593;font-weight:600">10am MKT</div></div>
+    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:60px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">VIE 18</div><div style="background:#f3e5f5;border-left:2px solid #6a1b9a;border-radius:3px;padding:2px 4px;font-size:8px;color:#4a148c;font-weight:600">9am P&L</div></div>
+    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:60px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">SÁB 19</div></div>
+    <div style="background:var(--w);border:1px solid var(--brd);border-radius:7px;padding:5px;min-height:60px"><div style="font-size:9px;color:var(--brand);font-weight:700;margin-bottom:3px;text-align:center">DOM 20</div></div>
   </div>
-  <button class="btng" style="width:100%;font-size:10px;margin-top:8px">+ Nuevo evento en Google Calendar ↗</button>
+  <button class="btng" style="width:100%;font-size:11px">+ Nuevo evento en Google Calendar ↗</button>
 </div>
 
-<!-- DOCS -->
+<!-- ORGANIGRAMA -->
+<div id="panel-org" class="pn">
+  <div class="ph">Organigrama <span class="phs">líneas de reporte</span></div>
+  <div style="text-align:center">
+    <div style="display:inline-block;background:var(--brand);color:var(--w);border-radius:10px;padding:8px 16px;font-family:'D',sans-serif;font-size:11px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;margin-bottom:4px">Mel Núñez Honzi · Fundadora / Directorio</div>
+    <div style="width:2px;height:18px;background:var(--brd2);margin:0 auto"></div>
+    <div style="display:inline-block;background:var(--w);border:2px solid var(--brand);border-radius:10px;padding:7px 14px;font-family:'D',sans-serif;font-size:10px;color:var(--brand);font-weight:700;text-transform:uppercase;margin-bottom:4px">CEO Grupo Blondas · Agente IA<br><span style="font-size:8px;font-weight:400;font-family:Montserrat;text-transform:none;display:block;margin-top:2px">Reporta a: Mel · Coordina: 7 gerentes</span></div>
+    <div style="width:2px;height:18px;background:var(--brd2);margin:0 auto"></div>
+    <div style="height:1px;background:var(--brd2);margin:0 5%;margin-bottom:4px"></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:5px">
+      <div style="background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px;text-align:center;font-size:9px;box-shadow:var(--sh)"><div style="font-weight:700;color:var(--brand);font-family:'D',sans-serif;font-size:9px">Comercial</div><div style="color:var(--t2);font-size:8px;margin-top:2px">IA + 6 humanos</div><div style="color:var(--t3);font-size:8px;font-style:italic">↑ CEO</div></div>
+      <div style="background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px;text-align:center;font-size:9px;box-shadow:var(--sh)"><div style="font-weight:700;color:var(--brand);font-family:'D',sans-serif;font-size:9px">Marketing</div><div style="color:var(--t2);font-size:8px;margin-top:2px">IA + 3 humanos</div><div style="color:var(--t3);font-size:8px;font-style:italic">↑ CEO</div></div>
+      <div style="background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px;text-align:center;font-size:9px;box-shadow:var(--sh)"><div style="font-weight:700;color:var(--brand);font-family:'D',sans-serif;font-size:9px">Operaciones</div><div style="color:var(--t2);font-size:8px;margin-top:2px">IA + Oscar</div><div style="color:var(--t3);font-size:8px;font-style:italic">↑ CEO</div></div>
+      <div style="background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px;text-align:center;font-size:9px;box-shadow:var(--sh)"><div style="font-weight:700;color:var(--brand);font-family:'D',sans-serif;font-size:9px">Financiero</div><div style="color:var(--t2);font-size:8px;margin-top:2px">Híbrido · Víctor</div><div style="color:var(--t3);font-size:8px;font-style:italic">↑ CEO</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px">
+      <div style="background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px;text-align:center;font-size:9px;box-shadow:var(--sh)"><div style="font-weight:700;color:var(--brand);font-family:'D',sans-serif;font-size:9px">CLEO</div><div style="color:var(--t2);font-size:8px;margin-top:2px">IA + emprendedoras</div><div style="color:var(--t3);font-size:8px;font-style:italic">↑ CEO</div></div>
+      <div style="background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px;text-align:center;font-size:9px;box-shadow:var(--sh)"><div style="font-weight:700;color:var(--brand);font-family:'D',sans-serif;font-size:9px">Tecnología</div><div style="color:var(--t2);font-size:8px;margin-top:2px">IA · 4 sub-ag.</div><div style="color:var(--t3);font-size:8px;font-style:italic">↑ CEO</div></div>
+      <div style="background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px;text-align:center;font-size:9px;box-shadow:var(--sh)"><div style="font-weight:700;color:var(--brand);font-family:'D',sans-serif;font-size:9px">Nuevos Neg.</div><div style="color:var(--t2);font-size:8px;margin-top:2px">IA</div><div style="color:var(--t3);font-size:8px;font-style:italic">↑ CEO</div></div>
+      <div style="background:var(--w);border:1px solid var(--brd);border-radius:8px;padding:7px;text-align:center;font-size:9px;box-shadow:var(--sh)"><div style="font-weight:700;color:var(--brand);font-family:'D',sans-serif;font-size:9px">Labs I+D</div><div style="color:var(--t2);font-size:8px;margin-top:2px">IA + fábrica</div><div style="color:var(--t3);font-size:8px;font-style:italic">↑ CEO</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DOCUMENTOS -->
 <div id="panel-docs" class="pn">
   <div class="ph">Documentos</div>
   <div class="card"><div class="ct">RRHH</div>
@@ -892,22 +1067,22 @@ body{margin:0}
   <div class="card"><div class="ct">Legal / Habilitaciones</div>
     <div class="row"><div class="rn">⚖️ Habilitación municipal</div><button class="btng" style="font-size:9px;padding:2px 7px">Drive</button></div>
     <div class="row"><div class="rn">⚖️ SENAVE / INAN · Registros sanitarios</div><button class="btng" style="font-size:9px;padding:2px 7px">Drive</button></div>
-    <div class="row"><div class="rn">⚖️ Patentes y marcas registradas</div><button class="btng" style="font-size:9px;padding:2px 7px">Drive</button></div>
     <div class="row"><div class="rn">📊 Declaraciones IVA 2026</div><button class="btng" style="font-size:9px;padding:2px 7px">Drive</button></div>
   </div>
 </div>
 
-<!-- ACADEMIA, LABS, NUEVOS NEGOCIOS (compactos) -->
+<!-- ACADEMIA -->
 <div id="panel-academia" class="pn">
   <div class="ph">Universidad Blondas</div>
-  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px">
-    <div class="card" style="cursor:pointer"><div class="cico" style="font-size:17px;margin-bottom:4px">🎥</div><div style="font-size:11px;font-weight:700;color:var(--txt);margin-bottom:2px">Bienvenida de Mel</div><div style="font-size:10px;color:var(--t2)">Obligatorio · Video + PDF</div></div>
-    <div class="card" style="cursor:pointer"><div class="cico" style="font-size:17px;margin-bottom:4px">💄</div><div style="font-size:11px;font-weight:700;color:var(--txt);margin-bottom:2px">Productos Blondas</div><div style="font-size:10px;color:var(--t2)">100% completado</div></div>
-    <div class="card" style="cursor:pointer"><div class="cico" style="font-size:17px;margin-bottom:4px">💬</div><div style="font-size:11px;font-weight:700;color:var(--txt);margin-bottom:2px">Vender por WhatsApp</div><div style="font-size:10px;color:var(--t2)">CLEO · 70%</div></div>
-    <div class="card" style="cursor:pointer"><div class="cico" style="font-size:17px;margin-bottom:4px">🤖</div><div style="font-size:11px;font-weight:700;color:var(--txt);margin-bottom:2px">Tutorial Blondas OS</div><div style="font-size:10px;color:var(--t2)">20% completado</div></div>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+    <div class="card" style="cursor:pointer"><div style="font-size:18px;margin-bottom:4px">🎥</div><div style="font-size:12px;font-weight:700;color:var(--txt);margin-bottom:2px">Bienvenida de Mel</div><div style="font-size:10px;color:var(--t2)">Obligatorio · Video + PDF</div></div>
+    <div class="card" style="cursor:pointer"><div style="font-size:18px;margin-bottom:4px">💄</div><div style="font-size:12px;font-weight:700;color:var(--txt);margin-bottom:2px">Productos Blondas</div><div style="font-size:10px;color:var(--t2)">100% completado</div></div>
+    <div class="card" style="cursor:pointer"><div style="font-size:18px;margin-bottom:4px">💬</div><div style="font-size:12px;font-weight:700;color:var(--txt);margin-bottom:2px">Vender por WhatsApp</div><div style="font-size:10px;color:var(--t2)">CLEO · 70%</div></div>
+    <div class="card" style="cursor:pointer"><div style="font-size:18px;margin-bottom:4px">🤖</div><div style="font-size:12px;font-weight:700;color:var(--txt);margin-bottom:2px">Tutorial Blondas OS</div><div style="font-size:10px;color:var(--t2)">20% completado</div></div>
   </div>
 </div>
 
+<!-- LABS -->
 <div id="panel-labs" class="pn">
   <div class="ph">Blondas Labs <span class="phs">I+D · Pedidos · Fábrica</span></div>
   <div class="card"><div class="ct">Órdenes activas</div>
@@ -918,68 +1093,60 @@ body{margin:0}
   <div class="card"><div class="ct">I+D Pipeline</div>
     <div class="row"><div class="rn">Serum barrera con ceramidas</div><div class="tag ta">Fórmula etapa 2</div></div>
     <div class="row"><div class="rn">Champú Rizos Pro sin sulfatos</div><div class="tag tg">Aprobado · lanzar</div></div>
-    <div class="row"><div class="rn">Crema aclarante corporal</div><div class="tag tgr">Idea etapa 1</div></div>
   </div>
 </div>
 
+<!-- NUEVOS NEGOCIOS -->
 <div id="panel-ideas" class="pn">
   <div class="ph">Nuevos Negocios</div>
-  <div class="card"><div class="ct">Pipeline oportunidades</div>
+  <div class="card"><div class="ct">Pipeline</div>
     <div class="row"><div class="rn">CLEO replicable · Argentina / Chile</div><div class="tag tg">Validado · Q4 2026</div></div>
     <div class="row"><div class="rn">Universidad Blondas Nivel 3 Público</div><div class="tag ta">En análisis · ROI 2.8x</div></div>
-    <div class="row"><div class="rn">Distribución propia sin mayoristas</div><div class="tag tgr">Evaluando · 2027</div></div>
-    <div class="row"><div class="rn">Serie A prep · 500k USD</div><div class="tag tgr">Horizonte 2028</div></div>
+    <div class="row"><div class="rn">Distribución propia sin mayoristas</div><div class="tag tgr">2027</div></div>
   </div>
 </div>
 
 <!-- ROL PANELS -->
-<div id="panel-jvt" class="pn">
-  <div class="ph">Comercial Admin <span class="phs">Melisa · vista jefa</span></div>
-  <div class="g4"><div class="kc"><div class="kcl">EQUIPO</div><div class="kcv">6</div></div><div class="kc"><div class="kcl">VENTAS HOY</div><div class="kcv">11.2M</div><div class="kcd uc">↑ 8%</div></div><div class="kc"><div class="kcl">META %</div><div class="kcv">38%</div><div class="kcd wc">14/30</div></div><div class="kc"><div class="kcl">APROBACIONES</div><div class="kcv">2</div><div class="kcd wc">pendientes</div></div></div>
-  <div class="card"><div class="ct">Aprobaciones pendientes · Melisa aprueba</div>
-    <div class="row"><div class="rn">Campaña Día de la Madre · creado por Agente MKT</div><div class="tag ta">Aprobar</div></div>
-    <div class="row"><div class="rn">Proyecto Mentora CLEO · creado por Mel</div><div class="tag tgr">Revisado</div></div>
-  </div>
-</div>
-<div id="panel-jmkt" class="pn">
-  <div class="ph">Marketing Admin <span class="phs">Sofía · jefa</span></div>
-  <div class="g4"><div class="kc"><div class="kcl">ROAS</div><div class="kcv">2.4x</div><div class="kcd uc">↑ meta</div></div><div class="kc"><div class="kcl">INVERSIÓN</div><div class="kcv">18.5M</div><div class="kcd wc">de 30M</div></div><div class="kc"><div class="kcl">APROBACIONES</div><div class="kcv">1</div><div class="kcd dc">urgente</div></div><div class="kc"><div class="kcl">ALERTA</div><div class="kcv">Frío</div><div class="kcd dc">PAUSAR</div></div></div>
-  <div class="appr-card" style="margin-top:8px"><div class="appr-badge">⏳ Aprobar campaña</div><div class="appr-title">Día de la Madre · 15M Gs · ROAS esperado 3x+</div><div class="appr-btns"><button class="btn-app" onclick="approveCamp(this)">✓ APROBAR</button><button class="btn-edit" onclick="alert('Editar')">✏ EDITAR</button><button class="btn-rej" onclick="rejectCamp(this)">✗ RECHAZAR</button></div></div>
-</div>
+<div id="panel-jvt" class="pn"><div class="ph">Comercial Admin <span class="phs">Melisa</span></div><div class="g4"><div class="kc"><div class="kcl">EQUIPO</div><div class="kcv">6</div></div><div class="kc"><div class="kcl">VENTAS HOY</div><div class="kcv">11.2M</div><div class="kcd uc">↑ 8%</div></div><div class="kc"><div class="kcl">META %</div><div class="kcv">38%</div><div class="kcd wc">14/30</div></div><div class="kc"><div class="kcl">APROBACIONES</div><div class="kcv">2</div><div class="kcd wc">pendientes</div></div></div><div class="card"><div class="ct">Pendientes de aprobación</div><div class="row"><div class="rn">Campaña Día de la Madre · Agente MKT</div><div class="tag ta">Aprobar</div></div></div></div>
+<div id="panel-jmkt" class="pn"><div class="ph">Marketing Admin <span class="phs">Sofía</span></div><div class="g4"><div class="kc"><div class="kcl">ROAS</div><div class="kcv">2.4x</div><div class="kcd uc">↑ meta</div></div><div class="kc"><div class="kcl">INVERSIÓN</div><div class="kcv">18.5M</div><div class="kcd wc">de 30M</div></div><div class="kc"><div class="kcl">APROBACIONES</div><div class="kcv">1</div><div class="kcd dc">urgente</div></div><div class="kc"><div class="kcl">ALERTA</div><div class="kcv">Frío</div><div class="kcd dc">PAUSAR</div></div></div><div class="appr-card" style="margin-top:8px"><div class="appr-badge">⏳ Aprobar campaña</div><div class="appr-title">Día de la Madre · 15M Gs · ROAS esperado 3x+</div><div class="appr-btns"><button class="btn-app" onclick="approveCamp(this)">✓ APROBAR</button><button class="btn-edit">✏ EDITAR</button><button class="btn-rej" onclick="rejectCamp(this)">✗ RECHAZAR</button></div></div></div>
 <div id="panel-jfin" class="pn"><div class="ph">Finanzas <span class="phs">Víctor</span></div><div class="g4"><div class="kc"><div class="kcl">CAJA</div><div class="kcv">45.2M</div><div class="kcd dc">1.8 sem.</div></div><div class="kc"><div class="kcl">RESULTADO</div><div class="kcv">-23.8M</div><div class="kcd dc">negativo</div></div><div class="kc"><div class="kcl">COBRANZAS</div><div class="kcv">2</div><div class="kcd dc">vencidas</div></div><div class="kc"><div class="kcl">X PAGAR</div><div class="kcv">12.8M</div><div class="kcd dc">esta sem.</div></div></div></div>
 <div id="panel-jops" class="pn"><div class="ph">Operaciones <span class="phs">Oscar</span></div><div class="g4"><div class="kc"><div class="kcl">PEDIDOS</div><div class="kcv">68</div></div><div class="kc"><div class="kcl">DESPACHADOS</div><div class="kcv">64</div><div class="kcd uc">94%</div></div><div class="kc"><div class="kcl">CRÍTICO</div><div class="kcv">2 SKU</div><div class="kcd dc">⚠</div></div><div class="kc"><div class="kcl">PENDIENTES</div><div class="kcv">4</div><div class="kcd wc">hoy</div></div></div></div>
 <div id="panel-jcleo" class="pn"><div class="ph">CLEO Admin</div><div class="g4"><div class="kc"><div class="kcl">ACTIVAS</div><div class="kcv">24</div><div class="kcd dc">meta 300</div></div><div class="kc"><div class="kcl">DORMIDAS</div><div class="kcv">21</div><div class="kcd dc">contactar</div></div><div class="kc"><div class="kcl">PORTAL</div><div class="kcv">55%</div><div class="kcd dc">16 días</div></div><div class="kc"><div class="kcl">KITS/MES</div><div class="kcv">3</div></div></div></div>
-<div id="panel-vvt" class="pn"><div class="ph">Mis ventas</div><div style="background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:12px;margin-bottom:9px"><div class="kcl">MI META DEL MES</div><div style="font-family:'D',sans-serif;font-size:22px;color:var(--brand);margin:5px 0">42.5M / 60.000.000 Gs</div><div style="height:7px;background:var(--bg);border-radius:4px;overflow:hidden;margin:8px 0"><div style="height:100%;width:71%;background:var(--brand);border-radius:4px"></div></div><div style="font-size:10px;color:var(--t2);font-weight:600">71% · Necesitás 1.250.000 Gs/día para cerrar</div></div></div>
+<div id="panel-vvt" class="pn"><div class="ph">Mis ventas</div><div style="background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:14px;margin-bottom:10px"><div class="kcl">MI META DEL MES</div><div style="font-family:'D',sans-serif;font-size:24px;color:var(--brand);margin:6px 0">42.5M / 60.000.000 Gs</div><div style="height:8px;background:var(--bg);border-radius:4px;overflow:hidden;margin:8px 0"><div style="height:100%;width:71%;background:var(--brand);border-radius:4px"></div></div><div style="font-size:10px;color:var(--t2);font-weight:600">71% · Necesitás 1.250.000 Gs/día para llegar</div></div><div class="g4"><div class="kc"><div class="kcl">HOY</div><div class="kcv">1.8M</div><div class="kcd uc">↑ meta</div></div><div class="kc"><div class="kcl">SEMANA</div><div class="kcv">8.4M</div></div><div class="kc"><div class="kcl">COMISIÓN</div><div class="kcv">2.1M</div><div class="kcd uc">acum.</div></div><div class="kc"><div class="kcl">BONO META</div><div class="kcv">+500k</div><div class="kcd wc">si llegás</div></div></div></div>
 <div id="panel-vmkt" class="pn"><div class="ph">MKT Operativo</div><div class="card"><div class="ct">Mis tareas hoy</div><div class="row"><div class="rn">Subir creativo UGC Bendita</div><div class="tag ta">Hoy</div></div><div class="row"><div class="rn">Revisar copy Dr. Asian</div><div class="tag ta">Hoy</div></div></div></div>
-<div id="panel-vcleo" class="pn"><div class="ph">CLEO · Mi cuenta</div><div class="hc"><div class="hct">Portal CLEO · Lanzamiento 30 abril</div><div class="hcb">Tu cuenta completa estará disponible cuando el portal lance el 30 de abril.</div></div><div class="g2"><div class="kc"><div class="kcl">MIS VENTAS</div><div class="kcv">450k</div><div class="kcd uc">este mes</div></div><div class="kc"><div class="kcl">COMISIÓN</div><div class="kcv">135k</div><div class="kcd uc">30%</div></div></div></div>
+<div id="panel-vcleo" class="pn"><div class="ph">CLEO · Mi cuenta</div><div class="hc"><div class="hct">Portal CLEO · Lanzamiento 30 abril</div><div class="hcb">Tu cuenta completa estará disponible cuando el portal lance.</div></div><div class="g2"><div class="kc"><div class="kcl">MIS VENTAS</div><div class="kcv">450k</div><div class="kcd uc">este mes</div></div><div class="kc"><div class="kcl">COMISIÓN</div><div class="kcv">135k</div><div class="kcd uc">30%</div></div></div></div>
 <div id="panel-ops" class="pn"><div class="ph">Delivery</div><div class="g2"><div class="kc"><div class="kcl">MIS ENTREGAS</div><div class="kcv">12</div></div><div class="kc"><div class="kcl">COMPLETADAS</div><div class="kcv">10</div><div class="kcd uc">83%</div></div></div></div>
 
-<!-- FOOTER -->
-<div class="footer">
-  <a href="https://blondas.com.py" target="_blank">
-    <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS_2026_MANUAL_DE_MARCA_1.png?v=1776205444" alt="Blondas 2026" onerror="this.style.background='var(--bd)';this.style.height='70px'">
-  </a>
-  <div class="footer-lnk">blondas.com.py</div>
+</div><!-- /cnt -->
+</div><!-- /lay -->
+
+<!-- BOTTOM NAV (mobile only) -->
+<div class="mob-nav" id="mob-nav">
+  <button class="mob-btn on" id="mn1" onclick="mobNav('dash','mn1')"><span class="mob-btn-i">⬛</span><span class="mob-btn-t">Inicio</span></button>
+  <button class="mob-btn" id="mn2" onclick="mobNav('mayoristas','mn2')"><span class="mob-btn-i">🏪</span><span class="mob-btn-t">Ventas</span></button>
+  <button class="mob-btn" id="mn3" onclick="mobNav('mktflow','mn3')"><span class="mob-btn-i">🚀</span><span class="mob-btn-t">MKT</span></button>
+  <button class="mob-btn" id="mn4" onclick="mobNav('proyectos','mn4')"><span class="mob-btn-i">◫</span><span class="mob-btn-t">Proyectos</span></button>
+  <button class="mob-btn" id="mn5" onclick="toggleSidebar()"><span class="mob-btn-i">☰</span><span class="mob-btn-t">Menú</span></button>
 </div>
 
-</div></div></div>
+</div><!-- /app -->
 
 <script>
 var curRole='';var salaAg='';
 var PROJECTS=[
-  {id:'p1',name:'CLEO Portal — Backend Railway',dept:'CLEO',leader:'Dev CLEO',team:['Dev CLEO','Agente TEC'],deadline:'30 abr 2026',progress:10,pri:'crit',sem:'r',status:'ATRASADO',desc:'Completar el backend del portal CLEO para el lanzamiento del 30 de abril. Login Shopify, billetera, suscripciones PRO y comisiones en tiempo real.',kpis:['Login Shopify conectado','Billetera funcional','Suscripciones PRO cobradas','Comisiones automáticas'],approvedBy:'Mel Núñez',budget:'[DATO PENDIENTE]'},
-  {id:'p2',name:'Blondas OS v7 — Command Center',dept:'Tecnología',leader:'Agente TEC',team:['Agente TEC','Cowork'],deadline:'16 abr 2026',progress:90,pri:'high',sem:'g',status:'EN TIEMPO',desc:'Versión 7 de la plataforma ejecutiva con flujo MKT completo, módulo mayoristas, Kommo, automatizaciones y proyectos clickeables.',kpis:['Proyectos clickeables con modal','Módulo mayoristas con visitas','Flujo MKT idea→Meta','Vista Kommo integrada'],approvedBy:'Mel Núñez',budget:'0 Gs'},
-  {id:'p3',name:'Campaña Día de la Madre',dept:'Marketing',leader:'Sofía López',team:['Sofía','Hugo','Dahiana','Agente MKT'],deadline:'11 may 2026',progress:20,pri:'high',sem:'g',status:'EN TIEMPO',desc:'Campaña multi-producto para Día de la Madre. Objetivo 3x ROAS mínimo con kit especial Bendita + Rizos Lala.',kpis:['ROAS 3x mínimo','3 creativos por marca aprobados','Landing page dedicada','Presupuesto 15.000.000 Gs'],approvedBy:'Pendiente · Sofía / Melisa',budget:'15.000.000 Gs'},
-  {id:'p4',name:'Contratación Mentora CLEO',dept:'RRHH',leader:'Mel Núñez',team:['Mel','CEO IA'],deadline:'21 abr 2026',progress:0,pri:'crit',sem:'r',status:'SIN INICIAR',desc:'Contratar una Mentora CLEO que active a las 21 emprendedoras dormidas y lleve las incorporaciones nuevas al portal cuando lance.',kpis:['CV revisados y perfil definido','Entrevistas realizadas','Mentora contratada y onboarding'],approvedBy:'Mel Núñez',budget:'[DATO PENDIENTE]'}
+  {id:'p1',name:'CLEO Portal — Backend Railway',dept:'CLEO',leader:'Dev CLEO (Cowork)',team:['Cowork','Agente TEC'],deadline:'30 abr 2026',progress:10,pri:'crit',sem:'r',status:'ATRASADO',desc:'Completar el backend del portal CLEO para el lanzamiento del 30 de abril. Login Shopify, billetera, suscripciones PRO y comisiones en tiempo real.',kpis:['Login Shopify conectado','Billetera funcional','Suscripciones PRO cobradas','Comisiones automáticas server-side'],approvedBy:'Mel Núñez',budget:'Cowork (sin costo extra)'},
+  {id:'p2',name:'Blondas OS v7 — Responsive',dept:'Tecnología',leader:'Agente TEC',team:['Agente TEC','CEO IA'],deadline:'14 abr 2026',progress:100,pri:'done',sem:'g',status:'COMPLETADO',desc:'Versión 7 responsive de la plataforma ejecutiva. Logo nuevo, responsive web + mobile, todos los módulos.',kpis:['Logo transparente aplicado','Responsive desktop y mobile','Todos los módulos funcionando','Nuevo logo BB mark en lugares estratégicos'],approvedBy:'Mel Núñez',budget:'0 Gs'},
+  {id:'p3',name:'Campaña Día de la Madre',dept:'Marketing',leader:'Sofía López',team:['Sofía','Hugo','Dahiana','Agente MKT'],deadline:'11 may 2026',progress:20,pri:'high',sem:'g',status:'EN TIEMPO',desc:'Campaña multi-producto para Día de la Madre. Objetivo ROAS 3x+ mínimo.',kpis:['ROAS 3x mínimo','3 creativos por marca aprobados','Landing page dedicada','Presupuesto 15.000.000 Gs'],approvedBy:'Pendiente · Sofía / Melisa',budget:'15.000.000 Gs'},
+  {id:'p4',name:'Contratación Mentora CLEO',dept:'RRHH',leader:'Mel Núñez',team:['Mel','CEO IA'],deadline:'21 abr 2026',progress:0,pri:'crit',sem:'r',status:'SIN INICIAR',desc:'Contratar Mentora CLEO para activar las 21 emprendedoras dormidas y nuevas incorporaciones.',kpis:['Perfil definido','Entrevistas realizadas','Mentora contratada y onboarding'],approvedBy:'Mel Núñez',budget:'[DATO PENDIENTE]'}
 ];
 
 var roleCfg={
   mel:{av:'ML',name:'Mel Núñez',role:'CEO · Directorio · Salir',def:'dash',sb:'sb-mel'},
   jvt:{av:'ME',name:'Melisa García',role:'Jefa Comercial · Salir',def:'jvt',sb:'sb-role',sub:['jvt','mayoristas','academia','kommo'],lbl:['Mi equipo','Mayoristas','Academia','Kommo']},
   jmkt:{av:'SF',name:'Sofía López',role:'Jefa MKT · Salir',def:'jmkt',sb:'sb-role',sub:['jmkt','mktflow','mkt-social','kommo'],lbl:['Dashboard MKT','Flujo campañas','Redes/Drive','Kommo']},
-  jfin:{av:'VI',name:'Víctor Pérez',role:'Jefe Finanzas · Salir',def:'jfin',sb:'sb-role',sub:['jfin','finanzas','academia','automations'],lbl:['Dashboard Fin.','Finanzas','Academia','Automatizaciones']},
-  jops:{av:'OS',name:'Oscar Díaz',role:'Jefe Ops · Salir',def:'jops',sb:'sb-role',sub:['jops','logistica','academia','automations'],lbl:['Dashboard Ops','Logística','Academia','Automatizaciones']},
-  jcleo:{av:'CL',name:'Jefa CLEO',role:'Admin CLEO · Salir',def:'jcleo',sb:'sb-role',sub:['jcleo','academia','kommo','automations'],lbl:['Dashboard CLEO','Academia','Kommo','Automatizaciones']},
+  jfin:{av:'VI',name:'Víctor Pérez',role:'Jefe Finanzas · Salir',def:'jfin',sb:'sb-role',sub:['jfin','finanzas','academia','automations'],lbl:['Dashboard Fin.','Finanzas','Academia','Automations']},
+  jops:{av:'OS',name:'Oscar Díaz',role:'Jefe Ops · Salir',def:'jops',sb:'sb-role',sub:['jops','logistica','academia','automations'],lbl:['Dashboard Ops','Logística','Academia','Automations']},
+  jcleo:{av:'CL',name:'Jefa CLEO',role:'Admin CLEO · Salir',def:'jcleo',sb:'sb-role',sub:['jcleo','academia','kommo','automations'],lbl:['Dashboard CLEO','Academia','Kommo','Automations']},
   vt:{av:'VT',name:'Vendedora',role:'Equipo Ventas · Salir',def:'vvt',sb:'sb-role',sub:['vvt','academia','kommo','okrs'],lbl:['Mis ventas','Academia','Kommo','KPIs']},
   mkt:{av:'MK',name:'Equipo MKT',role:'MKT Operativo · Salir',def:'vmkt',sb:'sb-role',sub:['vmkt','academia','mkt-social','okrs'],lbl:['Mis tareas','Academia','Redes','KPIs']},
   ops:{av:'DL',name:'Delivery',role:'Operativo · Salir',def:'ops',sb:'sb-role',sub:['ops','logistica','academia','okrs'],lbl:['Mis entregas','Logística','Academia','KPIs']},
@@ -991,13 +1158,11 @@ function doLogin(){
   if(!r){alert('Seleccioná tu perfil');return;}
   curRole=r;var c=roleCfg[r];
   document.getElementById('ls').style.display='none';
-  document.getElementById('topbar').style.display='flex';
-  document.getElementById('lay').style.display='flex';
+  document.getElementById('app').classList.add('on');
   document.getElementById('uav').textContent=c.av;
   document.getElementById('uname').textContent=c.name;
   document.getElementById('urole').textContent=c.role;
-  var sbm=document.getElementById('sb-mel');
-  var sbr=document.getElementById('sb-role');
+  var sbm=document.getElementById('sb-mel');var sbr=document.getElementById('sb-role');
   if(r==='mel'){sbm.style.display='block';sbr.style.display='none';}
   else{sbm.style.display='none';sbr.style.display='block';
     document.getElementById('rll').textContent=c.name.split(' ')[0];
@@ -1009,7 +1174,7 @@ function doLogin(){
   renderProjects();
 }
 
-function doLogout(){if(!confirm('¿Cerrar sesión?'))return;document.getElementById('ls').style.display='flex';document.getElementById('topbar').style.display='none';document.getElementById('lay').style.display='none';document.getElementById('lr').value='';curRole='';}
+function doLogout(){if(!confirm('¿Cerrar sesión?'))return;document.getElementById('ls').style.display='flex';document.getElementById('app').classList.remove('on');document.getElementById('lr').value='';curRole='';}
 
 function showRoleP(idx){
   var c=roleCfg[curRole];if(!c||!c.sub)return;
@@ -1019,11 +1184,23 @@ function showRoleP(idx){
   var el=document.getElementById('rni'+(idx+1));if(el)el.classList.add('on');
 }
 
-function showP(id,btn){
+function showP(id){
   document.querySelectorAll('.pn').forEach(function(p){p.classList.remove('on');});
   var el=document.getElementById('panel-'+id);if(el)el.classList.add('on');
-  if(btn){document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('on');});btn.classList.add('on');}
   var cnt=document.getElementById('cnt');if(cnt)cnt.scrollTop=0;
+  closeSidebar();
+}
+
+function spn(id,btn){
+  showP(id);
+  document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('on');});
+  if(btn)btn.classList.add('on');
+}
+
+function mobNav(id,btnId){
+  showP(id);
+  document.querySelectorAll('.mob-btn').forEach(function(b){b.classList.remove('on');});
+  var el=document.getElementById(btnId);if(el)el.classList.add('on');
 }
 
 function st(g,t,btn){
@@ -1035,14 +1212,24 @@ function st(g,t,btn){
   btn.classList.add('on');
 }
 
-function openS(){document.getElementById('so').classList.add('open');setTimeout(function(){var i=document.getElementById('si');if(i)i.focus();},80);}
+function toggleSidebar(){
+  var s=document.getElementById('side');var o=document.getElementById('mob-overlay');
+  if(s.classList.contains('mob-open')){s.classList.remove('mob-open');o.classList.remove('show');}
+  else{s.classList.add('mob-open');o.classList.add('show');}
+}
+function closeSidebar(){
+  document.getElementById('side').classList.remove('mob-open');
+  document.getElementById('mob-overlay').classList.remove('show');
+}
+
+function openS(){document.getElementById('so').classList.add('open');setTimeout(function(){var i=document.getElementById('si');if(i){i.focus();}},80);}
 function cS(e){if(!e||e.target===document.getElementById('so'))document.getElementById('so').classList.remove('open');}
 function doSearch(q){
   var r=document.getElementById('sr');
-  var items=[{id:'mayoristas',n:'Mayoristas · Visitas',s:'Ventas'},{id:'mktflow',n:'Flujo MKT',s:'Marketing'},{id:'kommo',n:'Kommo CRM',s:'Marketing'},{id:'proyectos',n:'Proyectos',s:'Empresa'},{id:'automations',n:'Automatizaciones',s:'Sistema'},{id:'dash',n:'Dashboard CEO',s:'Comando'},{id:'finanzas',n:'Finanzas',s:'Analytics'},{id:'rrhh',n:'RRHH',s:'Empresa'},{id:'logistica',n:'Logística',s:'Operaciones'},{id:'labs',n:'Labs I+D',s:'Crecimiento'}];
-  if(!q.trim()){r.innerHTML='<div class="sr-lbl">Módulos</div>'+items.map(function(i){return '<div class="sri" onclick="gS(\''+i.id+'\')"><div class="sri-i">⬛</div><div><div class="sri-n">'+i.n+'</div><div class="sri-s">'+i.s+'</div></div></div>';}).join('');return;}
+  var items=[{id:'mayoristas',n:'Mayoristas · Visitas',s:'Ventas'},{id:'mktflow',n:'Flujo MKT · Idea→Meta',s:'Marketing'},{id:'kommo',n:'Kommo CRM',s:'Marketing'},{id:'proyectos',n:'Proyectos',s:'Empresa'},{id:'automations',n:'Automatizaciones A1-A16',s:'Sistema'},{id:'dash',n:'Dashboard CEO',s:'Comando'},{id:'finanzas',n:'Finanzas · Drive',s:'Analytics'},{id:'rrhh',n:'RRHH',s:'Empresa'},{id:'logistica',n:'Logística',s:'Operaciones'},{id:'labs',n:'Labs I+D',s:'Crecimiento'},{id:'bi',n:'Business Intelligence',s:'Analytics'},{id:'okrs',n:'KPIs / OKRs',s:'Analytics'}];
+  if(!q.trim()){r.innerHTML='<div class="sr-lbl">Accesos rápidos</div>'+items.slice(0,6).map(function(i){return '<div class="sri" onclick="gS(\''+i.id+'\')"><div class="sri-i">⬛</div><div><div class="sri-n">'+i.n+'</div><div class="sri-s">'+i.s+'</div></div></div>';}).join('');return;}
   var f=items.filter(function(i){return i.n.toLowerCase().includes(q.toLowerCase())||i.s.toLowerCase().includes(q.toLowerCase());});
-  r.innerHTML=f.length?'<div class="sr-lbl">Resultados</div>'+f.map(function(i){return '<div class="sri" onclick="gS(\''+i.id+'\')"><div class="sri-i">⬛</div><div><div class="sri-n">'+i.n+'</div><div class="sri-s">'+i.s+'</div></div></div>';}).join(''):'<div style="padding:12px;text-align:center;font-size:11px;color:var(--t3)">Sin resultados</div>';
+  r.innerHTML=f.length?'<div class="sr-lbl">Resultados</div>'+f.map(function(i){return '<div class="sri" onclick="gS(\''+i.id+'\')"><div class="sri-i">⬛</div><div><div class="sri-n">'+i.n+'</div><div class="sri-s">'+i.s+'</div></div></div>';}).join(''):'<div style="padding:14px;text-align:center;font-size:11px;color:var(--t3)">Sin resultados para "'+q+'"</div>';
 }
 function gS(id){cS();showP(id);}
 
@@ -1050,80 +1237,74 @@ function openModal(t){document.getElementById('modal-'+t).classList.add('show');
 function cModal(t,e){if(!e||e.target===document.getElementById('modal-'+t))document.getElementById('modal-'+t).classList.remove('show');}
 
 function openProject(id){
-  var p=PROJECTS.find(function(x){return x.id===id;});
-  if(!p)return;
+  var p=PROJECTS.find(function(x){return x.id===id;});if(!p)return;
   document.getElementById('mpn').textContent=p.name;
-  var semColor=p.sem==='r'?'#e74c3c':p.sem==='y'?'#f1c40f':'#27ae60';
-  document.getElementById('mp-sem').style.background=semColor;
-  var statusColor=p.sem==='r'?'#e74c3c':p.sem==='y'?'#f1c40f':'#27ae60';
+  var sc=p.sem==='r'?'#e74c3c':p.sem==='y'?'#f1c40f':'#27ae60';
+  document.getElementById('mp-sem').style.background=sc;
   var html='<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:12px">';
   html+='<div class="mp-kpi"><div class="mp-kv">'+p.dept+'</div><div class="mp-kl">Departamento</div></div>';
   html+='<div class="mp-kpi"><div class="mp-kv">'+p.deadline+'</div><div class="mp-kl">Fecha límite</div></div>';
   html+='<div class="mp-kpi"><div class="mp-kv">'+p.leader+'</div><div class="mp-kl">Líder</div></div>';
-  html+='<div class="mp-kpi"><div class="mp-kv" style="color:'+statusColor+'">'+p.status+'</div><div class="mp-kl">Estado</div></div>';
+  html+='<div class="mp-kpi"><div class="mp-kv" style="color:'+sc+'">'+p.status+'</div><div class="mp-kl">Estado</div></div>';
   html+='</div>';
-  html+='<div class="mf"><label class="mfl">Descripción</label><div style="font-size:11px;color:var(--t2);line-height:1.6;padding:8px;background:var(--bg);border-radius:7px">'+p.desc+'</div></div>';
-  html+='<div style="margin-bottom:12px"><label class="mfl">Progreso · '+p.progress+'%</label><div style="height:8px;background:var(--bg);border-radius:4px;overflow:hidden;margin-top:5px"><div style="height:100%;width:'+p.progress+'%;background:'+semColor+';border-radius:4px"></div></div></div>';
-  html+='<div class="mf"><label class="mfl">Equipo</label><div style="font-size:11px;color:var(--t2);padding:6px 8px;background:var(--bg);border-radius:7px">'+p.team.join(' · ')+'</div></div>';
+  html+='<div class="mf"><label class="mfl">Descripción</label><div style="font-size:11px;color:var(--t2);line-height:1.6;padding:8px;background:var(--bg);border-radius:8px">'+p.desc+'</div></div>';
+  html+='<div style="margin-bottom:12px"><label class="mfl">Progreso · '+p.progress+'%</label><div style="height:8px;background:var(--bg);border-radius:4px;overflow:hidden;margin-top:5px"><div style="height:100%;width:'+p.progress+'%;background:'+sc+';border-radius:4px"></div></div></div>';
+  html+='<div class="mf"><label class="mfl">Equipo</label><div style="font-size:11px;color:var(--t2);padding:7px 9px;background:var(--bg);border-radius:8px">'+p.team.join(' · ')+'</div></div>';
   html+='<div class="mf"><label class="mfl">KPIs del proyecto</label>';
   p.kpis.forEach(function(k){html+='<div class="mp-kpi-check"><div class="chk-box '+(p.progress===100?'done':'')+'">'+( p.progress===100?'✓':'')+'</div><div style="font-size:11px;color:var(--txt);font-weight:500">'+k+'</div></div>';});
   html+='</div>';
-  html+='<div class="mf"><label class="mfl">Aprobado por · Presupuesto</label><div style="font-size:11px;color:var(--t2);padding:6px 8px;background:var(--bg);border-radius:7px">'+p.approvedBy+' · '+p.budget+'</div></div>';
-  html+='<div style="display:flex;gap:7px;margin-top:4px"><button class="btnv" style="flex:1" onclick="alert(\'Editar proyecto → requiere backend\')">✏ Editar</button><button class="btng" style="flex:1" onclick="alert(\'Proyecto marcado como actualizado\')">💾 Guardar</button><button class="btnout" onclick="cModal(\'proj\')">Cerrar</button></div>';
+  html+='<div class="mf"><label class="mfl">Aprobado por · Presupuesto</label><div style="font-size:11px;color:var(--t2);padding:7px 9px;background:var(--bg);border-radius:8px">'+p.approvedBy+' · '+p.budget+'</div></div>';
+  html+='<div style="display:flex;gap:7px;margin-top:4px;flex-wrap:wrap"><button class="btnv" style="flex:1" onclick="alert(\'Editar proyecto\')">✏ Editar</button><button class="btng" style="flex:1" onclick="alert(\'Guardado ✓\')">💾 Guardar</button><button class="btnout" onclick="cModal(\'proj\')">Cerrar</button></div>';
   document.getElementById('mp-body').innerHTML=html;
   openModal('proj');
 }
 
 function renderProjects(){
-  var list=document.getElementById('proj-list');
-  if(!list)return;
+  var list=document.getElementById('proj-list');if(!list)return;
   var html='';
   PROJECTS.forEach(function(p){
-    var semC=p.sem==='r'?'sem-r':p.sem==='y'?'sem-y':'sem-g';
-    var statusC=p.sem==='r'?'#e74c3c':p.sem==='y'?'#f1c40f':'#27ae60';
-    var fillC=p.sem==='r'?'#e74c3c':p.sem==='y'?'#f1c40f':'var(--grn)';
+    var sc=p.sem==='r'?'#e74c3c':p.sem==='y'?'#f1c40f':'var(--grn)';
+    var fc=p.sem==='r'?'#e74c3c':p.sem==='y'?'#f1c40f':'var(--grn)';
+    var scc=p.sem==='r'?'sem-r':p.sem==='y'?'sem-y':'sem-g';
     html+='<div class="pj7 '+p.pri+'" onclick="openProject(\''+p.id+'\')">';
-    html+='<div class="pj7-top"><div class="pj7-n">'+p.name+'</div><div class="pj7-sem '+semC+'"></div></div>';
-    html+='<div class="pj7-det">'+p.dept+' · Líder: '+p.leader+' · Equipo: '+p.team.join(', ')+'</div>';
-    html+='<div class="pj7-bar"><div class="pj7-fill" style="width:'+p.progress+'%;background:'+fillC+'"></div></div>';
-    html+='<div class="pj7-foot"><div class="pj7-ft"><span style="font-weight:700;color:'+statusC+'">'+p.status+'</span><span>·</span><span>'+p.deadline+'</span><span>·</span><span style="font-weight:700">'+p.progress+'%</span></div><div class="tag '+( p.sem==='r'?'tr':p.sem==='y'?'ta':'tg')+'">'+p.dept+'</div></div>';
+    html+='<div class="pj7-top"><div class="pj7-n">'+p.name+'</div><div class="pj7-sem '+scc+'"></div></div>';
+    html+='<div class="pj7-det">'+p.dept+' · Líder: '+p.leader+' · '+p.team.join(', ')+'</div>';
+    html+='<div class="pj7-bar"><div class="pj7-fill" style="width:'+p.progress+'%;background:'+fc+'"></div></div>';
+    html+='<div class="pj7-foot"><span style="font-weight:700;color:'+sc+'">'+p.status+'</span><span>·</span><span>'+p.deadline+'</span><span>·</span><span style="font-weight:700">'+p.progress+'%</span><div style="margin-left:auto"><span class="tag '+(p.sem==='r'?'tr':p.sem==='y'?'ta':'tg')+'">'+p.dept+'</span></div></div>';
     html+='</div>';
   });
-  html+='<div style="text-align:center;margin-top:5px"><button class="btng" onclick="openModal(\'newproj\')">+ Nuevo proyecto</button></div>';
+  html+='<div style="text-align:center;margin-top:6px"><button class="btng" onclick="openModal(\'newproj\')">+ Nuevo proyecto</button></div>';
   list.innerHTML=html;
 }
 
 function saveProject(){
-  var name=document.getElementById('np-name').value;
+  var name=document.getElementById('np-name').value.trim();
   if(!name){alert('El nombre es obligatorio');return;}
-  var np={id:'p'+(PROJECTS.length+1),name:name,dept:document.getElementById('np-dept').value,leader:document.getElementById('np-leader').value||'Por asignar',team:(document.getElementById('np-team').value||'').split(',').map(function(s){return s.trim();}),deadline:document.getElementById('np-date').value||'Por definir',progress:0,pri:document.getElementById('np-pri').value,sem:'y',status:'PENDIENTE APROBACIÓN',desc:document.getElementById('np-desc').value||'',kpis:(document.getElementById('np-kpis').value||'').split('\n').filter(Boolean),approvedBy:'Pendiente · '+( curRole==='mel'?'Mel':roleCfg[curRole]?roleCfg[curRole].name:'Jefe de área'),budget:'[DATO PENDIENTE]'};
-  PROJECTS.push(np);
-  cModal('newproj');
-  renderProjects();
-  alert('Proyecto creado. Estado: "Pendiente aprobación del jefe de área".');
+  PROJECTS.push({id:'p'+(PROJECTS.length+1),name:name,dept:document.getElementById('np-dept').value,leader:document.getElementById('np-leader').value||'Por asignar',team:(document.getElementById('np-team').value||'').split(',').map(function(s){return s.trim();}).filter(Boolean),deadline:document.getElementById('np-date').value||'Por definir',progress:0,pri:document.getElementById('np-pri').value,sem:'y',status:'PENDIENTE APROBACIÓN',desc:document.getElementById('np-desc').value||'',kpis:(document.getElementById('np-kpis').value||'').split('\n').filter(Boolean),approvedBy:'Pendiente · Jefe de área',budget:'[DATO PENDIENTE]'});
+  cModal('newproj');renderProjects();
+  alert('Proyecto creado ✓ — Estado: "Pendiente aprobación del jefe de área".');
 }
 
 function openMA(id){
   var data={
-    ma1:{n:'Distribuidora Centro SA',owner:'Roberto Gómez',zone:'Centro',phone:'0981-123456',vendor:'Cecilio Ruiz',status:'Dormido 🔴',lastVisit:'28 mar 2026',lastBuy:'15 mar 2026',monthly:'8.000.000 Gs',credit:'10.000.000 Gs',pending:'2.000.000 Gs',notes:'Prefiere entregas los lunes. Tiene competidor en zona. Última objeción: "Tengo stock para 3 semanas".'},
-    ma2:{n:'Salón Beauty Norte',owner:'Patricia Lara',zone:'Norte',phone:'0982-654321',vendor:'Luis Ramírez',status:'Activo ✓',lastVisit:'10 abr 2026',lastBuy:'10 abr 2026',monthly:'15.000.000 Gs',credit:'8.000.000 Gs',pending:'0 Gs',notes:'Cliente VIP. Compra kit completo mensual. Muy satisfecha con Rizos Lala. Potencial para Dr. Asian.'},
-    ma3:{n:'Cosméticos del Sur',owner:'Ana Benítez',zone:'Sur',phone:'0971-111222',vendor:'Cecilio Ruiz',status:'Tibio 🟠',lastVisit:'5 abr 2026',lastBuy:'20 mar 2026',monthly:'4.500.000 Gs',credit:'5.000.000 Gs',pending:'500.000 Gs',notes:'Tiene stock para 3 semanas. Próxima compra estimada fin de mes. Interesada en promociones por volumen.'},
-    ma4:{n:'Tienda Natural PY',owner:'Carlos Vera',zone:'Centro',phone:'0984-333444',vendor:'Luis Ramírez',status:'Prospecto 🔵',lastVisit:'Primer contacto',lastBuy:'Sin compra',monthly:'0 Gs',credit:'0 Gs',pending:'0 Gs',notes:'Contacto inicial por referido de Patricia Lara. Reunión programada esta semana. Tiene 2 locales.'}
+    ma1:{n:'Distribuidora Centro SA',owner:'Roberto Gómez',zone:'Centro',phone:'0981-123456',vendor:'Cecilio Ruiz',status:'Dormido 🔴',lastVisit:'28 mar 2026',lastBuy:'15 mar 2026',monthly:'8.000.000 Gs',pending:'2.000.000 Gs',notes:'Prefiere entregas lunes. Tiene competidor en zona. Última objeción: "Tengo stock para 3 semanas".'},
+    ma2:{n:'Salón Beauty Norte',owner:'Patricia Lara',zone:'Norte',phone:'0982-654321',vendor:'Luis Ramírez',status:'Activo ✓',lastVisit:'10 abr 2026',lastBuy:'10 abr 2026',monthly:'15.000.000 Gs',pending:'0 Gs',notes:'Cliente VIP. Compra kit completo mensual. Muy satisfecha con Rizos Lala. Potencial para Dr. Asian.'},
+    ma3:{n:'Cosméticos del Sur',owner:'Ana Benítez',zone:'Sur',phone:'0971-111222',vendor:'Cecilio Ruiz',status:'Tibio 🟠',lastVisit:'5 abr 2026',lastBuy:'20 mar 2026',monthly:'4.500.000 Gs',pending:'500.000 Gs',notes:'Tiene stock 3 semanas. Próxima compra fin de mes. Interesada en promociones por volumen.'},
+    ma4:{n:'Tienda Natural PY',owner:'Carlos Vera',zone:'Centro',phone:'0984-333444',vendor:'Luis Ramírez',status:'Prospecto 🔵',lastVisit:'Primer contacto',lastBuy:'Sin compra',monthly:'0 Gs',pending:'0 Gs',notes:'Contacto inicial por referido de Patricia Lara. Reunión programada esta semana. Tiene 2 locales.'}
   };
   var d=data[id];if(!d)return;
   document.getElementById('man').textContent=d.n;
-  var html='<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:12px">';
-  html+='<div class="mp-kpi"><div class="mp-kv">'+d.owner+'</div><div class="mp-kl">Dueño</div></div>';
-  html+='<div class="mp-kpi"><div class="mp-kv">'+d.zone+'</div><div class="mp-kl">Zona</div></div>';
-  html+='<div class="mp-kpi"><div class="mp-kv">'+d.vendor+'</div><div class="mp-kl">Vendedor asignado</div></div>';
-  html+='<div class="mp-kpi"><div class="mp-kv">'+d.status+'</div><div class="mp-kl">Estado</div></div>';
-  html+='<div class="mp-kpi"><div class="mp-kv">'+d.monthly+'</div><div class="mp-kl">Compra mensual</div></div>';
-  html+='<div class="mp-kpi"><div class="mp-kv" style="color:#e74c3c">'+d.pending+'</div><div class="mp-kl">Crédito pendiente</div></div>';
+  var html='<div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px">';
+  html+='<div class="mp-kpi"><div class="mp-kv" style="font-size:11px">'+d.owner+'</div><div class="mp-kl">Dueño</div></div>';
+  html+='<div class="mp-kpi"><div class="mp-kv" style="font-size:11px">'+d.zone+'</div><div class="mp-kl">Zona</div></div>';
+  html+='<div class="mp-kpi"><div class="mp-kv" style="font-size:11px">'+d.vendor+'</div><div class="mp-kl">Vendedor</div></div>';
+  html+='<div class="mp-kpi"><div class="mp-kv" style="font-size:11px">'+d.status+'</div><div class="mp-kl">Estado</div></div>';
+  html+='<div class="mp-kpi"><div class="mp-kv" style="font-size:11px;color:var(--grn)">'+d.monthly+'</div><div class="mp-kl">Compra mensual</div></div>';
+  html+='<div class="mp-kpi"><div class="mp-kv" style="font-size:11px;color:#e74c3c">'+d.pending+'</div><div class="mp-kl">Crédito pendiente</div></div>';
   html+='</div>';
-  html+='<div class="mf"><label class="mfl">Historial de contacto</label>';
-  html+='<div style="font-size:11px;padding:6px 8px;background:var(--bg);border-radius:7px"><div>Última visita: <strong>'+d.lastVisit+'</strong></div><div style="margin-top:3px">Última compra: <strong>'+d.lastBuy+'</strong></div><div style="margin-top:3px">Teléfono: <a href="https://wa.me/595'+d.phone.replace(/\D/g,'')+'" target="_blank" style="color:var(--grn);font-weight:700">'+d.phone+' WhatsApp ↗</a></div></div></div>';
-  html+='<div class="mf"><label class="mfl">Notas del vendedor</label><div style="font-size:11px;color:var(--t2);line-height:1.6;padding:8px;background:var(--bg);border-radius:7px">'+d.notes+'</div></div>';
-  html+='<div style="display:flex;gap:7px;margin-top:4px"><button class="btng" style="flex:1" onclick="cModal(\'ma\');openModal(\'visit\')">+ Registrar visita</button><button class="btnout" style="flex:1" onclick="cModal(\'ma\')">Cerrar</button></div>';
+  html+='<div class="mf"><label class="mfl">Contacto</label><div style="font-size:11px;padding:8px;background:var(--bg);border-radius:8px"><div>Última visita: <strong>'+d.lastVisit+'</strong></div><div style="margin-top:3px">Última compra: <strong>'+d.lastBuy+'</strong></div><div style="margin-top:3px"><a href="https://wa.me/595'+d.phone.replace(/\D/g,'')+'" target="_blank" style="color:var(--grn);font-weight:700">📱 '+d.phone+' · WhatsApp ↗</a></div></div></div>';
+  html+='<div class="mf"><label class="mfl">Notas</label><div style="font-size:11px;color:var(--t2);line-height:1.6;padding:8px;background:var(--bg);border-radius:8px">'+d.notes+'</div></div>';
+  html+='<div style="display:flex;gap:7px;margin-top:4px"><button class="btng" style="flex:1" onclick="cModal(\'ma\');openModal(\'visit\')">+ Registrar visita</button><button class="btnout" onclick="cModal(\'ma\')">Cerrar</button></div>';
   document.getElementById('ma-body').innerHTML=html;
   openModal('ma');
 }
@@ -1134,53 +1315,63 @@ function saveVisit(){
   var date=document.getElementById('vt-date').value||'hoy';
   var order=document.getElementById('vt-order').value;
   var amount=document.getElementById('vt-amount').value;
-  var notes=document.getElementById('vt-notes').value;
+  var reason=document.getElementById('vt-reason').value;
   var log=document.getElementById('visit-log');
   if(log){
     var item=document.createElement('div');
     item.className='visit-list-item';
-    var amt=order==='si'&&amount?(+amount).toLocaleString()+' Gs':'Sin pedido';
+    var amt=order==='si'&&amount?parseInt(amount).toLocaleString()+' Gs':'Sin pedido';
     var amtColor=order==='si'&&amount?'color:var(--grn)':'color:var(--t3)';
-    item.innerHTML='<div class="vl-date">'+date+'</div><div class="vl-info"><div class="vl-n">'+client.split(' (')[0]+'</div><div class="vl-r">'+vendor+(order==='no'&&document.getElementById('vt-reason').value?' · "'+document.getElementById('vt-reason').value+'"':'')+'</div></div><div class="vl-amt" style="'+amtColor+'">'+amt+'</div>';
+    item.innerHTML='<div class="vl-date">'+date+'</div><div class="vl-info"><div class="vl-n">'+client.split(' (')[0]+'</div><div class="vl-r">'+vendor+(order==='no'&&reason?' · "'+reason+'"':'')+'</div></div><div class="vl-amt" style="'+amtColor+'">'+amt+'</div>';
     log.insertBefore(item,log.firstChild);
   }
   cModal('visit');
-  alert('Visita registrada ✓. Estado del cliente actualizado automáticamente.');
+  alert('Visita registrada ✓\nEstado del cliente actualizado automáticamente en Kommo.');
 }
 
-function approveCamp(btn){
-  var card=btn.closest('.appr-card');
-  if(card){card.style.borderColor='var(--grn)';card.querySelector('.appr-badge').textContent='✓ APROBADO · Publicando en Meta...';card.querySelector('.appr-badge').style.background='#e8f5e9';card.querySelector('.appr-badge').style.color='#1b5e20';card.querySelector('.appr-btns').innerHTML='<div style="font-size:11px;color:var(--grn);font-weight:700;padding:6px">✓ Aprobado. El Agente MKT está configurando y publicando en Meta Ads.</div>';}
-}
-function rejectCamp(btn){
-  var card=btn.closest('.appr-card');
-  if(card){card.style.borderColor='#e74c3c';card.querySelector('.appr-badge').textContent='✗ RECHAZADO · Enviado al agente para revisar';card.querySelector('.appr-badge').style.background='#fde8ec';card.querySelector('.appr-badge').style.color='#c0392b';}
-}
+function approveCamp(btn){var c=btn.closest('.appr-card');if(c){c.style.borderColor='var(--grn)';c.querySelector('.appr-badge').textContent='✓ APROBADO · Publicando en Meta...';c.querySelector('.appr-badge').style.background='#e8f5e9';c.querySelector('.appr-badge').style.color='#1b5e20';c.querySelector('.appr-btns').innerHTML='<div style="font-size:11px;color:var(--grn);font-weight:700;padding:6px">✓ Aprobado. El Agente MKT está configurando y publicando en Meta Ads.</div>';}}
+function rejectCamp(btn){var c=btn.closest('.appr-card');if(c){c.style.borderColor='#e74c3c';c.querySelector('.appr-badge').textContent='✗ RECHAZADO · Enviado al agente para revisar';c.querySelector('.appr-badge').style.background='#fde8ec';c.querySelector('.appr-badge').style.color='#c0392b';}}
 
-function pinMem(id){var el=document.getElementById(id);if(el){el.style.background='#e8f5e9';el.querySelector('button').textContent='📌 Guardado';}}
-function delMem(id){var el=document.getElementById(id);if(el&&confirm('¿Borrar este registro de la memoria permanente?')){el.style.opacity='0.3';el.style.textDecoration='line-through';}}
+function pinMem(id){var el=document.getElementById(id);if(el){el.style.background='#e8f5e9';el.querySelector('.btng').textContent='📌 Guardado';}}
+function delMem(id){if(confirm('¿Borrar este registro de la memoria permanente?')){var el=document.getElementById(id);if(el){el.style.opacity='0.35';el.style.textDecoration='line-through';}}}
 
 function sc(type){
-  var iid=type==='j'?'ji':'si-c';
-  var cid=type==='j'?'jchat':'schat';
+  var iid=type==='j'?'ji':'si-c';var cid=type==='j'?'jchat':'schat';
   var inp=document.getElementById(iid);var txt=inp.value.trim();if(!txt)return;
   var chat=document.getElementById(cid);
   chat.innerHTML+='<div class="cb cbm"><div class="cbw">MEL</div>'+txt+'</div>';
   var who=type==='j'?'CEO':salaAg.toUpperCase();
-  chat.innerHTML+='<div class="cb cba"><div class="cbw">'+who+'</div>Recibido. En producción el backend Railway conectará estas salas a Claude API con historial real.</div>';
-  inp.value='';chat.scrollTop=chat.scrollHeight;
+  chat.innerHTML+='<div class="cb cba"><div class="cbw">'+who+'</div>Recibido. Con Railway + Claude API conectados, esta sala responderá con contexto real y memoria persistente.</div>';
+  inp.value='';chat.scrollTop=chart=chat.scrollHeight;
 }
 
 function aS(n,cod,el){
   salaAg=n;document.getElementById('sbox').style.display='block';
   document.getElementById('stit').textContent='Sala privada — '+n;
   document.querySelectorAll('.agcard').forEach(function(c){c.classList.remove('sel');});el.classList.add('sel');
-  var c=document.getElementById('schat');
-  c.innerHTML='<div class="cb cba"><div class="cbw">'+cod+'</div>Sala activa. ¿Qué necesitás, Mel?</div>';
+  document.getElementById('schat').innerHTML='<div class="cb cba"><div class="cbw">'+cod+'</div>Sala activa. ¿Qué necesitás, Mel?</div>';
 }
 
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){cModal('proj');cModal('ma');cModal('newproj');cModal('visit');cS();}if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openS();}});
-document.getElementById('ji').addEventListener('keydown',function(e){if(e.key==='Enter')sc('j');});
-document.getElementById('si-c').addEventListener('keydown',function(e){if(e.key==='Enter')sc('s');});
-document.getElementById('vt-order').addEventListener('change',function(){document.getElementById('vt-amount-wrap').style.display=this.value==='si'?'block':'none';});
+// KEYBOARD SHORTCUTS
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){['proj','ma','newproj','visit'].forEach(function(t){cModal(t);});cS();closeSidebar();}
+  if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openS();}
+});
+
+// CHAT ENTER KEY
+['ji','si-c'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)el.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sc(id==='ji'?'j':'s');}});
+});
+
+// iOS SAFE AREA
+if(window.CSS&&window.CSS.supports&&window.CSS.supports('padding-bottom','env(safe-area-inset-bottom)')){
+  var mn=document.getElementById('mob-nav');
+  if(mn)mn.style.paddingBottom='env(safe-area-inset-bottom)';
+}
+
+console.log('%c🌸 BLONDAS OS v7 — Plataforma Ejecutiva','color:#82324c;font-size:14px;font-weight:bold');
+console.log('%cResponsive · Web + Mobile · Sistema completo','color:#888;font-size:11px');
 </script>
+</body>
+</html>
