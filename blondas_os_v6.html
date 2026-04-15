@@ -26,10 +26,10 @@ body{font-family:'Montserrat',sans-serif;background:var(--bg);font-size:12px;col
    LOGIN SCREEN
 ═══════════════════════════════════════════ */
 .ls{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;z-index:1000;overflow-y:auto}
-.ls-bg{position:absolute;inset:0;background-image:url('https://cdn.shopify.com/s/files/1/0980/5807/6454/files/logos_marcas_bl_11.png?v=1769993204');background-repeat:repeat;background-size:80px;opacity:.03;pointer-events:none}
+.ls-bg{position:absolute;inset:0;background-image:url('https://cdn.shopify.com/s/files/1/0980/5807/6454/files/logos_marcas_bl_11.png?v=1769993204');background-repeat:repeat;background-size:80px;opacity:.04;pointer-events:none}
 .ll{margin-bottom:28px;text-align:center;position:relative}
-.ll img{height:64px;display:block;margin:0 auto;filter:drop-shadow(0 2px 8px rgba(130,50,76,0.15))}
-.ll-s{font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-top:8px}
+.ll img{height:100px;display:block;margin:0 auto;background:transparent;mix-blend-mode:multiply;-webkit-mix-blend-mode:multiply}
+.ll-s{font-size:10px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-top:10px}
 .lc{background:var(--w);border:1px solid var(--brd);border-radius:var(--rl);padding:28px 24px;width:100%;max-width:360px;box-shadow:0 8px 32px rgba(0,0,0,0.08);position:relative}
 .lt{font-family:'D',sans-serif;font-size:15px;color:var(--brand);text-transform:uppercase;letter-spacing:.5px;margin-bottom:20px;text-align:center}
 .lf{margin-bottom:13px}
@@ -92,7 +92,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--bg);font-size:12px;col
 .tb-left{display:flex;align-items:center;gap:10px}
 .ham{display:none;width:32px;height:32px;border-radius:8px;border:1px solid var(--brd);background:transparent;cursor:pointer;align-items:center;justify-content:center;font-size:15px;color:var(--t2);flex-shrink:0}
 .tbl{display:flex;align-items:center}
-.tbl img{height:42px;display:block;filter:drop-shadow(0 1px 4px rgba(130,50,76,0.1))}
+.tbl img{height:52px;display:block;background:transparent;mix-blend-mode:multiply;-webkit-mix-blend-mode:multiply}
 .tbl-txt{font-family:'D',sans-serif;font-size:20px;color:var(--brand);text-transform:uppercase;letter-spacing:1px;display:none}
 .upi{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--brd);border-radius:20px;padding:4px 10px 4px 4px;cursor:pointer;transition:all .15s}
 .upi:hover{background:var(--bh)}
@@ -112,7 +112,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--bg);font-size:12px;col
 /* SIDEBAR */
 .side{width:var(--sb-w);background:var(--w);border-right:1px solid var(--brd);display:flex;flex-direction:column;overflow-y:auto;flex-shrink:0;transition:transform .25s}
 .sb-logo{padding:14px 12px 8px;border-bottom:1px solid var(--brd);display:flex;align-items:center;gap:8px}
-.sb-logo img{height:18px;filter:grayscale(20%)}
+.sb-logo img{height:18px;mix-blend-mode:multiply;background:transparent}
 .sb-logo-txt{font-family:'D',sans-serif;font-size:10px;color:var(--brand);text-transform:uppercase;letter-spacing:1px;font-weight:700}
 .ss{padding:9px 8px 3px}
 .sl{font-family:'D',sans-serif;font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1px;padding:2px 7px;margin-bottom:3px}
@@ -313,11 +313,18 @@ body{font-family:'Montserrat',sans-serif;background:var(--bg);font-size:12px;col
 .mob-btn.on .mob-btn-t{color:var(--brand)}
 .mob-btn.on .mob-btn-i{filter:opacity(1)}
 
-/* FOOTER */
+/* FOOTER RESPONSIVE */
 .footer{margin-top:16px}
-.footer a{display:block;border-radius:11px;overflow:hidden;text-decoration:none}
-.footer img{width:100%;display:block}
+.footer a{display:block;text-decoration:none}
+.footer img{width:100%;display:block;border-radius:10px}
 .footer-lnk{text-align:center;font-size:9px;color:var(--brand);font-weight:700;padding:7px;display:block}
+.footer-web{display:block}
+.footer-cel{display:none}
+@media(max-width:768px){
+  .footer-web{display:none}
+  .footer-cel{display:block}
+  .footer img{border-radius:8px}
+}
 
 /* ═══════════════════════════════════════════
    BB MARK DECORATION
@@ -343,14 +350,14 @@ body{font-family:'Montserrat',sans-serif;background:var(--bg);font-size:12px;col
 
   /* LOGIN MOBILE */
   .ls{padding:16px;justify-content:flex-start;padding-top:40px}
-  .ll img{height:52px}
+  .ll img{height:80px}
   .lc{max-width:100%;padding:22px 18px}
   .lbt{font-size:12px;padding:13px}
 
   /* TOPBAR MOBILE */
   .tb{padding:0 12px}
   .ham{display:flex}
-  .tbl img{height:34px}
+  .tbl img{height:40px;mix-blend-mode:multiply}
   .un,.ur{display:none}
   .upi{padding:4px;border-radius:50%;border:1px solid var(--brd)}
   .upi span:last-child{display:none}
@@ -641,9 +648,16 @@ body{font-family:'Montserrat',sans-serif;background:var(--bg);font-size:12px;col
     <div class="brw"><div class="brl">Showroom</div><div class="brt"><div class="brf" style="width:5%;background:#c4b0b8">5%</div></div></div>
   </div>
   <div class="footer">
-    <a href="https://blondas.com.py" target="_blank">
-      <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS_2026_MANUAL_DE_MARCA_1.png?v=1776205444" alt="Blondas 2026" onerror="this.style.background='var(--bd)';this.style.height='60px'">
-    </a>
+    <div class="footer-web">
+      <a href="https://blondas.com.py" target="_blank">
+        <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS_pie_de_pagina_web.png?v=1776213562" alt="Blondas Paraguay" onerror="this.style.display='none'">
+      </a>
+    </div>
+    <div class="footer-cel">
+      <a href="https://blondas.com.py" target="_blank">
+        <img src="https://cdn.shopify.com/s/files/1/0980/5807/6454/files/BLONDAS_pie_de_pagina_cel.png?v=1776213430" alt="Blondas Paraguay" onerror="this.style.display='none'">
+      </a>
+    </div>
     <div class="footer-lnk">blondas.com.py</div>
   </div>
 </div>
